@@ -1,0 +1,15 @@
+{
+  "name": "hikingworld",
+  "version": "1.0.0",
+  "description": "A 6th semester project, that includes web security, large systems dev and systems integration",
+  "main": "./src/server/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "test",
+    "start":"node ./src/server/index.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
