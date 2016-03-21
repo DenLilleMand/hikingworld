@@ -4,6 +4,7 @@ const path = require('path');
 const url = require('url');
 const api = require('./controllers/api');
 const router = require('./controllers/router');
+const serverConfig = require('./config/serverconfig.json');
 
 const mimeTypes = {
     html: "text/html",
@@ -14,15 +15,6 @@ const mimeTypes = {
     css: "text/css"
 };
 
-//1. Do a submit form, to a api endpoint
-//2. If it succeeds return another html page.
-/**response.writeHead(302, {
-  'Location': 'your/404/path.html'
-  //add other headers here...
-});
- response.end(); */
-
-//Create an http server
 var server = http.createServer((request, response) => {
     var uri = url.parse(request.url).pathname, stat = null, readStream = null;
     if(uri.match('/api/')) {
@@ -49,6 +41,6 @@ var server = http.createServer((request, response) => {
     }
 });
 
-server.listen(3001, '0.0.0.0', () => {
+server.listen(serverConfig.port, serverConfig.host, () => {
 
 });

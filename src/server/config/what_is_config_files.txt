@@ -1,0 +1,12 @@
+Hello adventurer
+
+
+The real config files is added in our .gitignore, so we
+dont add passwords etc. to a public git repository.
+So to make the db + server to work, you copy the contents of the
+default files, into a real config file,
+
+e.g.
+
+defaultdbconfig.json --> dbconfig.json ... copy content ... put in correct information
+defaultserverconfig.json --> serverconfig.json ... copy content ... put in correct information
