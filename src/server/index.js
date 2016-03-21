@@ -41,6 +41,6 @@ var server = http.createServer((request, response) => {
     }
 });
 
-server.listen(serverConfig.port, serverConfig.host, () => {
+server.listen(serverConfig ? serverConfig.port : 3000, serverConfig ? serverConfig.host : "127.0.0.1", () => {
 
 });
