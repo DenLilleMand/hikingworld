@@ -8,7 +8,8 @@
   },
   "scripts": {
     "test": "test",
-    "start":"node ./src/server/index.js"
+    "start":"node ./src/server/index.js",
+    "deploy":"forever start ./src/server/index.js"
   },
   "author": "",
   "license": "ISC"
