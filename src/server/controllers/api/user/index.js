@@ -6,10 +6,9 @@ exports.handleUserRequest = (request, response) => {
     var uri = url.parse(request.url).pathname;
     if(uri.match('login')) {
         userApi.login(request, response, (success) => {
-            /**attempt at redirecting: */
-            /*response.writeHead(302, {
-             Location: '/'
-             });*/
+            response.writeHead(302, {
+                 Location: '/register'
+             });
             response.end(JSON.stringify({login:success}));
         });
     } else if(uri.match('logout')) {
