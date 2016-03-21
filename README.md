@@ -1,6 +1,11 @@
 hikingworld<br />
 ===========
 
+In general, the way i imagine the project right now, is that we do a backend completely framework free,
+then a section of the frontend with no frameworks, specifically for web security including a login, register and facebook wall.
+This login should then bring us to a single page application from that point, to more easily implement the rest of the functionality.
+
+
 Development of large systems(most important concepts)<br />
 ===========
 -Frontend vs Backend MVC<br />

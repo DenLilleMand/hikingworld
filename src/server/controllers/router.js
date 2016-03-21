@@ -6,6 +6,7 @@ var exports = module.exports,
 const routes = {
     '/login': 'login',
     '/register': 'register',
+    '/application': 'application',
     '/':'login'
 };
 

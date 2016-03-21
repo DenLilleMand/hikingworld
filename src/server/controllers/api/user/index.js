@@ -7,7 +7,7 @@ exports.handleUserRequest = (request, response) => {
     if(uri.match('login')) {
         userApi.login(request, response, (success) => {
             response.writeHead(302, {
-                 Location: '/register'
+                 Location: '/application'
              });
             response.end(JSON.stringify({login:success}));
         });

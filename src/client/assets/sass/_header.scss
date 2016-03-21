@@ -1,0 +1,47 @@
+header.navbar {
+  height:600px;
+  background-image:url('../images/headerbackground.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+div.navbar-header img {
+  height: 100px;
+  border-style: solid;
+  border-width:2px;
+  border-color:black;
+  border-radius: 5px;
+}
+
+header.navbar ul > li {
+  margin-top:20px;
+  margin-right:12px;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.8);
+  font-size:2rem;
+}
+
+header.navbar ul > li a {
+  color: black;
+}
+
+header.navbar li:hover {
+  background-color: rgba(255, 255, 255, 1.0);;
+}
+
+header.navbar li.isActive {
+  background-color: rgba(255, 255, 255, 1.0);;
+}
+
+a.name.navbar-brand {
+  margin-top:32px;
+  font-size:44px;
+  color: black;
+}
+
+.navbar-default p.navbar-text {
+  margin-top:45px;
+  color:black;
+  font-size:20px;
+}
+
