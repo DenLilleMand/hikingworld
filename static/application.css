@@ -5818,7 +5818,7 @@ button.close {
     display: none !important; } }
 
 #title {
-  margin-top: 300px;
+  margin-top: 250px;
   background-color: white;
   color: black;
   width: 300px;
@@ -5827,7 +5827,7 @@ button.close {
 
 header.navbar {
   height: 600px;
-  background-image: url(/static/6ca0619fbeda5fbf879f558becde7587.jpg);
+  background-image: url(/static/82e6fc5ae12f9e6e34698bc60ce867ae.jpg);
   background-repeat: no-repeat;
   background-size: cover; }
 
