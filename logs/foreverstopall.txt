@@ -1,3 +1,6 @@
 info:    Forever stopped processes:
 data:        uid  command         script              forever pid  id logfile                              uptime      
 data:    [0] wIKi /usr/bin/nodejs src/server/index.js 4025    4033    /home/denlillemand/.forever/wIKi.log 0:0:0:44.53 
+info:    Forever stopped processes:
+data:        uid  command         script              forever pid  id logfile                              uptime     
+data:    [0] Sj2q /usr/bin/nodejs src/server/index.js 4284    4292    /home/denlillemand/.forever/Sj2q.log 0:0:0:4.26 
