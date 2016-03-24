@@ -18,6 +18,7 @@ const mimeTypes = {
 var server = http.createServer((request, response) => {
     var uri = url.parse(request.url).pathname, stat = null, readStream = null;
 	console.log(uri);
+	console.log(uri);
     if(uri.match('/api/')) {
         api.handleApiRequest(request, response);
     } else if(router.routeExist(uri)) {
