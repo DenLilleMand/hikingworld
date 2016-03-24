@@ -1,0 +1,6 @@
+[master da221f6] automated commit for CI
+ 4 files changed, 36 deletions(-)
+ delete mode 100644 logs/foreverstart.txt
+ delete mode 100644 logs/foreverstopall.txt
+ delete mode 100644 logs/gitcommit.txt
+ delete mode 100644 logs/webpack.txt

@@ -1,0 +1,3 @@
+info:    Forever stopped processes:
+data:        uid  command         script              forever pid   id logfile                              uptime       
+data:    [0] Wuhb /usr/bin/nodejs src/server/index.js 28035   28040    /home/denlillemand/.forever/Wuhb.log 0:0:2:32.423 
