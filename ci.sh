@@ -1,9 +1,9 @@
 #!/bin/sh
-git add .
-git commit -m "automated commit for CI"
-git pull origin master -X theirs
-forever stopall
-webpack
-forever start ./src/server/index.js
+git add .  >> gitadd.txt
+git commit -m "automated commit for CI"  >>gitcommit.txt
+git pull origin master -X theirs >> git pull.txt
+forever stopall >> foreverstopall.txt
+webpack >> webpack.txt
+forever start ./src/server/index.js >> foreverstart.txt
 
 
