@@ -1,0 +1,15 @@
+error:Error: Command failed: ./ci.sh
+./ci.sh: 2: ./ci.sh: cannot create logs/gitadd.txt: Directory nonexistent
+./ci.sh: 3: ./ci.sh: cannot create logs/gitcommit.txt: Directory nonexistent
+./ci.sh: 4: ./ci.sh: cannot create logs/pull.txt: Directory nonexistent
+./ci.sh: 5: ./ci.sh: cannot create logs/foreverstopall.txt: Directory nonexistent
+./ci.sh: 6: ./ci.sh: cannot create logs/webpack.txt: Directory nonexistent
+./ci.sh: 7: ./ci.sh: cannot create logs/foreverstart.txt: Directory nonexistent
+
+stdout:
+stderr:./ci.sh: 2: ./ci.sh: cannot create logs/gitadd.txt: Directory nonexistent
+./ci.sh: 3: ./ci.sh: cannot create logs/gitcommit.txt: Directory nonexistent
+./ci.sh: 4: ./ci.sh: cannot create logs/pull.txt: Directory nonexistent
+./ci.sh: 5: ./ci.sh: cannot create logs/foreverstopall.txt: Directory nonexistent
+./ci.sh: 6: ./ci.sh: cannot create logs/webpack.txt: Directory nonexistent
+./ci.sh: 7: ./ci.sh: cannot create logs/foreverstart.txt: Directory nonexistent
