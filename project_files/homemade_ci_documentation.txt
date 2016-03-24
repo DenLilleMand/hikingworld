@@ -1,0 +1,22 @@
+I looked at Jenkins, which seems pretty cool, but you have to host it in a servlet container like tomcat,
+which just makes it a HUGE hazzle. So i looked into what other oportunities the project had to gain some CI,
+and i found .git/hooks, if you go into that directory you can see a bunch of client side git hooks, for things like commit, pre-push etc.
+Which is okay, but still wasn't quite what i was looking for because i wanted to run a script AFTER the push hit the
+remote repository. And noticed the post-receive hook, which can be placed on the git server, the problem is though -
+that github is our gitserver, and obviously they wouldn't let us run abitrary code on their servers, so even if it was
+just a curl request to our server, they wouldn't allow it.
+
+Then i found basically the most awesome thing ever, something called webhooks & services,
+it can be found inside of <github repository>-->Settings-->Webhooks & services  even on the public and free repositories,
+and its able to do hooks aswell, but instead of executing some abitrary code it can make a push request to your server with all of the
+information, which in our case is https://www.mattinielsen.com/api/test (for now), i got a 301 http error, because
+i tried to do it with http to begin with, but obviously we have to do it with ssl.
+
+Now that the github repository can tell the server when a push has occurred basically all that is left to do is:
+
+->Push happens
+->Push request is sent to our remote server
+->Remote server automatically calls the github server and pulls down the new code
+->Remote server runs jshint, jslint and tests,  if it succeeds it rebuilds the bundle.js with webpack and
+    relaunches the server.
+->Gives the developer a status on a webpage of how it went, supposedly a admin panel or smt???.
