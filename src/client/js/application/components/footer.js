@@ -10,7 +10,7 @@ export default class Footer extends React.Component {
     render() {
         return(
             <div>
-                    Footer sig mig noget hej med dig!
+                    Footer sig mig noget hej med dig!@@@!!
             </div>
         );
     }
