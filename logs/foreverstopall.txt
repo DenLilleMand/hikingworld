@@ -4,3 +4,6 @@ data:    [0] Wuhb /usr/bin/nodejs src/server/index.js 28035   28040    /home/den
 info:    Forever stopped processes:
 data:        uid  command         script              forever pid   id logfile                              uptime       
 data:    [0] cGqk /usr/bin/nodejs src/server/index.js 28182   28187    /home/denlillemand/.forever/cGqk.log 0:0:2:37.676 
+info:    Forever stopped processes:
+data:        uid  command         script              forever pid   id logfile                              uptime       
+data:    [0] 2j2p /usr/bin/nodejs src/server/index.js 28436   28441    /home/denlillemand/.forever/2j2p.log 0:0:1:26.254 
