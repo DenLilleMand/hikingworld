@@ -1,5 +1,5 @@
 #!/bin/sh
-git add .  >> gitadd.txt
+git add .  >> logs/gitadd.txt
 git commit -m "automated commit for CI"  >> logs/gitcommit.txt
 git pull origin master -X theirs >> logs/pull.txt
 forever stopall >> logs/foreverstopall.txt
