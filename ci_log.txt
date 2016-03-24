@@ -1,15 +1,15 @@
 error:null
-stdout:[master 09f8378] automated commit for CI
- 3 files changed, 45 insertions(+), 153 deletions(-)
- create mode 100644 ci_log.txt
+stdout:[master ebf7c4c] automated commit for CI
+ 4 files changed, 274 insertions(+), 19 deletions(-)
+ create mode 100644 ed for restarting script gracefully e.g. --killSignal=SIGTERM
 Already up-to-date.
 info:    No forever processes running
 info:    Forever stopped processes:
 data:        uid  command         script              forever pid   id logfile                              uptime  
-data:    [0] OkCo /usr/bin/nodejs src/server/index.js 18491   18500    /home/denlillemand/.forever/OkCo.log STOPPED 
+data:    [0] AL33 /usr/bin/nodejs src/server/index.js 18684   18689    /home/denlillemand/.forever/AL33.log STOPPED 
 Hash: 2995111ec96838a01a77
 Version: webpack 1.12.14
-Time: 7585ms
+Time: 8583ms
                                  Asset     Size  Chunks             Chunk Names
   f4769f9bdb7466be65088239c12046d1.eot  20.1 kB          [emitted]  
 448c34a56d699c29117adc64c43affeb.woff2    18 kB          [emitted]  
