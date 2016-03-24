@@ -1,7 +1,0 @@
-[master 09effc0] automated commit for CI
- 6 files changed, 35 insertions(+), 5 deletions(-)
- create mode 100644 foreverstart.txt
- create mode 100644 foreverstopall.txt
- create mode 100644 git
- create mode 100644 gitcommit.txt
- create mode 100644 webpack.txt
