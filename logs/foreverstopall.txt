@@ -15,3 +15,6 @@ info:    Forever stopped processes:
 data:        uid  command         script              forever pid  id logfile                              uptime     
 data:    [0] Sj2q /usr/bin/nodejs src/server/index.js 4284    4292    /home/denlillemand/.forever/Sj2q.log 0:0:0:4.26 
 >>>>>>> 16954fb6ba4d0c2d9fc4b9b08d2eda4afe43aa38
+info:    Forever stopped processes:
+data:        uid  command         script              forever pid   id logfile                              uptime       
+data:    [0] AEFU /usr/bin/nodejs src/server/index.js 28617   28622    /home/denlillemand/.forever/AEFU.log 0:0:2:24.988 
