@@ -1,0 +1,27 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/nodejs', '/usr/bin/npm', 'run', 'build-prod' ]
+2 info using npm@3.7.3
+3 info using node@v5.9.0
+4 verbose run-script [ 'prebuild-prod', 'build-prod', 'postbuild-prod' ]
+5 info lifecycle hikingworld@1.0.0~prebuild-prod: hikingworld@1.0.0
+6 silly lifecycle hikingworld@1.0.0~prebuild-prod: no script for prebuild-prod, continuing
+7 info lifecycle hikingworld@1.0.0~build-prod: hikingworld@1.0.0
+8 verbose lifecycle hikingworld@1.0.0~build-prod: unsafe-perm in lifecycle true
+9 verbose lifecycle hikingworld@1.0.0~build-prod: PATH: /usr/lib/node_modules/npm/bin/node-gyp-bin:/home/denlillemand/Documents/hikingworld/node_modules/.bin:/usr/bin:/usr/lib/node_modules/npm/bin/node-gyp-bin:/home/denlillemand/Documents/hikingworld/node_modules/.bin:/usr/bin:/home/denlillemand/.composer/vendor/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin
+10 verbose lifecycle hikingworld@1.0.0~build-prod: CWD: /home/denlillemand/Documents/hikingworld
+11 silly lifecycle hikingworld@1.0.0~build-prod: Args: [ '-c', 'webpack' ]
+12 verbose stack Error: write EPIPE
+12 verbose stack     at exports._errnoException (util.js:890:11)
+12 verbose stack     at WriteWrap.afterWrite (net.js:771:14)
+13 verbose cwd /home/denlillemand/Documents/hikingworld
+14 error Linux 4.2.0-34-generic
+15 error argv "/usr/bin/nodejs" "/usr/bin/npm" "run" "build-prod"
+16 error node v5.9.0
+17 error npm  v3.7.3
+18 error code EPIPE
+19 error errno EPIPE
+20 error syscall write
+21 error write EPIPE
+22 error If you need help, you may report this error at:
+22 error     <https://github.com/npm/npm/issues>
+23 verbose exit [ 1, true ]

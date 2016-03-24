@@ -6,7 +6,7 @@ git add .
 git commit -m "automated commit for CI"
 git pull origin master
 forever stopall
-npm run build-prod
+webpack
 npm run deploy
 
 
