@@ -10,7 +10,7 @@ export default class Footer extends React.Component {
     render() {
         return(
             <div>
-                    Footer hihi haha !!!! hihi
+                    Footer hihi haha !!!! hihit
             </div>
         );
     }
