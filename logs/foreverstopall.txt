@@ -1,4 +1,5 @@
 info:    Forever stopped processes:
+<<<<<<< HEAD
 data:        uid  command         script              forever pid   id logfile                              uptime       
 data:    [0] Wuhb /usr/bin/nodejs src/server/index.js 28035   28040    /home/denlillemand/.forever/Wuhb.log 0:0:2:32.423 
 info:    Forever stopped processes:
@@ -7,3 +8,10 @@ data:    [0] cGqk /usr/bin/nodejs src/server/index.js 28182   28187    /home/den
 info:    Forever stopped processes:
 data:        uid  command         script              forever pid   id logfile                              uptime       
 data:    [0] 2j2p /usr/bin/nodejs src/server/index.js 28436   28441    /home/denlillemand/.forever/2j2p.log 0:0:1:26.254 
+=======
+data:        uid  command         script              forever pid  id logfile                              uptime      
+data:    [0] wIKi /usr/bin/nodejs src/server/index.js 4025    4033    /home/denlillemand/.forever/wIKi.log 0:0:0:44.53 
+info:    Forever stopped processes:
+data:        uid  command         script              forever pid  id logfile                              uptime     
+data:    [0] Sj2q /usr/bin/nodejs src/server/index.js 4284    4292    /home/denlillemand/.forever/Sj2q.log 0:0:0:4.26 
+>>>>>>> 16954fb6ba4d0c2d9fc4b9b08d2eda4afe43aa38
