@@ -21,3 +21,26 @@ Child extract-text-webpack-plugin:
       89889688147bd7575d6327160d64e760.svg   109 kB          [emitted]  
       6ca0619fbeda5fbf879f558becde7587.jpg   431 kB          [emitted]  
         + 8 hidden modules
+Hash: b5acf4bf871faa43e6a2
+Version: webpack 1.12.14
+Time: 9751ms
+                                 Asset     Size  Chunks             Chunk Names
+  f4769f9bdb7466be65088239c12046d1.eot  20.1 kB          [emitted]  
+448c34a56d699c29117adc64c43affeb.woff2    18 kB          [emitted]  
+ fa2772327f55d8198301fdb8bcfc8158.woff  23.4 kB          [emitted]  
+  e18bbf611f2a2e43afc071aa2f4e1512.ttf  45.4 kB          [emitted]  
+  89889688147bd7575d6327160d64e760.svg   109 kB          [emitted]  
+  6ca0619fbeda5fbf879f558becde7587.jpg   431 kB          [emitted]  
+                             bundle.js   989 kB       0  [emitted]  main
+                       application.css   152 kB       0  [emitted]  main
+   [0] multi main 28 bytes {0} [built]
+    + 242 hidden modules
+Child extract-text-webpack-plugin:
+                                     Asset     Size  Chunks             Chunk Names
+      f4769f9bdb7466be65088239c12046d1.eot  20.1 kB          [emitted]  
+    448c34a56d699c29117adc64c43affeb.woff2    18 kB          [emitted]  
+     fa2772327f55d8198301fdb8bcfc8158.woff  23.4 kB          [emitted]  
+      e18bbf611f2a2e43afc071aa2f4e1512.ttf  45.4 kB          [emitted]  
+      89889688147bd7575d6327160d64e760.svg   109 kB          [emitted]  
+      6ca0619fbeda5fbf879f558becde7587.jpg   431 kB          [emitted]  
+        + 8 hidden modules
