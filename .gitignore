@@ -2,4 +2,4 @@
 src/server/config/*
 !src/server/config/defaults/*
 node_modules
-static
+static/*
