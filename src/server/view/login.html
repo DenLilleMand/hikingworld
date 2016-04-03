@@ -7,11 +7,13 @@
 </head>
 <body>
     <h1>hiking world login</h1>
+    <a href="login">Sign in</a>
+    <a href="register">Sign up</a>
     <form method="post" action="/api/user/login">
-        <label>Username:</label>
-        <input type="text" placeholder="username"/>
-        <label>Password:</label>
-        <input type="password" placeholder="password"/>
+        <label>Username:</label></br>
+        <input type="text" name="username" placeholder="username"/></br>
+        <label>Password:</label></br>
+        <input type="password" name="password" placeholder="password"/></br>
         <button type="submit">submit</button>
     </form>
 </body>

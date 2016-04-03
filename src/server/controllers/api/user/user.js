@@ -1,17 +1,33 @@
-var exports = module.exports;
+var exports = module.exports,
+    validation = require('./validation'),
+    qs = require('querystring');
 
 exports.login = (request, response, callback) => {
     console.log('login endpoint was called');
+
     if(request.method === 'POST') {
         var body = '';
-        request.on('data', function(data) {
+        request.on('data', function (data) {
             body += data;
-            if(body.length > 10000000000) {
+            // 1e6 === 1 * Math.pow(10, 6) === 1 * 1000000 ~~~ 1MB
+            if (body.length > 1e6) { 
+                // FLOOD ATTACK OR FAULTY CLIENT, NUKE REQUEST
                 request.connection.destroy();
             }
         });
+        request.on('end', function () {
+            var post = qs.parse(body);
+            
+            var result = validation.validateLogin(post);
+
+            if(result.result) {
+                return callback(true, encodeURI(result.msg));
+            }
+            else {
+                return callback(false, encodeURI(result.msg));   
+            }
+        });
     }
-    callback(true);
 };
 
 exports.logoff = (request, response, callback) => {
@@ -20,8 +36,29 @@ exports.logoff = (request, response, callback) => {
 };
 
 exports.register = (request, response, callback) => {
-    console.log('register endpoint was called');
-    callback(true);
+    if(request.method === 'POST') {
+        var body = '';
+        request.on('data', function (data) {
+            body += data;
+            // 1e6 === 1 * Math.pow(10, 6) === 1 * 1000000 ~~~ 1MB
+            if (body.length > 1e6) { 
+                // FLOOD ATTACK OR FAULTY CLIENT, NUKE REQUEST
+                request.connection.destroy();
+            }
+        });
+        request.on('end', function () {
+            var post = qs.parse(body);
+            
+            var result = validation.validateRegistration(post);
+
+            if(result.result) {
+                return callback(true, encodeURI(result.msg));
+            }
+            else {
+                return callback(false, encodeURI(result.msg));   
+            }
+        });
+    }
 };
 
 exports.unregister = (request, response, callback) => {

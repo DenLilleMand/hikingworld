@@ -3,9 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Register</title>
+    <link type="text/css" rel="stylesheet" href="static/application.css" />
 </head>
 <body>
     <h1>register</h1>
-
+    <a href="login">Sign in</a>
+    <a href="register">Sign up</a>    
+    <form method="post" action="/api/user/register">
+        <label>Username:</label></br>
+        <input type="text" name="username" placeholder="username"/></br>
+        <label>Password:</label></br>
+        <input type="password" name="password" placeholder="password"/></br>
+        <label>Reenter password:</label></br>
+        <input type="password" name="password_repeat" placeholder="password"/>
+        <button type="submit">submit</button>
+    </form>
 </body>
 </html>
