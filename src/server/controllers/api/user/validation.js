@@ -1,5 +1,6 @@
 var exports = module.exports,
-	validation = require('validator');
+	validation = require('validator'),
+    https = require('https');
 
 exports.validateRegistration = (post) => {
 
@@ -21,12 +22,13 @@ exports.validateRegistration = (post) => {
         return { result : false, msg : "The password is not strong enough"};
     }
 
+
     return { result : true, msg : "Success"};
 }
 
 exports.validateLogin = (post) => {
 
-	if(post.username == "" || post.password == "") {
+	if(post.username === "" || post.password === "") {
        return { result : false, msg : "You need to enter the username and password"};
     }
 
@@ -36,5 +38,7 @@ exports.validateLogin = (post) => {
 
     return { result : true, msg : "Success"};
 }
+
+
 
 
