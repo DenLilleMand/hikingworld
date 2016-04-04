@@ -16,7 +16,7 @@ exports.login = (request, response, callback) => {
                 request.connection.destroy();
             }
         });
-        request.on('end', function () {
+        request.on('end', () => {
             var post = qs.parse(body);
             
             var result = validation.validateLogin(post);

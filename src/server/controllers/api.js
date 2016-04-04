@@ -3,6 +3,7 @@ var exports = module.exports,
 
 const userApi = require('../controllers/api/user/index');
 const ciApi = require('../controllers/api/ci/index');
+const postApi = require('../controllers/api/post/index');
 
 exports.handleApiRequest = (request, response) => {
     var uri = url.parse(request.url).pathname, stat = null, readStream = null;
@@ -12,5 +13,7 @@ exports.handleApiRequest = (request, response) => {
         console.log('test was hit!');
     } else if(uri.match('ci')) {
         ciApi.handleCIRequest(request, response);
+    } else if(uri.match('post')) {
+        postApi.handlePostRequest(request, response);
     }
 };
