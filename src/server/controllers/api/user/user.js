@@ -46,17 +46,16 @@ exports.register = (request, response, callback) => {
                 request.connection.destroy();
             }
         });
-        request.on('end', function () {
-            var post = qs.parse(body);
-
+        request.on('end', function () {            
+            var post = qs.parse(body);                    
             validation.verifyRecaptcha(post["g-recaptcha-response"], function(success) {
                 if (success) {
-                    var result = validation.validateRegistration(post);
-                    if(result.result) {                        
-                        return callback(true, encodeURI(result.msg));
+                    var validationResult = validation.validateRegistration(post);
+                    if(validationResult.result) {                        
+                        return callback(true, encodeURI(validationResult.msg));
                     }
                     else {
-                        return callback(false, encodeURI(result.msg));   
+                        return callback(false, encodeURI(validationResult.msg));   
                     }
                 } else {
                     return callback(false, encodeURI("Invalid captcha")); 
