@@ -56,7 +56,7 @@ exports.register = (request, response, callback) => {
                         db.userModel.register(post.username, post.password, (id) => {
                             return callback(true, encodeURI({
                                 id: id,
-                                msg:result.msg
+                                msg:validationResult.msg
                             }));
                         });
                         return callback(true, encodeURI(validationResult.msg));
