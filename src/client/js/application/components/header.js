@@ -20,11 +20,3 @@ export default class Footer extends React.Component {
         );
     }
 }
-/**<div className="navbar-collapse collapse">
- <ul className="menu nav navbar-nav">
- <Link to="/">menu1</Link>
- <Link to="/">menu2</Link>
- <Link to="/">menu3</Link>
- <Link to="/">menu4</Link>
- </ul>
- </div>*/

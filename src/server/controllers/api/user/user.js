@@ -1,6 +1,7 @@
 var exports = module.exports,
     validation = require('./validation'),
-    qs = require('querystring');
+    qs = require('querystring'),
+    db = require('../../../model/db');
 
 exports.login = (request, response, callback) => {
     console.log('login endpoint was called');
@@ -49,11 +50,16 @@ exports.register = (request, response, callback) => {
         request.on('end', function () {
             var post = qs.parse(body);
 
-            validation.verifyRecaptcha(post["g-recaptcha-response"], function(success) {
+            validation.verifyRecaptcha(post["g-recaptcha-response"], (success) => {
                 if (success) {
                     var result = validation.validateRegistration(post);
-                    if(result.result) {                        
-                        return callback(true, encodeURI(result.msg));
+                    if(result.result) {
+                        db.userModel.register(post.username, post.password, (id) => {
+                            return callback(true, encodeURI({
+                                id: id,
+                                msg:result.msg
+                            }));
+                        });
                     }
                     else {
                         return callback(false, encodeURI(result.msg));   

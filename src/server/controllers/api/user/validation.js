@@ -23,7 +23,7 @@ exports.validateRegistration = (post) => {
     }
 
     return { result : true, msg : "Success"};
-}
+};
 
 exports.validateLogin = (post) => {
 
@@ -36,7 +36,7 @@ exports.validateLogin = (post) => {
     }
 
     return { result : true, msg : "Success"};
-}
+};
 
 var SECRET = "6LcUchwTAAAAAJZfxBeCgqhNeNhym8xS6N66jX_-";
 
