@@ -48,21 +48,21 @@ exports.register = (request, response, callback) => {
             }
         });
         request.on('end', function () {
-            var post = qs.parse(body);
-
-            validation.verifyRecaptcha(post["g-recaptcha-response"], (success) => {
+            var post = qs.parse(body);                    
+            validation.verifyRecaptcha(post["g-recaptcha-response"], function(success) {
                 if (success) {
-                    var result = validation.validateRegistration(post);
-                    if(result.result) {
+                    var validationResult = validation.validateRegistration(post);
+                    if(validationResult.result) {
                         db.userModel.register(post.username, post.password, (id) => {
                             return callback(true, encodeURI({
                                 id: id,
                                 msg:result.msg
                             }));
                         });
+                        return callback(true, encodeURI(validationResult.msg));
                     }
                     else {
-                        return callback(false, encodeURI(result.msg));   
+                        return callback(false, encodeURI(validationResult.msg));   
                     }
                 } else {
                     return callback(false, encodeURI("Invalid captcha")); 
