@@ -1,5 +1,5 @@
 var pwdHandler = require('../../controllers/api/user/passwordhandler'),
-    moment = require('moment')
+    moment = require('moment');
 
 module.exports = (pool) => {
     var module = {};
@@ -8,7 +8,7 @@ module.exports = (pool) => {
 
             var hashedPwd = pwdHandler.hashValue(password);
 
-            connection.query('SELECT * FROM account inner join attempts on account.username = attempts.username WHERE account.username = ?',
+            connection.query('SELECT * FROM account INNER JOIN attempts on account.username = attempts.username WHERE account.username = ?',
                 [email, hashedPwd], (err, rows, fields) => {
                 if (err) {
                     throw err;
@@ -26,20 +26,20 @@ module.exports = (pool) => {
 
                 if(rows[0].attempts >= 3 && minutesDiff < 10) {
                     return callback(false, "This user is currently locked out. Try again later.");
-                } else if (rows[0].attempts >= 3 && minutesDiff > 10) {
-                    connection.query('UPDATE attempts SET attempts = 0 WHERE username = ?', [email], (err,rows, fields) => {
-                        console.log("30 minutes passed! Attempts reset.");
-                    }); 
                 } 
 
                 var pwdCheck = pwdHandler.hashValue(password + rows[0].salt);
 
-                if (pwdCheck !== rows[0].password) {
-                    var dateNow = moment().format("YYYY-MM-DD HH:mm:ss");
+                var dateNow = moment().format("YYYY-MM-DD HH:mm:ss");
+                if (pwdCheck !== rows[0].password) {                
                     connection.query('UPDATE attempts SET attempts = ?, lastLogin= ? WHERE username = ?', [rows[0].attempts + 1, dateNow, email], (err,rows, fields) => {
                         console.log("Attempt incremented by one!");
                     }); 
                     return callback(false, "Wrong password")
+                } else {
+                    connection.query('UPDATE attempts SET attempts = 0, lastLogin = NOW() WHERE username = ?', [email], (err,rows, fields) => {
+                        console.log("Attempt reset");
+                    });    
                 }
 
                 connection.release();
@@ -64,7 +64,7 @@ module.exports = (pool) => {
                 
                 var hashedAndSaltedPassword = pwdHandler.hashValue(password + salt);
                 
-                connection.query('INSERT INTO account (username, password, salt) VALUEs (?, ?, ?)', [username, hashedAndSaltedPassword, salt], (err,rows, field) => {                    
+                connection.query('INSERT INTO account (username, password, salt) VALUES (?, ?, ?)', [username, hashedAndSaltedPassword, salt], (err,rows, field) => {                    
                     var dateNow = moment().format("YYYY-MM-DD HH:mm:ss");
                     connection.query('INSERT INTO attempts (username, attempts, lastLogin) VALUES (?, 0, ?)', [username, dateNow], (err, rows, field) => {
                         console.log("Attempt row has been created!");
