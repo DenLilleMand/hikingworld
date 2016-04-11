@@ -19,7 +19,7 @@ exports.validateRegistration = (post) => {
     var regex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
 
     if(!post.password.match(regex)) {
-        return { result : false, msg : "The password is not strong enough"};
+        return { result : false, msg : "The password is not strong enough."};
     }
 
     return { result : true, msg : "Success"};

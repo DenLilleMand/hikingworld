@@ -21,6 +21,8 @@ exports.login = (request, response, callback) => {
             
             var validationResult = validation.validateLogin(post);
 
+            
+
             if(validationResult.result) {
                 db.userModel.login(post.username, post.password, (userSuccess, userMsg) => {
                     return callback(userSuccess, encodeURI(userMsg));
@@ -57,8 +59,7 @@ exports.register = (request, response, callback) => {
                     if(validationResult.result) {
                         db.userModel.register(post.username, post.password, (userSuccess, userMsg) => {
                             return callback(userSuccess, encodeURI(userMsg));
-                        });
-                        //return callback(true, encodeURI(validationResult.msg));
+                        });                        
                     }
                     else {
                         return callback(false, encodeURI(validationResult.msg));   

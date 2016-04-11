@@ -29,6 +29,7 @@ module.exports = (pool) => {
                 }             
 
                 if (rows.length === 1) {                    
+                    connection.release();
                     return callback(false, "User already exist");
                 }               
 
