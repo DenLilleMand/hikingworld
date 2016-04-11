@@ -57,8 +57,7 @@ exports.register = (request, response, callback) => {
                     if(validationResult.result) {
                         db.userModel.register(post.username, post.password, (userSuccess, userMsg) => {
                             return callback(userSuccess, encodeURI(userMsg));
-                        });
-                        //return callback(true, encodeURI(validationResult.msg));
+                        });                        
                     }
                     else {
                         return callback(false, encodeURI(validationResult.msg));   
