@@ -14,6 +14,6 @@ exports.handleApiRequest = (request, response) => {
     } else if(uri.match('ci')) {
         ciApi.handleCIRequest(request, response);
     } else if(uri.match('post')) {
-        postApi.handlePostRequest(request, response);
+        postApi.handleRequest(request, response);
     }
 };

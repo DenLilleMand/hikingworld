@@ -1,8 +1,8 @@
 module.exports = (pool) => {
     var module = {};
-    module.create  = (post , callback) => {
+    module.create  = (post, user , callback) => {
         pool.getConnection((err, connection) => {
-            connection.query('SELECT * FROM account WHERE email = ? AND password = ?)',[email, password], (err, rows, fields) => {
+            connection.query('INSERT INTO post (text) VALUES (?)',[post.text], (err, rows, fields) => {
                 if (err) {
                     throw err;
                 }
