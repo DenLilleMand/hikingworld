@@ -19,13 +19,17 @@ exports.login = (request, response, callback) => {
         request.on('end', () => {
             var post = qs.parse(body);
             
-            var result = validation.validateLogin(post);
+            var validationResult = validation.validateLogin(post);
 
-            if(result.result) {
-                return callback(true, encodeURI(result.msg));
+            
+
+            if(validationResult.result) {
+                db.userModel.login(post.username, post.password, (userSuccess, userMsg) => {
+                    return callback(userSuccess, encodeURI(userMsg));
+                });                
             }
             else {
-                return callback(false, encodeURI(result.msg));   
+                return callback(false, encodeURI(validationResult.msg));   
             }
         });
     }
@@ -53,13 +57,9 @@ exports.register = (request, response, callback) => {
                 if (success) {
                     var validationResult = validation.validateRegistration(post);
                     if(validationResult.result) {
-                        db.userModel.register(post.username, post.password, (id) => {
-                            return callback(true, encodeURI({
-                                id: id,
-                                msg:result.msg
-                            }));
-                        });
-                        return callback(true, encodeURI(validationResult.msg));
+                        db.userModel.register(post.username, post.password, (userSuccess, userMsg) => {
+                            return callback(userSuccess, encodeURI(userMsg));
+                        });                        
                     }
                     else {
                         return callback(false, encodeURI(validationResult.msg));   
