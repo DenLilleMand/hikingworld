@@ -6,7 +6,6 @@ module.exports = (db) => {
         PUT = 'PUT',
         DELETE = 'DELETE';
 
-
     module.handleRequest = (request, response) => {
         switch(request.method) {
             case GET:
@@ -14,6 +13,7 @@ module.exports = (db) => {
 
                 break;
             case POST:
+                console.log('server post post was called');
                 postApi.createPost(request, response, (data) => {
 
 
@@ -28,9 +28,7 @@ module.exports = (db) => {
             default:
                 console.log('default case in the post api was called');
         }
-
     };
-
 
     return module;
 };

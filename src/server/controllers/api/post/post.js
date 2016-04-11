@@ -17,6 +17,9 @@ module.exports = () => {
             var data = qs.parse(body);
             var post = data.post;
             var user = data.user;
+            console.log('in post api:');
+            console.log('User:', user);
+            console.log('post:', post);
 
             //@TODO: validate post data
             //validation.sanitizeInput(post);
