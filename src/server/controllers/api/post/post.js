@@ -4,50 +4,46 @@ var db = require('../../../model/db'),
 
 module.exports = () => {
     var module = {};
-    const GET = 'GET',
-        POST = 'POST',
-        PUT = 'PUT',
-        DELETE = 'DELETE';
 
+    module.createPost = (request, response) => {
+        var data = '';
+        request.on('data', (data) => {
+            body += data;
+            if (body.length > 1e6) {
+                request.connection.destroy;
+            }
+        });
+        request.on('end', () => {
+            var data = qs.parse(body);
+            var post = data.post;
+            var user = data.user;
+            console.log('in post api:');
+            console.log('User:', user);
+            console.log('post:', post);
 
-    module.handlePostRequest = (request, response) => {
-        var body = '';
-        switch(request.method) {
-            case GET:
-
-
-                break;
-            case POST:
-                request.on('data', (data) => {
-                    body += data;
-                    if(body.length > 1e6) {
-                        request.connection.destroy;
-                    }
+            //@TODO: validate post data
+            //validation.sanitizeInput(post);
+            if(true/* validation result*/) {
+                db.postModel.create(post, user, (post) => {
+                    return callback(true, encodeURI({post: post}));
                 });
-                request.on('end', () => {
-                    var post = qs.parse(body);
+            } else {
 
-                    //@TODO: validate post data
-                    //validation.sanitizeInput(post);
+            }
+        });
+    };
 
-                    if(true /* validation result*/) {
-                        db.postModel.create(post, (id) => {
-                            return callback(true, encodeURI({ id: id}));
-                        });
-                    } else {
 
-                    }
-                });
-                break;
-            case DELETE:
+    module.deletePost = (request, response) => {
 
-                break;
-            case PUT:
+    };
 
-                break;
-            default:
-                console.log('default case in the post api was called');
-        }
+
+    module.updatePost = (request, response) => {
+
+    };
+
+    module.getPosts = (request, response) => {
 
     };
 

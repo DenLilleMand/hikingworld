@@ -1,7 +1,7 @@
 import React from 'react';
+import FacebookWall from './facebookwall/facebookwall';
 
 export default class FrontPage extends React.Component {
-
     constructor(props, context) {
         super(props, context);
         this.state = {};
@@ -10,7 +10,7 @@ export default class FrontPage extends React.Component {
     render() {
         return(
             <div>
-                Frontpage
+                <FacebookWall />
             </div>
         );
     }

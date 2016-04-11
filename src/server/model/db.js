@@ -11,7 +11,8 @@ var pool = mysql.createPool({
 
 
 module.exports = {
-    userModel: require('./models/usermodel')(pool)
+    userModel: require('./models/usermodel')(pool),
+    postModel: require('./models/postmodel')(pool)
 };
 
 

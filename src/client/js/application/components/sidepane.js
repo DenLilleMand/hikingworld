@@ -9,6 +9,7 @@ export default class SidePane extends React.Component {
     render() {
         return(
             <div className="facebook-wall-sidepane">
+                sidepane
 
 
 
