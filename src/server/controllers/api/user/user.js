@@ -1,7 +1,8 @@
 var exports = module.exports,
     validation = require('./validation'),
     qs = require('querystring'),
-    db = require('../../../model/db');
+    db = require('../../../model/db'),
+    url = require('url');
 
 exports.login = (request, response, callback) => {
     console.log('login endpoint was called');
@@ -52,8 +53,9 @@ exports.register = (request, response, callback) => {
             }
         });
         request.on('end', function () {
-            var post = qs.parse(body);                    
+            var post = qs.parse(body);             
             validation.verifyRecaptcha(post["g-recaptcha-response"], function(success) {
+                console.log("We are inside  the validation");
                 if (success) {
                     var validationResult = validation.validateRegistration(post);
                     if(validationResult.result) {
@@ -65,11 +67,19 @@ exports.register = (request, response, callback) => {
                         return callback(false, encodeURI(validationResult.msg));   
                     }
                 } else {
+                    console.log("It went wrong!");
                     return callback(false, encodeURI("Invalid captcha")); 
                 }
             });           
         });
     }
+};
+
+exports.verification = (request, response, callback) => {
+    var queryData = url.parse(request.url, true).query;
+    db.userModel.verification(queryData.un, queryData.cs, (userSuccess, userMsg) => {
+        return callback(userSuccess, encodeURI(userMsg));
+    });
 };
 
 exports.unregister = (request, response, callback) => {

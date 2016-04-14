@@ -50,7 +50,7 @@ exports.verifyRecaptcha = (key, callback) => {
             try {
                 var parsedData = JSON.parse(data);
                 callback(parsedData.success);
-            } catch (e) {
+            } catch (e) {                
                 callback(false);
             }
         });
