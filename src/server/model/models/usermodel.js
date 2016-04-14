@@ -1,5 +1,6 @@
 var pwdHandler = require('../../controllers/api/user/passwordhandler'),
-    moment = require('moment');
+    moment = require('moment'),
+    mailer = require('../../controllers/api/user/emailhandler');
 
 module.exports = (pool) => {
     var module = {};
@@ -67,14 +68,18 @@ module.exports = (pool) => {
                 
                 var hashedAndSaltedPassword = pwdHandler.hashValue(password + salt);
                 
-                connection.query('INSERT INTO account (username, password, salt) VALUES (?, ?, ?)', [username, hashedAndSaltedPassword, salt], (err,rows, field) => {                    
+                var emailChecksum = pwdHandler.generateSalt();                                            
+
+                connection.query('INSERT INTO account (username, password, salt, verification, checksum) VALUES (?, ?, ?, false, ?)', [username, hashedAndSaltedPassword, salt, emailChecksum], (err,rows, field) => {                    
                     var dateNow = moment().format("YYYY-MM-DD HH:mm:ss");
                     connection.query('INSERT INTO attempts (username, attempts, lastLogin) VALUES (?, 0, ?)', [username, dateNow], (err, rows, field) => {
                         console.log("Attempt row has been created!");
+                        mailer.sendMail(username, 'http://mattinielsen.com/?verificationlink=' + emailChecksum);
                     });
                     connection.release();
                     return callback(true, "User created");
-                })                             
+                })         
+
             });            
         });
     };

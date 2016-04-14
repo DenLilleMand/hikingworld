@@ -27,7 +27,7 @@ exports.handleUserRequest = (request, response) => {
         userApi.register(request, response, (success, msg) => {
             if(success) {                            
                 response.writeHead(302, {
-                    Location: '/application'
+                    Location: '/'
                 });
             }
             else {                
@@ -40,6 +40,15 @@ exports.handleUserRequest = (request, response) => {
     } else if(uri.match('unregister')) {
         userApi.unregister(request, response, (success) => {
             response.end(JSON.stringify({unregister:success}));
+        });
+    } else if(uri.match('verification')) {
+        userApi.unregister(request, response, (success) => {
+            if(success) {                            
+                response.writeHead(302, {
+                    Location: '/'
+                });
+            }
+            response.end(JSON.stringify({verification:success}));
         });
     }
 };
