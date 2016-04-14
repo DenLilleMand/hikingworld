@@ -13,12 +13,15 @@ module.exports = (pool) => {
                 if (err) {
                     throw err;
                 }
-
-                console.log(rows);
+                
                 if (rows.length !== 1) {                                  
                     connection.release();
                     return callback(false, "Bad login");
                 }           
+
+                if(!rows[0].verification) {
+                    return callback(false, "This user still needs e-mail verification.");
+                }
 
                 var startDate = rows[0].lastLogin;
                 var endDate = moment();
