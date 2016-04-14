@@ -74,7 +74,7 @@ module.exports = (pool) => {
                     var dateNow = moment().format("YYYY-MM-DD HH:mm:ss");
                     connection.query('INSERT INTO attempts (username, attempts, lastLogin) VALUES (?, 0, ?)', [username, dateNow], (err, rows, field) => {
                         console.log("Attempt row has been created!");
-                        mailer.sendMail(username, 'http://localhost:3000/api/user/verification?link=' + emailChecksum);
+                        mailer.sendMail(username, 'http://localhost:3000/api/user/verification?un=' + username + '&cs=' + emailChecksum);
                     });
                     connection.release();
                     return callback(true, "User created");
@@ -83,5 +83,22 @@ module.exports = (pool) => {
             });            
         });
     };
-    return module;
+    module.verification = (username, checksum, callback) => {
+        console.log('verification in the userModel was called');
+        pool.getConnection((err, connection) => {
+            connection.query('SELECT checksum FROM account WHERE username = ? limit 1',[username], (err, rows, fields) => {
+                if (err) {
+                    throw err;
+                }             
+
+                if(rows[0].checksum === checksum) {
+                    connection.query('UPDATE account SET verification = true where username = ?', [username], (err, rows, fields) => {
+                        console.log('verifcation set to true');
+                    });                    
+                }
+
+            });            
+        });
+    };    
+    return module;    
 };

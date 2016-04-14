@@ -45,7 +45,7 @@ exports.handleUserRequest = (request, response) => {
         userApi.verification(request, response, (success) => {
             if(success) {                            
                 response.writeHead(302, {
-                    Location: '/'
+                    Location: '/?msg=verification' 
                 });
             }
             response.end(JSON.stringify({verification:success}));

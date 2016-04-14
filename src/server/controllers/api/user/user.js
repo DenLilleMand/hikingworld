@@ -1,7 +1,8 @@
 var exports = module.exports,
     validation = require('./validation'),
     qs = require('querystring'),
-    db = require('../../../model/db');
+    db = require('../../../model/db').
+    url = require('url');
 
 exports.login = (request, response, callback) => {
     console.log('login endpoint was called');
@@ -52,7 +53,8 @@ exports.register = (request, response, callback) => {
             }
         });
         request.on('end', function () {
-            var post = qs.parse(body);                    
+            var post = qs.parse(body); 
+            console.log(post);                   
             validation.verifyRecaptcha(post["g-recaptcha-response"], function(success) {
                 if (success) {
                     var validationResult = validation.validateRegistration(post);
@@ -73,8 +75,10 @@ exports.register = (request, response, callback) => {
 };
 
 exports.verification = (request, response, callback) => {
-    console.log('verification endpoint was called');
-    callback(true);
+    var queryData = url.parse(request.url, true).query;
+    db.userModel.verification(queryData.un, queryData.cs, (userSuccess, userMsg) => {
+        return callback(userSuccess, encodeURI(userMsg));
+    });
 };
 
 exports.unregister = (request, response, callback) => {
