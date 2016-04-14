@@ -74,7 +74,7 @@ module.exports = (pool) => {
                     var dateNow = moment().format("YYYY-MM-DD HH:mm:ss");
                     connection.query('INSERT INTO attempts (username, attempts, lastLogin) VALUES (?, 0, ?)', [username, dateNow], (err, rows, field) => {
                         console.log("Attempt row has been created!");
-                        mailer.sendMail(username, 'http://mattinielsen.com/?verificationlink=' + emailChecksum);
+                        mailer.sendMail(username, 'http://localhost:3000/api/user/verificationlink=' + emailChecksum);
                     });
                     connection.release();
                     return callback(true, "User created");

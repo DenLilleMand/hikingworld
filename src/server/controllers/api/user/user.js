@@ -72,6 +72,11 @@ exports.register = (request, response, callback) => {
     }
 };
 
+exports.verification = (request, response, callback) => {
+    console.log('verification endpoint was called');
+    callback(true);
+};
+
 exports.unregister = (request, response, callback) => {
     console.log('unregister endpoint was called');
     callback(true);

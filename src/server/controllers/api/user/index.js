@@ -42,7 +42,7 @@ exports.handleUserRequest = (request, response) => {
             response.end(JSON.stringify({unregister:success}));
         });
     } else if(uri.match('verification')) {
-        userApi.unregister(request, response, (success) => {
+        userApi.verification(request, response, (success) => {
             if(success) {                            
                 response.writeHead(302, {
                     Location: '/'
