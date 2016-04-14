@@ -1,7 +1,7 @@
 var exports = module.exports,
     validation = require('./validation'),
     qs = require('querystring'),
-    db = require('../../../model/db').
+    db = require('../../../model/db'),
     url = require('url');
 
 exports.login = (request, response, callback) => {
@@ -53,9 +53,9 @@ exports.register = (request, response, callback) => {
             }
         });
         request.on('end', function () {
-            var post = qs.parse(body); 
-            console.log(post);                   
+            var post = qs.parse(body);             
             validation.verifyRecaptcha(post["g-recaptcha-response"], function(success) {
+                console.log("We are inside  the validation");
                 if (success) {
                     var validationResult = validation.validateRegistration(post);
                     if(validationResult.result) {
@@ -67,6 +67,7 @@ exports.register = (request, response, callback) => {
                         return callback(false, encodeURI(validationResult.msg));   
                     }
                 } else {
+                    console.log("It went wrong!");
                     return callback(false, encodeURI("Invalid captcha")); 
                 }
             });           

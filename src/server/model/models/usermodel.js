@@ -68,13 +68,15 @@ module.exports = (pool) => {
                 
                 var hashedAndSaltedPassword = pwdHandler.hashValue(password + salt);
                 
-                var emailChecksum = pwdHandler.generateSalt();                                            
+                var emailChecksum = pwdHandler.generateSalt();  
+
+                var urlToSend = encodeURI('http://localhost:3000/api/user/verification?un=' + username + '&cs=' + emailChecksum)                                          
 
                 connection.query('INSERT INTO account (username, password, salt, verification, checksum) VALUES (?, ?, ?, false, ?)', [username, hashedAndSaltedPassword, salt, emailChecksum], (err,rows, field) => {                    
                     var dateNow = moment().format("YYYY-MM-DD HH:mm:ss");
                     connection.query('INSERT INTO attempts (username, attempts, lastLogin) VALUES (?, 0, ?)', [username, dateNow], (err, rows, field) => {
                         console.log("Attempt row has been created!");
-                        mailer.sendMail(username, 'http://localhost:3000/api/user/verification?un=' + username + '&cs=' + emailChecksum);
+                        mailer.sendMail(username, urlToSend);
                     });
                     connection.release();
                     return callback(true, "User created");
@@ -93,10 +95,12 @@ module.exports = (pool) => {
 
                 if(rows[0].checksum === checksum) {
                     connection.query('UPDATE account SET verification = true where username = ?', [username], (err, rows, fields) => {
-                        console.log('verifcation set to true');
+                        if(err) {
+                            throw err();
+                        }
+                        return callback(true, "Verification success");
                     });                    
-                }
-
+                }            
             });            
         });
     };    
