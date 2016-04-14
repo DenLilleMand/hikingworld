@@ -31,7 +31,7 @@ var server = http.createServer((request, response) => {
             stat = fileSystem.statSync(filename);
             response.writeHead(200, {
                 'Content-Type': mimeType,
-                'Content-length': stat.size
+                'Content-length': stat.size,
             });
             readStream = fileSystem.createReadStream(filename);
             readStream.pipe(response);

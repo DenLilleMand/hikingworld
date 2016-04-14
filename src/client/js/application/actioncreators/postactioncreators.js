@@ -13,7 +13,6 @@ class PostActionCreators {
 
     asyncCreatePost(post, user) {
         return (dispatch) => {
-            console.log('asyncCreatePost was called');
             superagent.post(REMOTE_URL + 'api/post')
                 .send({
                     post,
@@ -23,7 +22,6 @@ class PostActionCreators {
                 .set('Accept', 'application/json')
                 .end((res, err) => {
                     if(err) {
-                        console.log('err:', err);
                         //dispatch(errorHandler);
                     } else if(res.body.status === 201) {
                         dispatch(this.createPost(res.body.data));
@@ -33,7 +31,6 @@ class PostActionCreators {
     }
 
     createPost(post) {
-        console.log('create post was called');
         return {
             type: CREATE_POST,
             data: {
@@ -44,7 +41,16 @@ class PostActionCreators {
 
     asyncDeletePost(id, user) {
         return (dispatch) => {
-
+            superagent.delete(REMOTE_URL + 'api/post')
+                .set('Accept', 'application/json')
+                .set('Content-Type', 'application/json')
+                .end((res, err) => {
+                    if(err || res.body.status === 404 ) {
+                        //dispatch(serrorHandler());
+                    } else if(res.body.status === 200) {
+                        dispatch(this.deletePost(id));
+                    }
+                });
         }
     }
 
@@ -68,7 +74,6 @@ class PostActionCreators {
         }
 
     }
-
 
     deletePost(id, user) {
 

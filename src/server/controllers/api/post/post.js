@@ -1,12 +1,13 @@
 var db = require('../../../model/db'),
-    qs = require('querystring');
+    qs = require('querystring'),
+    url = require('url');
 
 
 module.exports = () => {
     var module = {};
 
-    module.createPost = (request, response) => {
-        var data = '';
+    module.create = (request, response, callback) => {
+        var body = '';
         request.on('data', (data) => {
             body += data;
             if (body.length > 1e6) {
@@ -14,18 +15,17 @@ module.exports = () => {
             }
         });
         request.on('end', () => {
-            var data = qs.parse(body);
+            var data = JSON.parse(body);
             var post = data.post;
             var user = data.user;
-            console.log('in post api:');
-            console.log('User:', user);
-            console.log('post:', post);
 
             //@TODO: validate post data
             //validation.sanitizeInput(post);
             if(true/* validation result*/) {
                 db.postModel.create(post, user, (post) => {
-                    return callback(true, encodeURI({post: post}));
+                    callback(true, {
+                        post
+                    });
                 });
             } else {
 
@@ -34,16 +34,45 @@ module.exports = () => {
     };
 
 
-    module.deletePost = (request, response) => {
-
+    module.delete = (request, response, callback) => {
+        var splittedUrl = request.url.split('/');
+        if(splittedUrl.length > 0 && parseInt(splittedUrl[splittedUrl.length -1])) {
+            var id = parseInt(splittedUrl[splittedUrl.length - 1]);
+            db.postModel.delete(id, callback);
+        }
     };
 
 
-    module.updatePost = (request, response) => {
+    module.update = (request, response, callback) => {
+        var body = '';
+        request.on('data', (data) => {
+            body += data;
+            if(body.length > 1e6 ) {
+                request.connection.destroy;
+            }
+        });
+        request.on('end', () => {
+            var data = JSON.parse(body);
+            //@TODO: validate the user?
+
+            db.postModel.update(data.post, callback);
+        });
+
 
     };
 
-    module.getPosts = (request, response) => {
+    module.getAll = (request, response, callback) => {
+        console.log('get all was called in post ');
+            if(true/* validation result*/) {
+                console.log('get all model is gonna get called:');
+                db.postModel.getAll((isSuccess, posts) => {
+                    callback(isSuccess, {
+                        posts
+                    });
+                });
+            } else {
+
+            }
 
     };
 

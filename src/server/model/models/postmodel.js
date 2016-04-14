@@ -1,3 +1,5 @@
+var clone = require('../../util/clone');
+
 module.exports = (pool) => {
     var module = {};
     module.create  = (post, user , callback) => {
@@ -8,19 +10,21 @@ module.exports = (pool) => {
                     throw err;
                 }
                 connection.release();
-                callback();
+                post.id = rows.insertId;
+                callback(post);
             });
         });
     };
+
     module.delete = (id, callback) => {
-        console.log('register in the userModel was called');
+        console.log('delete in the postModel was called');
         pool.getConnection((err, connection) => {
-            connection.query('INSERT INTO account (username, password) VALUES(?, ?)',[username, password], (err, rows, fields) => {
+            connection.query('DELETE FROM post WHERE id = ?',[id], (err, rows, fields) => {
                 if (err) {
                     throw err;
                 }
-                callback(rows.insertId);
                 connection.release();
+                callback(true);
             });
         });
     };
@@ -28,11 +32,16 @@ module.exports = (pool) => {
     module.update = (post, callback) => {
         console.log('register in the userModel was called');
         pool.getConnection((err, connection) => {
-            connection.query('INSERT INTO account (username, password) VALUES(?, ?)',[username, password], (err, rows, fields) => {
+            connection.query('UPDATE post SET description=? WHERE id = ?',[post.description, post.id], (err, rows, fields) => {
                 if (err) {
                     throw err;
                 }
-                callback(rows.insertId);
+
+                if(rows.affectedRows > 0) {
+                    callback(true);
+                } else {
+                    callback(false);
+                }
                 connection.release();
             });
         });
@@ -42,12 +51,15 @@ module.exports = (pool) => {
     module.getAll = (callback) => {
         console.log('register in the userModel was called');
         pool.getConnection((err, connection) => {
-            connection.query('INSERT INTO account (username, password) VALUES(?, ?)',[username, password], (err, rows, fields) => {
+            connection.query('SELECT * FROM post', (err, rows, fields) => {
                 if (err) {
                     throw err;
                 }
-                callback(rows.insertId);
+                var posts = rows.map((rowDataPacket) => {
+                    return clone(rowDataPacket);
+                });
                 connection.release();
+                callback(true, {posts} );
             });
         });
     };

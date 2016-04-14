@@ -1,6 +1,6 @@
 import Immutable from 'immutable';
 
-export const GET_POSTS = 'GET_POSTS', CREATE_POST =  'CREATE_POST', DELETE_POST = 'DELETE_POST';
+export const GET_POSTS = 'GET_ALL_POSTS', CREATE_POST =  'CREATE_POST', DELETE_POST = 'DELETE_POST';
 const initialState = {
     posts: new Immutable.Map()
 };
