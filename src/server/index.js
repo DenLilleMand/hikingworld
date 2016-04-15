@@ -40,7 +40,12 @@ var server = http.createServer((request, response) => {
         }
     }
 });
+var port = serverConfig.port;
+var host = serverConfig.host;
 
-server.listen(serverConfig ? serverConfig.port : 3000, serverConfig ? serverConfig.host : "127.0.0.1", () => {
-    console.log('Node server listening on port:' + serverConfig ? serverConfig.port : 3000 + " and host:" + serverConfig ? serverConfig.host : "127.0.0.1");
+server.listen(port ? port : 3000, host ? host : "127.0.0.1", () => {
+    console.log('Node server listening on port:');
+    console.log(port);
+    console.log('node server listening on host:');
+    console.log(host);
 });
