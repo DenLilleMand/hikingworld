@@ -7,6 +7,7 @@ var options = { };
 var proxy = httpProxy.createProxyServer(options);
 
 var server = http.createServer((req, res) => {
+    console.log('hello world!');
     var urlParts = url.parse(req.url);
     if(req.headers['site'] === "hikingworld") {
         proxy.web(req,res, { target: 'http://localhost:3001'});
