@@ -12,7 +12,6 @@ export default class PostInput extends React.Component {
         let user = this.props.user;
         return(
             <div className="facebook-wall-post-input panel-default">
-                Hello world!!
                 <div className="panel-heading">{user.username}</div>
                 <div className="panel-body">
                     <label>description:</label>
