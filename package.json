@@ -12,7 +12,7 @@
     "proxy": "node ./src/proxy/index.js",
     "deploy": "forever start ./src/server/index.js",
     "build": "webpack -d --watch --progress --colors",
-    "build-prod": "webpack"
+    "build-prod": "webpack -p"
   },
   "author": "",
   "license": "ISC",
