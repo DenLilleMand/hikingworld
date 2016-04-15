@@ -1,6 +1,7 @@
 var exports = module.exports,
 	validation = require('validator'),
-    https = require('https');
+    https = require('https'),
+    captcha = require('../../../config/captchaconfig.json');
 
 exports.validateRegistration = (post) => {
 
@@ -38,7 +39,7 @@ exports.validateLogin = (post) => {
     return { result : true, msg : "Success"};
 };
 
-var SECRET = "6LcUchwTAAAAAJZfxBeCgqhNeNhym8xS6N66jX_-";
+var SECRET = captcha.secretkey;
 
 exports.verifyRecaptcha = (key, callback) => {
 	https.get("https://www.google.com/recaptcha/api/siteverify?secret=" + SECRET + "&response=" + key, function(res) {

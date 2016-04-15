@@ -1,7 +1,8 @@
 var exports = module.exports,
     url = require('url'),
     path = require('path'),
-    fileSystem = require('fs');
+    fileSystem = require('fs'),
+    captcha = require('../config/captchaconfig.json');
 
 const routes = {
     '/login': 'login',
@@ -36,8 +37,10 @@ exports.handleRouteRequest = (request, response) => {
             response.writeHead(404);
             response.end(JSON.stringify(error));
         } else {
+            var msg = data.toString();
+            var result = msg.replace(/replaceme/g, captcha.clientkey);
             response.writeHead(200);
-            response.end(data);
+            response.end(result);
         }
     });
 };
