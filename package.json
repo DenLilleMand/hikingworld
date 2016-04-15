@@ -10,7 +10,7 @@
     "test": "mocha --reporter mocha-tap-reporter --recursive --compilers js:babel-register",
     "start": "node ./src/server/index.js",
     "proxy": "node ./src/proxy/index.js",
-    "deploy": "forever start ./src/server/index.js",
+    "deploy": "forever --verbose start ./src/server/index.js",
     "build": "webpack -d --watch --progress --colors",
     "build-prod": "webpack -p"
   },
