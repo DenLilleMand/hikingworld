@@ -55,7 +55,7 @@ exports.register = (request, response, callback) => {
         request.on('end', function () {
             var post = qs.parse(body);             
             validation.verifyRecaptcha(post["g-recaptcha-response"], function(success) {
-                console.log("We are inside  the validation");
+                console.log("We are inside the validation");
                 if (success) {
                     var validationResult = validation.validateRegistration(post);
                     if(validationResult.result) {

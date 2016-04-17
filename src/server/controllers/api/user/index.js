@@ -27,7 +27,7 @@ exports.handleUserRequest = (request, response) => {
         userApi.register(request, response, (success, msg) => {
             if(success) {                            
                 response.writeHead(302, {
-                    Location: '/'
+                    Location: '/login?msg=usercreated'
                 });
             }
             else {                
