@@ -1,5 +1,5 @@
 var mailer = require('nodemailer'),
-	mail = require('../../../config/mailconfig');
+	mail = require('../config/mailconfig');
 
 module.exports = {
 	sendMail : function (username, link) {

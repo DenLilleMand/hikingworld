@@ -1,6 +1,7 @@
-var pwdHandler = require('../../controllers/api/user/passwordhandler'),
+var pwdHandler = require('../../helpers/cryptohandler'),
     moment = require('moment'),
-    mailer = require('../../controllers/api/user/emailhandler');
+    mailer = require('../../helpers/mailhandler'),
+    fs = require('fs');
 
 module.exports = (pool) => {
     var module = {};
@@ -30,6 +31,12 @@ module.exports = (pool) => {
                 if (rows[0].attempts >= 3 && minutesDiff < 10) {
                     return callback(false, "This user is currently locked out. Try again later.");
                 }
+
+                fs.appendFile('hwlog.txt', 'tester', function(err) {
+                    if(err) {
+                        console.log("error!");
+                    }
+                });
 
                 var pwdCheck = pwdHandler.hashValue(password + rows[0].salt);
 
@@ -67,7 +74,7 @@ module.exports = (pool) => {
 
                 var hashedAndSaltedPassword = pwdHandler.hashValue(password + salt);
 
-                var emailChecksum = pwdHandler.generateSalt();                
+                var emailChecksum = pwdHandler.generateSalt();
 
                 connection.beginTransaction(function(err) {
                     if (err) {
@@ -118,7 +125,7 @@ module.exports = (pool) => {
                 if (rows[0].checksum === checksum) {
                     connection.query('UPDATE account SET verification = true where username = ?', [username], (err, rows, fields) => {
                         if (err) {
-                            throw err();
+                            throw err;
                         }
                         return callback(true, "Verification success");
                     });
