@@ -22,7 +22,6 @@ app.use(helmet.xframe('sameorigin'));
 
 // ONLY USED IN PRODUCTION, SINCE IT REQUIRES HTTPS
 
-
 //app.use(helmet.hsts());
 
 app.use(bodyParser.json());
