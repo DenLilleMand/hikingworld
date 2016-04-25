@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 var config = require('./config/configuration.json');
 var express = require('express');
 var cookieParser = require('cookie-parser');
