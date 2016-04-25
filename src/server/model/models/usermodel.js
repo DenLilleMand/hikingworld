@@ -1,6 +1,6 @@
-var pwdHandler = require('../../helpers/cryptohandler'),
+var pwdHandler = require('../../util/cryptohandler'),
     moment = require('moment'),
-    mailer = require('../../helpers/mailhandler'),
+    mailer = require('../../util/mailhandler'),
     fs = require('fs');
 
 module.exports = (pool) => {
@@ -24,19 +24,13 @@ module.exports = (pool) => {
                     return callback(false, "This user still needs e-mail verification.");
                 }
 
-                var startDate = rows[0].lastLogin;
+                var startDate = rows[0].lastlogin;
                 var endDate = moment();
                 var minutesDiff = endDate.diff(startDate, 'minutes')
 
                 if (rows[0].attempts >= 3 && minutesDiff < 10) {
                     return callback(false, "This user is currently locked out. Try again later.");
                 }
-
-                fs.appendFile('hwlog.txt', 'tester', function(err) {
-                    if(err) {
-                        console.log("error!");
-                    }
-                });
 
                 var pwdCheck = pwdHandler.hashValue(password + rows[0].salt);
 
@@ -103,7 +97,7 @@ module.exports = (pool) => {
                                 }
                                 console.log('Transaction Complete.');
                                 connection.release();
-                                var urlToSend = encodeURI(mailer.getAddress() + 'api/user/verification?un=' + username + '&cs=' + emailChecksum)
+                                var urlToSend = encodeURI(mailer.getAddress() + 'verification?un=' + username + '&cs=' + emailChecksum)
                                 mailer.sendMail(username, urlToSend);
                                 return callback(true, "User created");
                             });

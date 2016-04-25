@@ -9,12 +9,14 @@
     <h1>hiking world login</h1>
     <a href="login">Sign in</a>
     <a href="register">Sign up</a>
-    <form method="post" action="/api/user/login">
+    <form method="post" action="/login">
+        <input type="hidden" name="_csrf" value=<%- JSON.stringify(csrfToken) %>>
         <label>Username:</label></br>
         <input type="text" name="username" placeholder="username"/></br>
         <label>Password:</label></br>
         <input type="password" name="password" placeholder="password"/></br>
         <button type="submit">submit</button>
+        <label><%- msg %></label>
     </form>
 </body>
 </html>

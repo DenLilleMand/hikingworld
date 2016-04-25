@@ -1,14 +1,13 @@
-var dbConfig = require('../config/dbconfig.json');
-var mysql      = require('mysql');
+var config = require('../config/configuration.json');
+var mysql  = require('mysql');
 
 var pool = mysql.createPool({
-    connectionLimit: dbConfig.connectionLimit,
-    host: dbConfig.host,
-    user: dbConfig.user,
-    password: dbConfig.password,
-    database: dbConfig.database
+    connectionLimit: config.database.connectionLimit,
+    host: config.database.host,
+    user: config.database.user,
+    password: config.database.password,
+    database: config.database.database
 });
-
 
 module.exports = {
     userModel: require('./models/usermodel')(pool),
