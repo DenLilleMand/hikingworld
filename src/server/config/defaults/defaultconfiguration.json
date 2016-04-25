@@ -1,0 +1,29 @@
+{
+	"database": {
+		"host": "",
+		"port": "",
+		"user": "",
+		"password": "",
+		"database": "",
+		"authentication_user": ""
+	},
+	"mail": {
+		"username": "",
+		"password": "",
+		"address": ""
+	},
+	"server": {
+		"host": "",
+		"port": 
+	},
+	"captcha": {
+		"clientkey": "",
+		"secretkey": ""
+	},
+	"session" : {
+		"key" : "",
+    	"resave": , 
+   	 	"saveUninitialized" : , 
+    	"secret": ""  
+	}
+}
