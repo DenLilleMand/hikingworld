@@ -12,7 +12,8 @@ const mimeTypes = {
     jpg: "image/jpeg",
     png: "image/png",
     js: "text/javascript",
-    css: "text/css"
+    css: "text/css",
+    woff2: "application/font-woff2"
 };
 
 var server = http.createServer((request, response) => {

@@ -15,9 +15,8 @@ module.exports = () => {
             }
         });
         request.on('end', () => {
-            var data = JSON.parse(body);
-            var post = data.post;
-            var user = data.user;
+            var post = JSON.parse(body);
+            var user = {};
 
             //@TODO: validate post data
             //validation.sanitizeInput(post);
@@ -66,14 +65,11 @@ module.exports = () => {
             if(true/* validation result*/) {
                 console.log('get all model is gonna get called:');
                 db.postModel.getAll((isSuccess, posts) => {
-                    callback(isSuccess, {
-                        posts
-                    });
+                    callback(isSuccess,posts);
                 });
             } else {
 
             }
-
     };
 
 

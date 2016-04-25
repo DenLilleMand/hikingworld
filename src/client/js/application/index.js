@@ -4,10 +4,12 @@ import Application from './components/application';
 
 import FrontPage from './components/frontpage';
 import { Provider } from 'react-redux';
-import {Router, Route, IndexRoute, hashHistory} from 'react-router';
+import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import configureStore from './store/configurestore.js';
 
 const store = configureStore();
+console.log('store:', store);
+console.log('getState():', store.getState());
 
 ReactDOM.render((
     <Provider store={store}>

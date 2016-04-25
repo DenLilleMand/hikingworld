@@ -12,14 +12,26 @@ module.exports = (db) => {
                 console.log('getAll was called in post index');
                 postApi.getAll(request, response, (isSuccess, data) => {
                     if(isSuccess) {
-                        response.end(JSON.stringify({
+                        response.setHeader('Content-Type', 'application/json');
+                        response.setHeader('Accept', 'application/json');
+                        response.statusCode = 200;
+                        response.write(JSON.stringify({
+                            data: data.posts
+                        }));
+                        /*response.end(JSON.stringify({
                             status: 200,
                             body: {
-                                posts: data.posts
+                                data: data.posts
+                            }
+                        }));*/
+                        response.end();
+                    } else {
+                        response.end(JSON.stringify({
+                            status:404,
+                            body: {
+                                error: "404"
                             }
                         }));
-                    } else {
-                        response.end(404);
                     }
                 });
                 break;
@@ -27,9 +39,11 @@ module.exports = (db) => {
                 console.log('server post post was called');
                 postApi.create(request, response, (isSuccess, data) => {
                     if(isSuccess) {
+                        response.setHeader('Content-Type', 'application/json');
+                        response.setHeader('Accept', 'application/json');
+                        response.statusCode = 201;
                         response.end(JSON.stringify({
-                            status: 201,
-                            body: {
+                            data: {
                                 post: data.post
                             }
                         }));

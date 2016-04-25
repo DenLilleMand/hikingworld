@@ -11,7 +11,10 @@ class PostActionCreators {
         this.asyncGetPosts = this.asyncGetPosts.bind(this);
     }
 
-    asyncCreatePost(post, user) {
+    asyncCreatePost(description, user) {
+        let post = {
+            description
+        };
         return (dispatch) => {
             superagent.post(REMOTE_URL + 'api/post')
                 .send({
@@ -24,6 +27,7 @@ class PostActionCreators {
                     if(err) {
                         //dispatch(errorHandler);
                     } else if(res.body.status === 201) {
+                        console.log('Data returned after asyncCreatePost:', res.body);
                         dispatch(this.createPost(res.body.data));
                     }
                 });
@@ -48,10 +52,19 @@ class PostActionCreators {
                     if(err || res.body.status === 404 ) {
                         //dispatch(serrorHandler());
                     } else if(res.body.status === 200) {
+                        console.log('Data returned after asyncDeletePost:', res.body);
                         dispatch(this.deletePost(id));
                     }
                 });
         }
+    }
+
+    deletePost(id) {
+        return {
+            type: DELETE_POST,
+            id
+        }
+
     }
 
     asyncUpdatePost(post, user) {
@@ -70,14 +83,30 @@ class PostActionCreators {
 
     asyncGetPosts(user) {
         return (dispatch) => {
+            superagent.get(REMOTE_URL + 'api/post')
+                .set('Accept', 'application/json')
+                .set('Content-Type', 'application/json')
+                .end((res, error) => {
+                    if(err) {
+                        console.log('Err in asyncGetPosts:', err);
+                    } else if(res.body.status === 200) {
+                        console.log('data in asyncGetPosts', res.body);
+                        dispatch(getPosts(res.body.posts));
+                    } else if(res.body.status === 404) {
+                        console.log('404 in asyncGetPosts');
+                    }
 
+                });
+        };
+    }
+
+    getPosts(posts) {
+        return {
+            type: GET_POSTS,
+            posts
         }
-
     }
 
-    deletePost(id, user) {
-
-    }
 
     updatePost(post, user) {
 
@@ -87,9 +116,6 @@ class PostActionCreators {
 
     }
 
-    getPosts(user) {
-
-    }
 }
 
 

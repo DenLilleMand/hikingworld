@@ -1,4 +1,5 @@
 import React from 'react';
+import { POST } from '../../constants/typeconstants';
 
 export default class PostInput extends React.Component {
     constructor(props, context) {
@@ -15,12 +16,11 @@ export default class PostInput extends React.Component {
                 <div className="panel-heading">{user.username}</div>
                 <div className="panel-body">
                     <label>description:</label>
-                    <input onChange={(event) => { this.setState(event.target.value)}} placeholder="description" value={this.state.description} />
-                    <button onClick={(event) => this.props.createPost(this.state.description, this.props.user) }>Submit</button>
+                    <input onChange={(event) => { this.setState({description:event.target.value})}} placeholder="description" value={this.state.description} />
+                    <button onClick={(event) => this.props.createPost({description:this.state.description},this.props.user, POST) }>Opret rute</button>
                 </div>
             </div>
         );
-
     }
 }
 PostInput.propTypes = {
