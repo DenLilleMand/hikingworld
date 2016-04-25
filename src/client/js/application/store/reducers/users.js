@@ -1,21 +1,20 @@
-import Immutable from 'immutable';
+import {Map} from 'immutable';
+import _ from 'lodash';
 
 const GET_USERS = 'GET_USERS';
 const initialState = {
-    users: new Immutable.Map(),
+    users: new Map(),
     user: {}
 };
 
 
 export function users(state = initialState, action = {}) {
-    if(!action.type) {
-        return state;
-    }
     switch(action.type) {
         case GET_USERS:
             return state;
-
-
+            break;
+        case 'CREATE_USER':
+            return state;
             break;
         default:
             return state;

@@ -1,26 +1,26 @@
-import Immutable from 'immutable';
+import { Map } from 'immutable';
+import CRUD from '../util/crud';
+import { POST } from '../../constants/typeconstants';
+import { CREATE_, UPDATE_, GET_ALL_, DELETE_ } from '../../constants/genericconstants';
 
-export const GET_POSTS = 'GET_ALL_POSTS', CREATE_POST =  'CREATE_POST', DELETE_POST = 'DELETE_POST';
 const initialState = {
-    posts: new Immutable.Map()
+    map: new Map()
 };
 
 export function posts(state = initialState, action = {}) {
-    if(!action.type) {
-        return state;
-    }
     switch(action.type) {
-        case CREATE_POST:
-            console.log('reducer posts was called');
-            let post = action.data.post;
-            return state.posts.set(post.id, post);
+        case CREATE_ + POST:
+            return CRUD.create(action.data, state);
             break;
-        case DELETE_POST:
-            let id = action.data.id;
-            return state.posts.delete(id + "");
+        case DELETE_ + POST:
+            return CRUD.delete(action.data, state);
             break;
-        case GET_POSTS:
-            return state.posts;
+        case UPDATE_ + POST:
+            return CRUD.update(action.data, state);
+            break;
+        case GET_ALL_ + POST:
+            console.log('Reducer received data:', action.data);
+            return CRUD.getAll(action.data, state);
             break;
         default:
             return state;

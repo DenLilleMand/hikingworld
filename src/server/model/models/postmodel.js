@@ -3,7 +3,7 @@ var clone = require('../../util/clone');
 module.exports = (pool) => {
     var module = {};
     module.create  = (post, user , callback) => {
-        console.log('post model, create');
+        console.log('post model, create. Post:', post);
         pool.getConnection((err, connection) => {
             connection.query('INSERT INTO post (description) VALUES (?)',[post.description], (err, rows, fields) => {
                 if (err) {

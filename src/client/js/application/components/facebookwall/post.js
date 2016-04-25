@@ -13,7 +13,10 @@ export default class Post extends React.Component {
             <div className="facebook-wall-post panel panel-default">
                 <div className="panel-heading">{user.username}</div>
                 <div className="panel-body">{post.description}</div>
-                <div className="panel-footer"></div>
+                <div className="panel-footer">
+                   <i className="fa fa-thumbs-o-up" aria-hidden="true"></i>
+                   <i className="fa fa-thumbs-o-down" aria-hidden="true"></i>
+                </div>
             </div>
         );
 
