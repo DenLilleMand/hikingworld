@@ -66,7 +66,7 @@ app.use(session({
 // CROSS-SITE REQUEST FORGERY PREVENTION MIDDLEWARE
 
 app.use(csrf({
-    cookie: true
+    cookie: false
 }));
 
 // CUSTOM ERROR HANDLING WHEN RECEIVING AN INVALID CSRF TOKEN
