@@ -20,6 +20,9 @@ module.exports = {
         });
     },
     validateType: function(value, type) {
-        return typeof value !== type;
+        if (typeof value !== type) {
+            return false;
+        }
+        return true;        
     }
 }
