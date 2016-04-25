@@ -43,24 +43,6 @@ var options = {
     user: config.database.user,
     password: config.database.password,
     database: config.database.database
-=======
-const http = require('http');
-const fileSystem = require('fs');
-const path = require('path');
-const url = require('url');
-const api = require('./controllers/api');
-const router = require('./controllers/router');
-const serverConfig = require('./config/serverconfig.json');
-
-const mimeTypes = {
-    html: "text/html",
-    jpeg: "image/jpeg",
-    jpg: "image/jpeg",
-    png: "image/png",
-    js: "text/javascript",
-    css: "text/css",
-    woff2: "application/font-woff2"
->>>>>>> denlillemand-post-crud
 };
 
 // WE WANT TO SAVE THE SESSION INSIDE DATABASE INSTEAD OF IN MEMORY
