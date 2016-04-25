@@ -1,4 +1,4 @@
-var config = require('../config/configuration.json');
+var config = require('../config/configuration/configuration.json');
 var mysql  = require('mysql');
 
 var pool = mysql.createPool({

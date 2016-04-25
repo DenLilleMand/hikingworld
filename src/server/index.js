@@ -1,4 +1,4 @@
-var config = require('./config/configuration.json');
+var config = require('./config/configuration/configuration.json');
 var express = require('express');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');

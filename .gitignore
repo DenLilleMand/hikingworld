@@ -1,6 +1,5 @@
 .idea/*
-src/server/config/*
-!src/server/config/defaults/*
+src/server/config/configuration/*
 node_modules
 logs/*
 static/*

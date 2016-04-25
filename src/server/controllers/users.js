@@ -3,7 +3,7 @@ var express = require('express'),
 	db = require('../model/db'),
 	validation = require('./validation'),
 	security = require('../util/security.js');
-config = require('../config/configuration.json'),
+config = require('../config/configuration/configuration.json'),
 	authentication = require('../util/authentication.js');
 
 router.get('/', function(req, res) {

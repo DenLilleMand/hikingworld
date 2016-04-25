@@ -1,4 +1,4 @@
-var config = require('../config/configuration.json'),
+var config = require('../config/configuration/configuration.json'),
     https = require('https');
 
 module.exports = {

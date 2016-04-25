@@ -1,6 +1,6 @@
 var exports = module.exports,
     validation = require('validator'),
-    config = require('../config/configuration.json'),
+    config = require('../config/configuration/configuration.json'),
     xss = require('xss'),
     security = require('../util/security.js');
 
