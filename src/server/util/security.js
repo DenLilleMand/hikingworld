@@ -1,6 +1,6 @@
 var config = require('../config/configuration/configuration.json'),
     https = require('https');
-//
+
 module.exports = {
     verifyRecaptcha: function(key, callback) {
         var SECRET = config.captcha.secretkey;
