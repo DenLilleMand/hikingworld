@@ -1,36 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="17c7be22-ed4a-4e0d-9065-fd0c3ab7037a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/js/application/actioncreators/genericactioncreators.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/js/application/components/facebookwall/facebookwallcontainer.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/js/application/constants/genericconstants.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/js/application/constants/typeconstants.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/js/application/store/util/crud.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/assets/fonts/FontAwesome.otf" afterPath="$PROJECT_DIR$/src/client/assets/fonts/FontAwesome.otf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/assets/fonts/fontawesome-webfont.eot" afterPath="$PROJECT_DIR$/src/client/assets/fonts/fontawesome-webfont.eot" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/assets/fonts/fontawesome-webfont.ttf" afterPath="$PROJECT_DIR$/src/client/assets/fonts/fontawesome-webfont.ttf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/assets/fonts/fontawesome-webfont.woff" afterPath="$PROJECT_DIR$/src/client/assets/fonts/fontawesome-webfont.woff" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/assets/fonts/fontawesome-webfont.woff2" afterPath="$PROJECT_DIR$/src/client/assets/fonts/fontawesome-webfont.woff2" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/assets/fonts/fontawesome-webfont.svg" afterPath="$PROJECT_DIR$/src/client/assets/fonts/fontawesome-webfont.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/assets/sass/application.scss" afterPath="$PROJECT_DIR$/src/client/assets/sass/application.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/js/application/actioncreators/postactioncreators.js" afterPath="$PROJECT_DIR$/src/client/js/application/actioncreators/postactioncreators.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/js/application/actioncreators/useractioncreators.js" afterPath="$PROJECT_DIR$/src/client/js/application/actioncreators/useractioncreators.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/js/application/components/facebookwall/facebookwall.js" afterPath="$PROJECT_DIR$/src/client/js/application/components/facebookwall/facebookwall.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/js/application/components/facebookwall/post.js" afterPath="$PROJECT_DIR$/src/client/js/application/components/facebookwall/post.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/js/application/components/facebookwall/postinput.js" afterPath="$PROJECT_DIR$/src/client/js/application/components/facebookwall/postinput.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/js/application/components/frontpage.js" afterPath="$PROJECT_DIR$/src/client/js/application/components/frontpage.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/js/application/index.js" afterPath="$PROJECT_DIR$/src/client/js/application/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/js/application/store/configurestore.js" afterPath="$PROJECT_DIR$/src/client/js/application/store/configurestore.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/js/application/store/reducers/posts.js" afterPath="$PROJECT_DIR$/src/client/js/application/store/reducers/posts.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/js/application/store/reducers/users.js" afterPath="$PROJECT_DIR$/src/client/js/application/store/reducers/users.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/controllers/api/post/index.js" afterPath="$PROJECT_DIR$/src/server/controllers/api/post/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/controllers/api/post/post.js" afterPath="$PROJECT_DIR$/src/server/controllers/api/post/post.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/index.js" afterPath="$PROJECT_DIR$/src/server/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/model/models/postmodel.js" afterPath="$PROJECT_DIR$/src/server/model/models/postmodel.js" />
-    </list>
+    <list default="true" id="17c7be22-ed4a-4e0d-9065-fd0c3ab7037a" name="Default" comment="" />
     <ignored path="hikingworld.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
