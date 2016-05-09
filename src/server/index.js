@@ -79,6 +79,11 @@ app.use(function(req, res, next) {
 app.use('/', require('./controllers/users'))
 app.use('/api', require('./controllers/api/post/post'))
 
+app.get('*', function(req, res){
+  res.status(404);
+  res.render('err404.ejs');
+});
+
 // STARTING THE HTTP SERVER
 
 app.listen(config.server.port, function() {
