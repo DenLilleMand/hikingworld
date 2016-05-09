@@ -16,7 +16,7 @@ module.exports = {
         }
         req.session.destroy(function(err) {
             res.status(403);
-            res.send("Form tampered with");
+  			res.render('err403.ejs');
         });
     }
 }
