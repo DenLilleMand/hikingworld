@@ -11,7 +11,7 @@
     <a href="login">Sign in</a>
     <a href="register">Sign up</a>    
     <form method="post" action="/register">
-        <input type="hidden" name="_csrf" value=<%- JSON.stringify(csrfToken) %>>
+        <input type="hidden" name="csrf" value=<%- JSON.stringify(csrfToken) %>>
         <label>Username:</label></br>
         <input type="text" name="username" placeholder="username"/></br>
         <label>Password:</label></br>

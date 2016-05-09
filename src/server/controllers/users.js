@@ -18,7 +18,7 @@ router.get('/login', function(req, res) {
 	});
 });
 
-router.post('/login', function(req, res) {
+router.post('/login', authentication.validateCSRFToken, function(req, res) {
 
 	var validationResult = validation.validateLogin(req.body);
 
@@ -45,7 +45,7 @@ router.get('/register', function(req, res) {
 	});
 });
 
-router.post('/register', function(req, res) {
+router.post('/register', authentication.validateCSRFToken, function(req, res) {
 	security.verifyRecaptcha(req.body["g-recaptcha-response"], function(success) {
 		console.log("We are inside the validation");
 		if (success) {
