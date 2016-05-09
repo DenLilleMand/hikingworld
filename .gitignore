@@ -1,5 +1,7 @@
 .idea/*
 src/server/config/configuration/*
+src/server/config/dbconfig.json
+src/server/config/serverconfig.json
 node_modules
 logs/*
 static/*
