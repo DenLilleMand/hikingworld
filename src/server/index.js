@@ -72,18 +72,18 @@ app.use(csrf({
 // CUSTOM ERROR HANDLING WHEN RECEIVING AN INVALID CSRF TOKEN
 
 app.use(function(err, req, res, next) {
-    if (err.code !== 'EBADCSRFTOKEN') return next(err)
+    if (err.code !== 'EBADCSRFTOKEN') return next(err);
 
     req.session.destroy(function(err) {
-        res.status(403)
+        res.status(403);
         res.send('form tampered with')
     });
 });
 
 // SETTING UP THE ROUTES
 
-app.use('/', require('./controllers/users'))
-app.use('/api', require('./controllers/api/post/post'))
+app.use('/', require('./controllers/users'));
+app.use('/api', require('./controllers/api'));
 
 // STARTING THE HTTP SERVER
 

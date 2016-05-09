@@ -1,10 +1,11 @@
 var express = require('express'),
 	router = express.Router(),
-	db = require('../model/db'),
+	db = require('../model/models/db'),
 	validation = require('./validation'),
 	security = require('../util/security.js');
-config = require('../config/configuration/configuration.json'),
+    config = require('../config/configuration/configuration.json'),
 	authentication = require('../util/authentication.js');
+
 
 router.get('/', function(req, res) {
 	res.redirect('/login');
@@ -23,7 +24,7 @@ router.post('/login', function(req, res) {
 	var validationResult = validation.validateLogin(req.body);
 
 	if (validationResult.result) {
-		db.userModel.login(req.body.username, req.body.password, (userSuccess, userMsg) => {
+		db.Accounts.login(req.body.username, req.body.password, (userSuccess, userMsg) => {
 			if (userSuccess) {
 				req.session.authenticated = true;
 				res.redirect('/home');
@@ -51,7 +52,7 @@ router.post('/register', function(req, res) {
 		if (success) {
 			var validationResult = validation.validateRegistration(req.body);
 			if (validationResult.result) {
-				db.userModel.register(req.body.username, req.body.password, (userSuccess, userMsg) => {
+				db.Accounts.register(req.body.username, req.body.password, (userSuccess, userMsg) => {
 					if (userSuccess) {
 						res.redirect('/login?msg=' + encodeURI(userMsg));
 					} else {
@@ -73,7 +74,7 @@ router.get('/verification', function(req, res) {
 	if (!security.validateType(veriUser, 'string') || !security.validateType(checksum, 'string')) {
 		res.send("Error!");
 	} else {
-		db.userModel.verification(veriUser, checksum, (userSuccess, userMsg) => {
+		db.Accounts.verification(veriUser, checksum, (userSuccess, userMsg) => {
 			res.redirect('/login?msg=' + encodeURI(userMsg));
 		});
 	}
@@ -89,4 +90,4 @@ router.get('/logout', authentication.isAuthenticated, function(req, res) {
 	});
 });
 
-module.exports = router
+module.exports = router;

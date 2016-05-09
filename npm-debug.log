@@ -1,7 +1,7 @@
 0 info it worked if it ends with ok
 1 verbose cli [ '/usr/bin/nodejs', '/usr/bin/npm', 'start' ]
-2 info using npm@3.8.3
-3 info using node@v5.10.1
+2 info using npm@3.8.6
+3 info using node@v5.11.1
 4 verbose run-script [ 'prestart', 'start', 'poststart' ]
 5 info lifecycle hikingworld@1.0.0~prestart: hikingworld@1.0.0
 6 silly lifecycle hikingworld@1.0.0~prestart: no script for prestart, continuing
@@ -26,8 +26,8 @@
 16 verbose cwd /home/denlillemand/Documents/hikingworld
 17 error Linux 4.2.0-35-generic
 18 error argv "/usr/bin/nodejs" "/usr/bin/npm" "start"
-19 error node v5.10.1
-20 error npm  v3.8.3
+19 error node v5.11.1
+20 error npm  v3.8.6
 21 error code ELIFECYCLE
 22 error hikingworld@1.0.0 start: `node ./src/server/index.js`
 22 error Exit status 1
