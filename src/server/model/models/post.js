@@ -2,15 +2,14 @@ module.exports = function (sequelize, DataTypes) {
     var Path = require('path');
     var Post = sequelize.define('Post', {
         id: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.INTEGER.UNSIGNED,
             field: 'id',
             primaryKey: true,
             autoIncrement: true
         },
         description: {
             type: DataTypes.STRING(124),
-            field: 'description',
-            unique: false
+            field: 'description'
         },
         createdAt: {
             type: DataTypes.DATE,
@@ -23,10 +22,10 @@ module.exports = function (sequelize, DataTypes) {
     }, {
         tableName: 'post',
         classMethods: {
-            associate: function (models) {
+            associate: (models) => {
                 console.log('post model has no relationships right now');
             },
-            seed: function(models) {
+            seed: (models) => {
                 return Post.bulkCreate([{
                     description:"post1"
                 }, {
@@ -37,47 +36,47 @@ module.exports = function (sequelize, DataTypes) {
                     description: "post4"
                 }]);
             },
-            syncing: function (force) {
+            syncing: (force) => {
                 Post.sync({
                     force: force
-                }).catch(function (error) {
+                }).catch((error) => {
                     console.log('error creating post table:');
                     console.log(error);
                 });
             },
-            create: function (post, models) {
+            createPost: (post, models) => {
                 return Post.create(post);
             },
-            update: function (post, models) {
+            updatePost: (post, models) => {
                 return Post.findOne({
                     where: {
                         id: post.id
                     }
-                }).then(function (persistedPost) {
+                }).then((persistedPost) => {
                     return persistedPost.updateAttributes(post);
-                }).catch(function (error) {
+                }).catch((error) => {
                     console.log("error happended while trying to find and update a post, Date: " + new Date() + " . in path:" + Path.basename(__filename) + " . error was:");
                     console.log(error);
                 });
             },
-            delete: function (post, models) {
+            deletePost: (id, models, query) => {
                 return Post.destroy({
                     where: {
-                        id: post.id
+                        id: id
                     }
                 });
             },
-            getAll: function (models, query) {
+            getAllPosts: (models, query) => {
                 return Post.findAll({});
             },
-            get: function (id, models, query) {
+            getPost: (id, models, query) => {
                 return Post.findOne({
                     where: {
                         id: id
                     }
-                }).then(function (post) {
+                }).then((post) => {
                     return post;
-                }).catch(function (error) {
+                }).catch((error) => {
                     console.log('couldn\'t find the post');
                     console.log(error);
                 });

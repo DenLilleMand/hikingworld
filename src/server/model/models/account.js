@@ -2,19 +2,34 @@ module.exports = function (sequelize, DataTypes) {
     var Path = require('path');
     var Account = sequelize.define('Account', {
         id: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.INTEGER.UNSIGNED,
             field: 'id',
             primaryKey: true,
-            autoIncrement: true
+            autoIncrement: true,
+            unique: true
         },
         username: {
             type: DataTypes.STRING(124),
             field: 'username',
-            unique: true
+            unique: true,
+            allowNull: false
         },
         password: {
             type: DataTypes.STRING(512),
-            field: 'password'
+            field: 'password',
+            allowNull: false
+        },
+        salt: {
+            type: DataTypes.STRING(145),
+            field: 'salt'
+        },
+        verification: {
+            type: DataTypes.BOOLEAN,
+            field: 'verification'
+        },
+        checksum: {
+            type: DataTypes.STRING(145),
+            field: 'checksum'
         }
     }, {
         tableName: 'account',

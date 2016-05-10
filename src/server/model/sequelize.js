@@ -9,10 +9,9 @@ module.exports = function () {
             idle: 1000000
         },
         logging: function() { return false; }, //console.log
-        typeValidation:false
+        typeValidation: false
     });
     return sequelize;
 };
 
 
-/** * Created by denlillemand on 6/15/15.  */

@@ -23,8 +23,8 @@ var express = require('express'),
  */
 api.getAll = (request, response) => {
     var camelizedModel = camelize(request.params.model, IS_FIRST_LETTER_LOWERCASE);
-    if(_.has(db, camelizedModel) && db[camelizedModel].getAll) {
-        return db[camelizedModel].getAll(db, request.query).then((data) => {
+    if(_.has(db, camelizedModel) && db[camelizedModel]["getAll"+camelizedModel+"s"]) {
+        return db[camelizedModel]["getAll"+camelizedModel+"s"](db, request.query).then((data) => {
             response.append('Content-Type', 'application/json');
             response.append('Accept', 'application/json');
             response.status(200).json({
@@ -49,8 +49,8 @@ api.getAll = (request, response) => {
  */
 api.get = (request, response) => {
     var camelizedModel = camelize(request.params.model, IS_FIRST_LETTER_LOWERCASE);
-    if(_.has(db, camelizedModel) && db[camelizedModel].get) {
-        return db[camelizedModel].get(request.params.id, db, request.query).then((data) => {
+    if(_.has(db, camelizedModel) && db[camelizedModel]["get"+camelizedModel]) {
+        return db[camelizedModel]["get"+camelizedModel](request.params.id, db, request.query).then((data) => {
             response.append('Content-Type', 'application/json');
             response.append('Accept', 'application/json');
             response.status(200).json({
@@ -76,8 +76,8 @@ api.get = (request, response) => {
  */
 api.delete = (request, response) => {
     var camelizedModel = camelize(request.params.model, IS_FIRST_LETTER_LOWERCASE);
-    if(_.has(db, camelizedModel) && db[camelizedModel].delete) {
-        return db[camelizedModel].delete(request.params.id, db, request.query).then(() => {
+    if(_.has(db, camelizedModel) && db[camelizedModel]["delete"+camelizedModel]) {
+        return db[camelizedModel]["delete"+camelizedModel](request.params.id, db, request.query).then(() => {
             response.sendStatus(200);
         }).catch((err) => {
             console.log('Error happended in the HTTP GET api:', err);
@@ -98,8 +98,10 @@ api.delete = (request, response) => {
  */
 api.create = (request, response) => {
     var camelizedModel = camelize(request.params.model, IS_FIRST_LETTER_LOWERCASE);
-    if(_.has(db, camelizedModel) && db[camelizedModel].create) {
-        return db[camelizedModel].create(request.body.data, db).then((data) => {
+    console.log('api.create, called once');
+    console.log('body:', request.body);
+    if(_.has(db, camelizedModel) && db[camelizedModel]["create"+camelizedModel]) {
+        return db[camelizedModel]["create"+camelizedModel](request.body, db).then((data) => {
             response.append('Content-Type', 'application/json');
             response.append('Accept', 'application/json');
             response.status(200).json({
@@ -123,9 +125,10 @@ api.create = (request, response) => {
  * @param response
  */
 api.update = (request, response) => {
+    console.log('body in put:', request.body);
     var camelizedModel = camelize(request.params.model, IS_FIRST_LETTER_LOWERCASE);
-    if(_.has(db, camelizedModel) && db[camelizedModel].update) {
-        return db[camelizedModel].create(request.body.data, db).then((data) => {
+    if(_.has(db, camelizedModel) && db[camelizedModel]["update"+camelizedModel]){
+        return db[camelizedModel]["update"+camelizedModel](request.body, db).then((data) => {
             response.append('Content-Type', 'application/json');
             response.append('Accept', 'application/json');
             response.status(201).json({

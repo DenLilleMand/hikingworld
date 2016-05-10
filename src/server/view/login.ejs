@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Hiking world</title>
-    <link type="text/css" rel="stylesheet" href="static/application.css" />
+    <link type="text/css" rel="stylesheet" href="application.css" />
 </head>
 <body>
     <h1>hiking world login</h1>
     <a href="login">Sign in</a>
     <a href="register">Sign up</a>
     <form method="post" action="/login">
-        <input type="hidden" name="_csrf" value=<%- JSON.stringify(csrfToken) %>>
+        <input type="hidden" name="csrf" value=<%- JSON.stringify(csrfToken) %>>
         <label>Username:</label></br>
         <input type="text" name="username" placeholder="username"/></br>
         <label>Password:</label></br>

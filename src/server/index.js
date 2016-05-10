@@ -7,10 +7,11 @@ var MySQLStore = require('express-mysql-session')(session);
 var app = express();
 var ejs = require('ejs');
 var helmet = require('helmet');
-var csrf = require('csurf');
+var cryptoHandler = require('./util/cryptohandler.js');
 
 app.set('views', __dirname + '/view');
 app.set('view engine', 'ejs');
+app.use(express.static("static"));
 
 // CONTENT-SECURITY-POLICY
 
@@ -63,27 +64,29 @@ app.use(session({
     }
 }));
 
-// CROSS-SITE REQUEST FORGERY PREVENTION MIDDLEWARE
-
-app.use(csrf({
-    cookie: false
-}));
-
 // CUSTOM ERROR HANDLING WHEN RECEIVING AN INVALID CSRF TOKEN
 
-app.use(function(err, req, res, next) {
-    if (err.code !== 'EBADCSRFTOKEN') return next(err);
-
-    req.session.destroy(function(err) {
-        res.status(403);
-        res.send('form tampered with')
-    });
+app.use(function(req, res, next) {
+    req.csrfToken = function() {
+        var hash = cryptoHandler.generateSalt();
+        req.session.csrfSecret = hash;
+        return hash;
+    };
+    next();
 });
 
 // SETTING UP THE ROUTES
 
 app.use('/', require('./controllers/users'));
 app.use('/api', require('./controllers/api'));
+
+
+// 404 ERROR IF ROUTE IS NOT FOUND. THIS CODE HAS TO BE AFTER ROUTES
+
+app.get('*', function(req, res){
+  res.status(404);
+  res.render('err404.ejs');
+});
 
 // STARTING THE HTTP SERVER
 
