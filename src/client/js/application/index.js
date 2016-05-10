@@ -14,7 +14,7 @@ console.log('getState():', store.getState());
 ReactDOM.render((
     <Provider store={store}>
         <Router history={browserHistory}>
-            <Route path={'/'} component={Application}>
+            <Route path={'/home'} component={Application}>
                 <IndexRoute component={FrontPage}/>
             </Route>
         </Router>
