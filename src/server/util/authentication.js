@@ -9,18 +9,21 @@ module.exports = {
         res.redirect('/');
     },
     validateCSRFToken: function(req, res, next) {
-        if(config.csrf.isDisabled) {
+        if(config.csrf && config.csrf.isDisabled) {
             next();
-        }
-        if (req.session && req.session.csrfSecret) {
-            if (req.session.csrfSecret === req.body.csrf) {
-                console.log("Token is good!");
-                return next();
+        } else {
+            if (req.session && req.session.csrfSecret) {
+                if (req.session.csrfSecret === req.body.csrf) {
+                    console.log("Token is good!");
+                    return next();
+                }
             }
+            req.session.destroy(function(err) {
+                res.status(403);
+                res.render('err403.ejs');
+            });
+
         }
-        req.session.destroy(function(err) {
-            res.status(403);
-  			res.render('err403.ejs');
-        });
+
     }
 };

@@ -61,6 +61,7 @@ module.exports = (pool) => {
 
                 if (rows.length === 1) {
                     connection.release();
+                    console.log('herpderp');
                     return callback(false, "User already exist");
                 }
 
@@ -77,6 +78,7 @@ module.exports = (pool) => {
                     connection.query('INSERT INTO account (username, password, salt, verification, checksum) VALUES (?, ?, ?, false, ?)', [username, hashedAndSaltedPassword, salt, emailChecksum], function(err, rows, field) {
                         if (err) {
                             connection.rollback(function() {
+                                console.log('herpderp');
                                 return callback(false, "An unexpected error happened");
                             });
                         }
@@ -86,12 +88,14 @@ module.exports = (pool) => {
                         connection.query('INSERT INTO attempts (username, attempts, lastLogin) VALUES (?, 0, ?)', [username, dateNow], function(err, rows, field) {
                             if (err) {
                                 connection.rollback(function() {
+                                    console.log('herpderp');
                                     return callback(false, "An unexpected error happened");
                                 });
                             }
                             connection.commit(function(err) {
                                 if (err) {
                                     connection.rollback(function() {
+                                        console.log('herpderp');
                                         return callback(false, "An unexpected error happened");
                                     });
                                 }
@@ -99,6 +103,7 @@ module.exports = (pool) => {
                                 connection.release();
                                 var urlToSend = encodeURI(mailer.getAddress() + 'verification?un=' + username + '&cs=' + emailChecksum);
                                 mailer.sendMail(username, urlToSend);
+                                console.log('herpderp');
                                 return callback(true, "User created");
                             });
                         });
