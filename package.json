@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "./node_modules/.bin/mocha --recursive -R xunit test/ > test-reports.xml",
+    "test": "./node_modules/.bin/mocha --recursive --compilers js:babel-register -R xunit test/ > test-reports.xml",
     "legacy-test": "mocha --reporter mocha-tap-reporter --recursive --compilers js:babel-register",
     "start": "node ./src/server/index.js",
     "proxy": "node ./src/proxy/index.js",
