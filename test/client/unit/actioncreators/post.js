@@ -5,53 +5,6 @@ import { CREATE_POST, UPDATE_POST, DELETE_POST, GET_ALL_POSTS } from '../../../.
 
 describe('post action creators', () => {
     describe('When called with valid input', () => {
-        describe('async create', () => {
-            it('It should not throw an error', (done) => {
-                assert.isTrue(false);
-
-                done();
-            });
-            it('It should return the correct action', (done) => {
-
-                assert.isTrue(false);
-                done();
-            });
-        });
-        describe('async update', () => {
-            it('It should not throw an error', (done) => {
-
-                assert.isTrue(false);
-                done();
-            });
-            it('It should return the correct action', (done) => {
-
-                assert.isTrue(false);
-                done();
-            });
-        });
-        describe('async delete', () => {
-            it('It should not throw an error', (done) => {
-
-                assert.isTrue(false);
-                done();
-            });
-            it('It should return the correct action', (done) => {
-                assert.isTrue(false);
-                done();
-            });
-        });
-        describe('async getAll', () => {
-            it('It should not throw an error', (done) => {
-
-                assert.isTrue(false);
-                done();
-            });
-            it('It should return the correct action', (done) => {
-                assert.isTrue(false);
-                done();
-            });
-
-        });
         describe('create', () => {
             var post = null;
             beforeEach(() => {
@@ -78,54 +31,5 @@ describe('post action creators', () => {
                 done();
             });
         });
-        describe('update', () => {
-            it('It should not throw an error', (done) => {
-                assert.isTrue(false);
-                done();
-            });
-            it('It should return the correct action', (done) => {
-                assert.isTrue(false);
-                done();
-            });
-        });
-        describe('delete', () => {
-            it('It should not throw an error', (done) => {
-                assert.isTrue(false);
-                done();
-            });
-            it('It should return the correct action', (done) => {
-                assert.isTrue(false);
-                done();
-            });
-        });
-        describe('getAll', () => {
-            it('It should not throw an error', (done) => {
-                assert.isTrue(false);
-                done();
-
-            });
-            it('It should return the correct action', (done) => {
-                assert.isTrue(false);
-                done();
-
-            });
-
-        });
     });
-
-    describe('When called with invalid input', () => {
-        describe('create', () => {
-            it('It should throw a type error', (done) => {
-                assert.isTrue(false);
-            });
-        });
-        describe('update', () => {
-        });
-        describe('delete', () => {
-        });
-        describe('getAll', () => {
-        });
-
-    });
-
 });

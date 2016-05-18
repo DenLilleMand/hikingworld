@@ -12,10 +12,8 @@ module.exports = {
             res.on('end', function() {
                 try {
                     var parsedData = JSON.parse(data);
-                    console.log('some callback will be called');
                     callback(parsedData.success);
                 } catch (e) {
-                    console.log('some callback will be called');
                     callback(false);
                 }
             });

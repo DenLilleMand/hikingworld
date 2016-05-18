@@ -22,7 +22,6 @@ export default class FacebookWall extends React.Component {
     componentWillReceiveProps(props) {
         this.setState({
             posts: props.posts.slice().map((post) => {
-                /** @TODO: Any changes to the post object */
                 post.createdAtDate = new Date(post.createdAt);
                 post.updatedAtDate = new Date(post.updatedAt);
                 return post;

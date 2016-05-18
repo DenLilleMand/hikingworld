@@ -35,7 +35,7 @@ module.exports = function (sequelize, DataTypes) {
         tableName: 'account',
         classMethods: {
             associate: function (models) {
-                console.log('account model has no relationships right now');
+                Account.hasMany(models.Sessions, {foreignKey: 'fk_account_sessions'});
             },
             syncing: function (force) {
                 Account.sync({
