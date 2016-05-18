@@ -1,6 +1,7 @@
 import superagent from 'superagent';
 import { REMOTE_URL } from '../constants/remoteconstants';
-import { CREATE_POST, DELETE_POST, GET_POSTS } from '../store/reducers/posts';
+import { CREATE_, DELETE_, GET_, UPDATE_ } from '../constants/genericconstants';
+import { POST } from '../constants/typeconstants';
 
 class PostActionCreators {
 
@@ -36,7 +37,7 @@ class PostActionCreators {
 
     createPost(post) {
         return {
-            type: CREATE_POST,
+            type: CREATE_ + POST,
             data: {
                 post
             }
@@ -61,7 +62,7 @@ class PostActionCreators {
 
     deletePost(id) {
         return {
-            type: DELETE_POST,
+            type: DELETE_ + POST,
             id
         }
 
@@ -102,14 +103,19 @@ class PostActionCreators {
 
     getPosts(posts) {
         return {
-            type: GET_POSTS,
+            type: GET_ + POST,
             posts
         }
     }
 
 
     updatePost(post, user) {
-
+        return {
+            type: UPDATE_ + POST,
+            data: {
+                post
+            }
+        }
     }
 
     getPost(id, user) {

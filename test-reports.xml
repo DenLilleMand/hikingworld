@@ -1,8 +1,8 @@
-attempts model has no relationships right now
-post model has no relationships right now
-<testsuite name="Mocha Tests" tests="4" failures="0" errors="0" skipped="0" timestamp="Wed, 18 May 2016 20:23:37 GMT" time="0.168">
+<testsuite name="Mocha Tests" tests="6" failures="0" errors="0" skipped="0" timestamp="Wed, 18 May 2016 20:52:27 GMT" time="0.161">
 <testcase classname="post action creators When called with valid input create" name="It should not throw an error" time="0"/>
 <testcase classname="post action creators When called with valid input create" name="It should return the correct action" time="0.001"/>
-<testcase classname="account and session relationship When creating a session, and we want to add an account fk  The sequelize persisted session" name="has to have a setAccount method " time="0.036"/>
-<testcase classname="account and session relationship When creating a session, and we want to add an account fk  The sequelize persisted session" name="has to have a getAccount method" time="0.025"/>
+<testcase classname="post action creators When called with valid input update" name="It should not throw an error" time="0"/>
+<testcase classname="post action creators When called with valid input update" name="It should return the correct action" time="0"/>
+<testcase classname="account and session relationship When creating a session, and we want to add an account fk  The sequelize persisted session" name="has to have a setAccount method " time="0.033"/>
+<testcase classname="account and session relationship When creating a session, and we want to add an account fk  The sequelize persisted session" name="has to have a getAccount method" time="0.037"/>
 </testsuite>
