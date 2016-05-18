@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="17c7be22-ed4a-4e0d-9065-fd0c3ab7037a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project_files/legacy_test/post.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/server/model/models/sessions.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/server/unit/database/account_session_relationship.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/server/unit/test.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/js/application/components/facebookwall/facebookwall.js" afterPath="$PROJECT_DIR$/src/client/js/application/components/facebookwall/facebookwall.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/js/application/components/facebookwall/postinput.js" afterPath="$PROJECT_DIR$/src/client/js/application/components/facebookwall/postinput.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/model/models/account.js" afterPath="$PROJECT_DIR$/src/server/model/models/account.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/util/security.js" afterPath="$PROJECT_DIR$/src/server/util/security.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/client/unit/actioncreators/post.js" afterPath="$PROJECT_DIR$/test/client/unit/actioncreators/post.js" />
-    </list>
+    <list default="true" id="17c7be22-ed4a-4e0d-9065-fd0c3ab7037a" name="Default" comment="" />
     <ignored path="hikingworld.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -57,8 +45,8 @@
       <file leaf-file-name="package.json" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.1637931">
-              <caret line="9" column="85" selection-start-line="9" selection-start-column="85" selection-end-line="9" selection-end-column="85" />
+            <state vertical-scroll-proportion="0.36398467">
+              <caret line="20" column="29" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -245,6 +233,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -393,7 +382,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -863,7 +851,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -941,8 +928,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1637931">
-          <caret line="9" column="85" selection-start-line="9" selection-start-column="85" selection-end-line="9" selection-end-column="85" />
+        <state vertical-scroll-proportion="0.36398467">
+          <caret line="20" column="29" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
           <folding />
         </state>
       </provider>
