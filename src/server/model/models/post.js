@@ -23,7 +23,7 @@ module.exports = function (sequelize, DataTypes) {
         tableName: 'post',
         classMethods: {
             associate: (models) => {
-                console.log('post model has no relationships right now');
+                //console.log('post model has no relationships right now');
             },
             seed: (models) => {
                 return Post.bulkCreate([{

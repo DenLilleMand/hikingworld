@@ -25,7 +25,7 @@ module.exports = function (sequelize, DataTypes) {
         tableName: 'attempts',
         classMethods: {
             associate: function (models) {
-                console.log('attempts model has no relationships right now');
+                //console.log('attempts model has no relationships right now');
             },
             syncing: function (force) {
                 Attempt.sync({
