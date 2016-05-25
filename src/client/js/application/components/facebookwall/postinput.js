@@ -7,6 +7,17 @@ export default class PostInput extends React.Component {
         this.state = {
             description: ''
         };
+        this.submitPost = this.submitPost.bind(this);
+    }
+
+    submitPost(event) {
+        event.preventDefault();
+        this.props.createPost({
+            description: this.state.description
+        }, this.props.user, POST);
+        this.setState({
+            description: ''
+        });
     }
 
     render() {
@@ -17,7 +28,7 @@ export default class PostInput extends React.Component {
                 <div className="panel-body">
                     <label>description:</label>
                     <input onChange={(event) => { this.setState({description:event.target.value})}} placeholder="description" value={this.state.description} />
-                    <button onClick={(event) => this.props.createPost({description:this.state.description},this.props.user, POST) }>Opret rute</button>
+                    <button onClick={this.submitPost}>Opret rute</button>
                 </div>
             </div>
         );

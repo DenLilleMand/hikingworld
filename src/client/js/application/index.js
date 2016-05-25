@@ -4,7 +4,7 @@ import Application from './components/application';
 
 import FrontPage from './components/frontpage';
 import { Provider } from 'react-redux';
-import { Router, Route, IndexRoute, hashHistory } from 'react-router';
+import { Router, Route, IndexRoute, hashHistory, browserHistory } from 'react-router';
 import configureStore from './store/configurestore.js';
 
 const store = configureStore();
@@ -13,8 +13,8 @@ console.log('getState():', store.getState());
 
 ReactDOM.render((
     <Provider store={store}>
-        <Router history={hashHistory}>
-            <Route path={'/'} component={Application}>
+        <Router history={browserHistory}>
+            <Route path={'/home'} component={Application}>
                 <IndexRoute component={FrontPage}/>
             </Route>
         </Router>

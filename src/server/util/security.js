@@ -22,4 +22,4 @@ module.exports = {
     validateType: function(value, type) {
         return typeof value === type;
     }
-}
+};

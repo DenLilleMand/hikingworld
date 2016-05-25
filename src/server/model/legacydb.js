@@ -10,16 +10,8 @@ var pool = mysql.createPool({
 });
 
 module.exports = {
-    userModel: require('./models/usermodel')(pool),
-    postModel: require('./models/postmodel')(pool)
+    userModel: require('./usermodel')(pool)
 };
-
-
-
-
-
-
-
 
 
 

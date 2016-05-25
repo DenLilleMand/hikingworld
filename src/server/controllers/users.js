@@ -1,10 +1,11 @@
 var express = require('express'),
 	router = express.Router(),
-	db = require('../model/db'),
+	db = require('../model/legacydb'),
 	validation = require('./validation'),
 	security = require('../util/security.js');
-config = require('../config/configuration/configuration.json'),
+    config = require('../config/configuration/configuration.json'),
 	authentication = require('../util/authentication.js');
+
 
 router.get('/', function(req, res) {
 	res.redirect('/login');
@@ -43,6 +44,7 @@ router.get('/register', function(req, res) {
 		key: config.captcha.clientkey,
 		csrfToken: req.csrfToken()
 	});
+	console.log('herp')
 });
 
 router.post('/register', authentication.validateCSRFToken, function(req, res) {
@@ -52,6 +54,7 @@ router.post('/register', authentication.validateCSRFToken, function(req, res) {
 			var validationResult = validation.validateRegistration(req.body);
 			if (validationResult.result) {
 				db.userModel.register(req.body.username, req.body.password, (userSuccess, userMsg) => {
+					console.log('calling callback!!!')
 					if (userSuccess) {
 						res.redirect('/login?msg=' + encodeURI(userMsg));
 					} else {
@@ -89,4 +92,4 @@ router.get('/logout', authentication.isAuthenticated, function(req, res) {
 	});
 });
 
-module.exports = router
+module.exports = router;

@@ -1,0 +1,10 @@
+@TODO: NGINX(configuration, load balancing, static files)  (Nikolaj, Matti)
+@TODO: ORM(especially migrations and auto-generation of database) (Matti)
+@TODO: Localization  (Victor)
+@TODO: Generic error pages (Victor)
+@TODO: Facebook wall (Matti)
+@TODO: Profile page (Victor)
+@TODO: Test (everybody)
+@TODO: Configuration of Dannys server (relies a bit on the NGINX configuration and load balancing,
+    but someone could make sure that SSH is properly configured e.g. doesn't accept passwords,  that the mysql database
+    works etc.

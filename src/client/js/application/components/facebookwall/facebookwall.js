@@ -4,15 +4,29 @@ import _ from 'lodash';
 import Post from './post';
 import PostInput from './postinput';
 import { POST } from '../../constants/typeconstants';
+import Moment from 'moment';
 
 export default class FacebookWall extends React.Component {
     constructor(props, context) {
         super(props, context);
-        this.state = {};
+        this.state = {
+            posts: []
+        };
     }
 
     componentDidMount() {
         this.props.getPosts({}, POST);
+        //this.props.getUser(session.key);
+    }
+
+    componentWillReceiveProps(props) {
+        this.setState({
+            posts: props.posts.slice().map((post) => {
+                post.createdAtDate = new Date(post.createdAt);
+                post.updatedAtDate = new Date(post.updatedAt);
+                return post;
+            })
+        });
     }
 
     render() {
@@ -21,10 +35,15 @@ export default class FacebookWall extends React.Component {
             username: "denlillemand",
             image: '/denlillemand'
         };
+
+        let sortedPosts = this.state.posts.sort((a, b ) => {
+            return b.createdAtDate - a.createdAtDate;
+        });
+
         return(
             <div className="facebook-wall container">
                 <PostInput createPost={this.props.createPost}  user={user} />
-                {this.props.posts.map((post) => {
+                {sortedPosts.map((post) => {
                     return (<Post user={user} post={post} />);
                 })}
             </div>

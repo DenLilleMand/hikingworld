@@ -64,7 +64,7 @@ app.use(session({
     }
 }));
 
-// CROSS-SITE REQUEST FORGERY PREVENTION MIDDLEWARE
+// CUSTOM ERROR HANDLING WHEN RECEIVING AN INVALID CSRF TOKEN
 
 app.use(function(req, res, next) {
     req.csrfToken = function() {
@@ -72,14 +72,14 @@ app.use(function(req, res, next) {
         var hash = cryptoHandler.generateSalt();
         req.session.csrfSecret = hash;
         return hash;
-    }
+    };
     next();
 });
 
 // SETTING UP THE ROUTES
 
-app.use('/', require('./controllers/users'))
-app.use('/api', require('./controllers/api/post/post'))
+app.use('/', require('./controllers/users'));
+app.use('/api', require('./controllers/api'));
 
 
 // 404 ERROR IF ROUTE IS NOT FOUND. THIS CODE HAS TO BE AFTER ROUTES

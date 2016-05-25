@@ -35,10 +35,10 @@ class GenericActionCreators {
                 .set('Content-Type','application/json')
                 .set('Accept', 'application/json')
                 .send(data)
-                .end(function(err, res) {
+                .end((err, res) => {
                 if(res.statusCode === 200) {
                     console.log('res:', res);
-                    dispatch(this.create(res.body,type));
+                    dispatch(this.create(res.body.data,type));
                 } else {
                     dispatch(this.error(
                         ERROR_+type.toUpperCase(),
@@ -64,9 +64,9 @@ class GenericActionCreators {
      */
     asyncUpdate(data, user, type) {
         return (dispatch) => {
-            superagent.put(API_ENDPOINT+type.toLowerCase()+SEPARATOR+id).send(data).end(function(err, resp) {
-                if(resp.status === 200) {
-                    dispatch(this.update(resp.body.content,type));
+            superagent.put(API_ENDPOINT+type.toLowerCase()+SEPARATOR+id).send(data).end((err, res) => {
+                if(res.status === 200) {
+                    dispatch(this.update(res.body.data,type));
                 } else {
                     dispatch(this.error(ERROR_+type.toUpperCase()));
                 }
@@ -89,11 +89,11 @@ class GenericActionCreators {
      */
     asyncDelete(id, user, type) {
         return (dispatch) => {
-            superagent.del(API_ENDPOINT+type.toLowerCase()+SEPARATOR+id).end(function(err, resp) {
-                if(resp.status === 200 ) {
+            superagent.del(API_ENDPOINT+type.toLowerCase()+SEPARATOR+id).end((err, res) => {
+                if(res.status === 200 ) {
                     dispatch(this.delete(id,type));
                 } else {
-                    dispatch(this.error(ERROR_+type.toUpperCase(), resp.body));
+                    dispatch(this.error(ERROR_+type.toUpperCase(), res.body));
                 }
             });
         }
