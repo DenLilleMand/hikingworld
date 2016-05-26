@@ -21,8 +21,7 @@ module.exports = {
             req.session.destroy(function(err) {
                 res.status(403);
                 res.render('err403.ejs');
-            });
-            
+            });            
         }
 
     }
