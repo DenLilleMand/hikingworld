@@ -4,7 +4,7 @@ module.exports = {
         if (req.session && req.session.authenticated) {
             return next();
         }
-        // IF A USER ISN'T LOGGED IN, THEN REDIRECT THEM SOMEWHERE
+        // IF A USER ISN'T LOGGED IN, THEN REDIRECT THEM TO SIGN IN
         console.log("This user is not authenticated!");
         res.redirect('/');
     },
