@@ -168,6 +168,7 @@ module.exports = (pool) => {
 
         });
     };
+    
     module.changePassword = (username, password, callback) => {
         console.log('validate reset in the userModel was called');
         pool.getConnection((err, connection) => {
