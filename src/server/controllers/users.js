@@ -37,16 +37,6 @@ router.post('/login', authentication.validateCSRFToken, function(req, res) {
 	}
 });
 
-/*router.get('/register', function(req, res) {
-	var passedMsg = req.query.msg;
-	res.render('register', {
-		msg: passedMsg,
-		key: config.captcha.clientkey,
-		csrfToken: req.csrfToken()
-	});
-	console.log('herp')
-});*/
-
 router.post('/register', authentication.validateCSRFToken, function(req, res) {
 	security.verifyRecaptcha(req.body["g-recaptcha-response"], function(success) {
 		console.log("We are inside the validation");
@@ -81,6 +71,7 @@ router.get('/verification', function(req, res) {
 		});
 	}
 });
+
 
 router.get('/home', authentication.isAuthenticated, function(req, res) {
 	res.render('home');
