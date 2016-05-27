@@ -67,7 +67,7 @@ router.get('/passwordrecovery', function(req, res) {
 	});
 });
 
-router.post('/passwordrecovery', function(req, res) {
+router.post('/passwordrecovery', authentication.validateCSRFToken, function(req, res) {	
 	res.render('passwordrecovery');
 });
 
