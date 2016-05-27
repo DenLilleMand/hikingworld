@@ -165,6 +165,7 @@ module.exports = (pool) => {
                     return callback(false, "reset failure");
                 }
             });
+            
         });
     };
     module.changePassword = (username, password, callback) => {
