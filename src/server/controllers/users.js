@@ -60,6 +60,17 @@ router.post('/register', authentication.validateCSRFToken, function(req, res) {
 	});
 });
 
+router.get('/passwordrecovery', function(req, res) {
+	res.render('passwordrecovery', {
+		msg: "",
+		csrfToken: req.csrfToken()
+	});
+});
+
+router.post('/passwordrecovery', function(req, res) {
+	res.render('passwordrecovery');
+});
+
 router.get('/verification', function(req, res) {
 	var veriUser = req.query.un;
 	var checksum = req.query.cs;
