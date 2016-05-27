@@ -157,7 +157,7 @@ module.exports = (pool) => {
                     throw err;
                 }
 
-                if (rows[0].checksum === checksum) {
+                if (rows[0] != null && rows[0].checksum === checksum) {
                     connection.release();
                     return callback(true, "reset success");
                 } else {
@@ -165,7 +165,7 @@ module.exports = (pool) => {
                     return callback(false, "reset failure");
                 }
             });
-            
+
         });
     };
     module.changePassword = (username, password, callback) => {
