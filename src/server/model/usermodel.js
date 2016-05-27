@@ -127,22 +127,60 @@ module.exports = (pool) => {
             });
         });
     };
-    module.recoverpassword = (username, callback) => {
-        console.log('recover password in the userModel was called');
+    module.resetPassword = (username, callback) => {
+        console.log('reset password in the userModel was called');
         pool.getConnection((err, connection) => {
             connection.query('SELECT count(*) as total FROM account WHERE username = ? limit 1', [username], (err, rows, fields) => {
                 if (err) {
                     throw err;
-                }                
+                }
                 if (rows[0].total === 1) {
-                    var emailChecksum = pwdHandler.generateSalt();
-                    var urlToSend = encodeURI(mailer.getAddress() + 'reset?un=' + username + '&cs=' + emailChecksum);
+                    var resetChecksum = pwdHandler.generateSalt();
+                    var urlToSend = encodeURI(mailer.getAddress() + 'reset?un=' + username + '&cs=' + resetChecksum);
                     mailer.sendMail(username, urlToSend, "Password reset");
-                    return callback(true, "An e-mail has been sent to your address");
+                    connection.query('UPDATE account SET verification = false, checksum = ? where username = ?', [resetChecksum, username], (err, rows, fields) => {
+                        connection.release();
+                        return callback(true, "An e-mail has been sent to your address");
+                    });
                 } else {
                     connection.release();
                     return callback(false, "Not a valid user");
                 }
+            });
+        });
+    };
+    module.validateReset = (username, checksum, callback) => {
+        console.log('validate reset in the userModel was called');
+        pool.getConnection((err, connection) => {
+            connection.query('SELECT checksum FROM account WHERE username = ? limit 1', [username], (err, rows, fields) => {
+                if (err) {
+                    throw err;
+                }
+
+                if (rows[0].checksum === checksum) {
+                    connection.release();
+                    return callback(true, "reset success");
+                } else {
+                    connection.release();
+                    return callback(false, "reset failure");
+                }
+            });
+        });
+    };
+    module.changePassword = (username, password, callback) => {
+        console.log('validate reset in the userModel was called');
+        pool.getConnection((err, connection) => {
+            var salt = pwdHandler.generateSalt();
+
+            var hashedAndSaltedPassword = pwdHandler.hashValue(password + salt);
+
+            connection.query('UPDATE account SET password = ?, salt = ?, verification = true where username = ?', [hashedAndSaltedPassword, salt, username], (err, rows, fields) => {
+                if (err) {
+                    connection.release();
+                    return callback(false, "reset failure");
+                }
+                connection.release();
+                return callback(true, "reset success");
             });
         });
     };
