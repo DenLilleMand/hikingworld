@@ -98,7 +98,7 @@ module.exports = (pool) => {
                                 console.log('Transaction Complete.');
                                 connection.release();
                                 var urlToSend = encodeURI(mailer.getAddress() + 'verification?un=' + username + '&cs=' + emailChecksum);
-                                mailer.sendMail(username, urlToSend);
+                                mailer.sendMail(username, urlToSend, "E-mail verification");
                                 return callback(true, "User created");
                             });
                         });
@@ -123,6 +123,25 @@ module.exports = (pool) => {
                         }
                         return callback(true, "Verification success");
                     });
+                }
+            });
+        });
+    };
+    module.recoverpassword = (username, callback) => {
+        console.log('recover password in the userModel was called');
+        pool.getConnection((err, connection) => {
+            connection.query('SELECT count(*) as total FROM account WHERE username = ? limit 1', [username], (err, rows, fields) => {
+                if (err) {
+                    throw err;
+                }                
+                if (rows[0].total === 1) {
+                    var emailChecksum = pwdHandler.generateSalt();
+                    var urlToSend = encodeURI(mailer.getAddress() + 'reset?un=' + username + '&cs=' + emailChecksum);
+                    mailer.sendMail(username, urlToSend, "Password reset");
+                    return callback(true, "An e-mail has been sent to your address");
+                } else {
+                    connection.release();
+                    return callback(false, "Not a valid user");
                 }
             });
         });

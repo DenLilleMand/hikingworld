@@ -61,14 +61,24 @@ router.post('/register', authentication.validateCSRFToken, function(req, res) {
 });
 
 router.get('/passwordrecovery', function(req, res) {
+	var passedMsg = req.query.msg;
 	res.render('passwordrecovery', {
-		msg: "",
+		msg: passedMsg,
 		csrfToken: req.csrfToken()
 	});
 });
 
-router.post('/passwordrecovery', authentication.validateCSRFToken, function(req, res) {	
-	res.render('passwordrecovery');
+router.post('/passwordrecovery', authentication.validateCSRFToken, function(req, res) {
+	var email = req.body.email;
+	db.userModel.recoverpassword(email, (userSuccess, userMsg) => {
+		if(userSuccess) {
+			console.log("it went good!");
+			res.redirect('/passwordrecovery?msg=' + encodeURI(userMsg));
+		} else {
+			console.log("It went bad!");
+			res.redirect('/passwordrecovery?msg=' + encodeURI(userMsg));
+		}	
+	});		
 });
 
 router.get('/verification', function(req, res) {
@@ -82,7 +92,6 @@ router.get('/verification', function(req, res) {
 		});
 	}
 });
-
 
 router.get('/home', authentication.isAuthenticated, function(req, res) {
 	res.render('home');

@@ -2,7 +2,7 @@ var mailer = require('nodemailer'),
 	config = require('../config/configuration/configuration.json');
 
 module.exports = {
-	sendMail: function(username, link) {
+	sendMail: function(username, link, subjectMsg) {
 		var transporter = mailer.createTransport({
 			service: 'Gmail',
 			auth: {
@@ -16,7 +16,7 @@ module.exports = {
 		transporter.sendMail({
 			from: config.mail.username,
 			to: username,
-			subject: 'E-mail verification',
+			subject: subjectMsg,
 			text: link
 		});
 

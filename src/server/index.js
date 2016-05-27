@@ -69,7 +69,6 @@ app.use(session({
 
 app.use(function(req, res, next) {
     req.csrfToken = function() {
-        console.log(req);
         var hash = cryptoHandler.generateSalt();
         req.session.csrfSecret = hash;
         return hash;
