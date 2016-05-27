@@ -6,7 +6,6 @@ var express = require('express'),
     config = require('../config/configuration/configuration.json'),
 	authentication = require('../util/authentication.js');
 
-
 /*router.get('/', function(req, res) {
 	res.redirect('/login');
 });*/
