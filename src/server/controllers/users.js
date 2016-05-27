@@ -7,14 +7,15 @@ var express = require('express'),
 	authentication = require('../util/authentication.js');
 
 
-router.get('/', function(req, res) {
+/*router.get('/', function(req, res) {
 	res.redirect('/login');
-});
+});*/
 
-router.get('/login', function(req, res) {
+router.get('/', function(req, res) {
 	var passedMsg = req.query.msg;
 	res.render('login', {
 		msg: passedMsg,
+		key: config.captcha.clientkey,
 		csrfToken: req.csrfToken()
 	});
 });
@@ -29,15 +30,15 @@ router.post('/login', authentication.validateCSRFToken, function(req, res) {
 				req.session.authenticated = true;
 				res.redirect('/home');
 			} else {
-				res.redirect('/login?msg=' + encodeURI(userMsg));
+				res.redirect('/?msg=' + encodeURI(userMsg));
 			}
 		});
 	} else {
-		res.redirect('/login?msg=' + encodeURI(validationResult.msg));
+		res.redirect('/?msg=' + encodeURI(validationResult.msg));
 	}
 });
 
-router.get('/register', function(req, res) {
+/*router.get('/register', function(req, res) {
 	var passedMsg = req.query.msg;
 	res.render('register', {
 		msg: passedMsg,
@@ -45,7 +46,7 @@ router.get('/register', function(req, res) {
 		csrfToken: req.csrfToken()
 	});
 	console.log('herp')
-});
+});*/
 
 router.post('/register', authentication.validateCSRFToken, function(req, res) {
 	security.verifyRecaptcha(req.body["g-recaptcha-response"], function(success) {
@@ -56,16 +57,16 @@ router.post('/register', authentication.validateCSRFToken, function(req, res) {
 				db.userModel.register(req.body.username, req.body.password, (userSuccess, userMsg) => {
 					console.log('calling callback!!!')
 					if (userSuccess) {
-						res.redirect('/login?msg=' + encodeURI(userMsg));
+						res.redirect('/?msg=' + encodeURI(userMsg));
 					} else {
-						res.redirect('/register?msg=' + encodeURI(userMsg));
+						res.redirect('/?msg=' + encodeURI(userMsg));
 					}
 				});
 			} else {
-				res.redirect('/register?msg=' + encodeURI(validationResult.msg));
+				res.redirect('/?msg=' + encodeURI(validationResult.msg));
 			}
 		} else {
-			res.redirect('/register?msg=Incorrectcaptcha');
+			res.redirect('/?msg=Incorrectcaptcha');
 		}
 	});
 });
@@ -77,7 +78,7 @@ router.get('/verification', function(req, res) {
 		res.send("Error!");
 	} else {
 		db.userModel.verification(veriUser, checksum, (userSuccess, userMsg) => {
-			res.redirect('/login?msg=' + encodeURI(userMsg));
+			res.redirect('/?msg=' + encodeURI(userMsg));
 		});
 	}
 });
@@ -88,7 +89,7 @@ router.get('/home', authentication.isAuthenticated, function(req, res) {
 
 router.get('/logout', authentication.isAuthenticated, function(req, res) {
 	req.session.destroy(function(err) {
-		res.redirect('/login');
+		res.redirect('/');
 	});
 });
 
