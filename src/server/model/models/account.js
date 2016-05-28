@@ -19,6 +19,7 @@ module.exports = function (sequelize, DataTypes) {
             field: 'password',
             allowNull: false
         },
+        
         salt: {
             type: DataTypes.STRING(145),
             field: 'salt'
