@@ -10,7 +10,6 @@ module.exports = function (sequelize, DataTypes) {
         expires: {
             type: DataTypes.INTEGER(11).UNSIGNED,
             field: 'expires',
-            allowNull: false
         },
         data: {
             type: DataTypes.TEXT(),
