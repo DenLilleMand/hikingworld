@@ -8,10 +8,21 @@ config = require('../config/configuration/configuration.json'),
 
 router.get('/', function(req, res) {
     var passedMsg = req.query.msg;
+    var action = req.query.action;
+    
+    var classAct1 = action === 'register' ? '' : 'class="active"';
+    var classAct2 = action === 'register' ? 'class="active"' : '';
+    var displayAct1 = action === 'register' ? 'style="display: none;"' :'style="display: block;"';        
+    var displayAct2 = action === 'register' ? 'style="display: block;"' : 'style="display: none;"';
+        
     res.render('login', {
         msg: passedMsg,
         key: config.captcha.clientkey,
-        csrfToken: req.csrfToken()
+        csrfToken: req.csrfToken(),
+        classAction1: classAct1,
+        classAction2: classAct2,
+        displayAction1: displayAct1,
+        displayAction2: displayAct2
     });
 });
 
