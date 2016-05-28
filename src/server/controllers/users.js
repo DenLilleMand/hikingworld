@@ -9,7 +9,7 @@ config = require('../config/configuration/configuration.json'),
 router.get('/', function(req, res) {
     var passedMsg = req.query.msg;
     var action = req.query.action;
-    
+
     var classAct1 = action === 'register' ? '' : 'class="active"';
     var classAct2 = action === 'register' ? 'class="active"' : '';
     var displayAct1 = action === 'register' ? 'style="display: none;"' :'style="display: block;"';        
@@ -55,14 +55,14 @@ router.post('/register', authentication.validateCSRFToken, function(req, res) {
                     if (userSuccess) {
                         res.redirect('/?msg=' + encodeURI(userMsg));
                     } else {
-                        res.redirect('/?msg=' + encodeURI(userMsg));
+                        res.redirect('/?action=register&msg=' + encodeURI(userMsg));
                     }
                 });
             } else {
-                res.redirect('/?msg=' + encodeURI(validationResult.msg));
+                res.redirect('/?action=register&msg=' + encodeURI(validationResult.msg));
             }
         } else {
-            res.redirect('/?msg=Incorrectcaptcha');
+            res.redirect('/?action=register&msg=Incorrectcaptcha');
         }
     });
 });

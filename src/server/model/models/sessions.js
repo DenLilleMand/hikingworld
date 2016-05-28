@@ -4,15 +4,17 @@ module.exports = function (sequelize, DataTypes) {
         sessionId: {
             type:  DataTypes.STRING(255),
             field: 'session_id',
-            primaryKey: true
+            primaryKey: true,
+            allowNull: false
         },
         expires: {
             type: DataTypes.INTEGER(11).UNSIGNED,
-            field: 'expires'
+            field: 'expires',
+            allowNull: false
         },
         data: {
-            type: DataTypes.TEXT('long'),
-            field:'createdAt'
+            type: DataTypes.TEXT(),
+            field:'data'
         }
     }, {
         tableName: 'sessions',

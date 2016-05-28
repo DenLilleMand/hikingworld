@@ -25,11 +25,11 @@ Promise.each(Object.keys(db), (modelName) => {
 }).then(() => {
     return sequelize.sync({force: config.database.force, logging: () => {return true;}});
 }).then(() => {
-    return Promise.each(Object.keys(db), (modelName) => {
+    /*return Promise.each(Object.keys(db), (modelName) => {
         if("seed" in db[modelName]) {
             return db[modelName].seed(db);
         }
-    });
+    });*/
 });
 
 db.sequelize = sequelize;

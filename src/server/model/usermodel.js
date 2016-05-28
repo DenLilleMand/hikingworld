@@ -98,6 +98,7 @@ module.exports = (pool) => {
                                 console.log('Transaction Complete.');
                                 connection.release();
                                 var urlToSend = encodeURI(mailer.getAddress() + 'verification?un=' + username + '&cs=' + emailChecksum);
+                                console.log(urlToSend);
                                 mailer.sendMail(username, urlToSend, "E-mail verification");
                                 return callback(true, "User created");
                             });
@@ -115,14 +116,19 @@ module.exports = (pool) => {
                 if (err) {
                     throw err;
                 }
-
+                console.log("Kommer vi herind?");
+                console.log(rows[0]);
+                console.log(checksum);
                 if (rows[0].checksum === checksum) {
+                    console.log("Kommer vi herind? nummer 2");
                     connection.query('UPDATE account SET verification = true where username = ?', [username], (err, rows, fields) => {
                         if (err) {
                             throw err;
                         }
                         return callback(true, "Verification success");
                     });
+                } else {
+                    return callback(false, "cs error");
                 }
             });
         });

@@ -14,13 +14,13 @@
     "deploy": "forever --verbose start ./src/server/index.js",
     "build": "webpack -d --watch --progress --colors",
     "build-prod": "webpack -p",
+	"victor-migrate": "node_modules/.bin/sequelize db:migrate --url 'mysql://root:Underdown12@localhost/hikingworld' --migrations-path ./src/server/migrations/",    
     "matti-migrate": "node_modules/.bin/sequelize db:migrate --url 'mysql://root:denlilleiceman20@localhost/hiking_world' --migrations-path ./src/server/migrations/",
     "matti-migrate-undo": "node_modules/.bin/sequelize db:migrate:undo --url 'mysql://root:denlilleiceman20@localhost/hiking_world' --migrations-path ./src/server/migrations/",
     "matti-create-migration": "node_modules/.bin/sequelize migration:create --migrations-path ./src/server/migrations/ --url 'mysql://root:denlilleiceman20@localhost/hiking_world' ",
     "create-migration-default": "node_modules/.bin/sequelize migration:create --migrations-path ./src/server/migrations/ --url 'mysql://root:denlilleiceman20@localhost/hiking_world' ",
     "server-migrate": "node_modules/.bin/sequelize db:migrate --url 'mysql://root:denlilleiceman20@localhost/hikingworld' --migrations-path ./src/server/migrations/",
     "server-migrate-undo": "node_modules/.bin/sequelize db:migrate:undo --url 'mysql://root:denlilleiceman20@localhost/hikingworld' --migrations-path ./src/server/migrations/"
-
   },
   "authors": [
     "Matti Andreas Nielsen",
