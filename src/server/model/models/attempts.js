@@ -20,6 +20,16 @@ module.exports = function (sequelize, DataTypes) {
         lastLogin: {
             type: DataTypes.DATE,
             field: 'lastlogin'
+        },
+        createdAt: {
+            type: DataTypes.DATE,
+            field: 'createdAt',
+            allowNull: true
+        },
+        updatedAt: {
+            type: DataTypes.DATE,
+            field: 'createdAt',
+            allowNull: true
         }
     }, {
         tableName: 'attempts',
