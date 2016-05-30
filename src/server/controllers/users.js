@@ -44,7 +44,6 @@ router.get('/register', function(req, res) {
 		key: config.captcha.clientkey,
 		csrfToken: req.csrfToken()
 	});
-	console.log('herp')
 });
 
 router.post('/register', authentication.validateCSRFToken, function(req, res) {
