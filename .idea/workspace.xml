@@ -2,8 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="17c7be22-ed4a-4e0d-9065-fd0c3ab7037a" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/assets/images/piclogin.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/assets/sass/_login.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/server/view/changepassword.ejs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/server/view/partials/head.ejs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/server/view/passwordreset.ejs" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/client/assets/sass/login.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/server/view/register.ejs" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/assets/sass/application.scss" afterPath="$PROJECT_DIR$/src/client/assets/sass/application.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/controllers/users.js" afterPath="$PROJECT_DIR$/src/server/controllers/users.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/index.js" afterPath="$PROJECT_DIR$/src/server/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/migrations/20160510223014-sessions-createdAt-updatedAt-fields-migration.js" afterPath="$PROJECT_DIR$/src/server/migrations/20160510223014-sessions-createdAt-updatedAt-fields-migration.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/model/models/account.js" afterPath="$PROJECT_DIR$/src/server/model/models/account.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/model/models/attempts.js" afterPath="$PROJECT_DIR$/src/server/model/models/attempts.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/model/models/db.js" afterPath="$PROJECT_DIR$/src/server/model/models/db.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/model/models/sessions.js" afterPath="$PROJECT_DIR$/src/server/model/models/sessions.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/model/usermodel.js" afterPath="$PROJECT_DIR$/src/server/model/usermodel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/util/authentication.js" afterPath="$PROJECT_DIR$/src/server/util/authentication.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/util/mailhandler.js" afterPath="$PROJECT_DIR$/src/server/util/mailhandler.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/view/err403.ejs" afterPath="$PROJECT_DIR$/src/server/view/err403.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/view/err404.ejs" afterPath="$PROJECT_DIR$/src/server/view/err404.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/view/login.ejs" afterPath="$PROJECT_DIR$/src/server/view/login.ejs" />
     </list>
     <ignored path="hikingworld.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,18 +45,7 @@
     <favorites_list name="hikingworld" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="users.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/server/controllers/users.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.24042273">
-              <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -877,8 +887,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/server/controllers/users.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24042273">
-          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.95376486">
+          <caret line="157" column="23" selection-start-line="157" selection-start-column="23" selection-end-line="157" selection-end-column="23" />
           <folding />
         </state>
       </provider>

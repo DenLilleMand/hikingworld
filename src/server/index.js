@@ -12,6 +12,7 @@ var cryptoHandler = require('./util/cryptohandler.js');
 app.set('views', __dirname + '/view');
 app.set('view engine', 'ejs');
 app.use(express.static("static"));
+console.log('delete this');
 
 // CONTENT-SECURITY-POLICY
 

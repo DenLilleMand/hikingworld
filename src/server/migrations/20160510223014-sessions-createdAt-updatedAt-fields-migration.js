@@ -11,11 +11,13 @@ module.exports = {
          */
         return queryInterface.addColumn('sessions', 'createdAt', {
             type: Sequelize.DATE,
-            field: 'createdAt'
+            field: 'createdAt',
+            allowNull: true
         }).then(() => {
             return queryInterface.addColumn('sessions', 'updatedAt', {
                 type: Sequelize.DATE,
-                field: 'updatedAt'
+                field: 'updatedAt',
+                allowNull: true
             });
         });
     },

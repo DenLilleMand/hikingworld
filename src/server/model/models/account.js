@@ -19,6 +19,7 @@ module.exports = function (sequelize, DataTypes) {
             field: 'password',
             allowNull: false
         },
+        
         salt: {
             type: DataTypes.STRING(145),
             field: 'salt'
@@ -30,6 +31,16 @@ module.exports = function (sequelize, DataTypes) {
         checksum: {
             type: DataTypes.STRING(145),
             field: 'checksum'
+        },
+        createdAt: {
+            type: DataTypes.DATE,
+            field: 'createdAt',
+            allowNull: true
+        },
+        updatedAt: {
+            type: DataTypes.DATE,
+            field: 'createdAt',
+            allowNull: true
         }
     }, {
         tableName: 'account',

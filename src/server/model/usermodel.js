@@ -98,7 +98,8 @@ module.exports = (pool) => {
                                 console.log('Transaction Complete.');
                                 connection.release();
                                 var urlToSend = encodeURI(mailer.getAddress() + 'verification?un=' + username + '&cs=' + emailChecksum);
-                                mailer.sendMail(username, urlToSend);
+                                console.log(urlToSend);
+                                mailer.sendMail(username, urlToSend, "E-mail verification");
                                 return callback(true, "User created");
                             });
                         });
@@ -115,15 +116,79 @@ module.exports = (pool) => {
                 if (err) {
                     throw err;
                 }
-
+                console.log("Kommer vi herind?");
+                console.log(rows[0]);
+                console.log(checksum);
                 if (rows[0].checksum === checksum) {
+                    console.log("Kommer vi herind? nummer 2");
                     connection.query('UPDATE account SET verification = true where username = ?', [username], (err, rows, fields) => {
                         if (err) {
                             throw err;
                         }
                         return callback(true, "Verification success");
                     });
+                } else {
+                    return callback(false, "cs error");
                 }
+            });
+        });
+    };
+    module.resetPassword = (username, callback) => {
+        console.log('reset password in the userModel was called');
+        pool.getConnection((err, connection) => {
+            connection.query('SELECT count(*) as total FROM account WHERE username = ? limit 1', [username], (err, rows, fields) => {
+                if (err) {
+                    throw err;
+                }
+                if (rows[0].total === 1) {
+                    var resetChecksum = pwdHandler.generateSalt();
+                    var urlToSend = encodeURI(mailer.getAddress() + 'reset?un=' + username + '&cs=' + resetChecksum);
+                    mailer.sendMail(username, urlToSend, "Password reset");
+                    connection.query('UPDATE account SET verification = false, checksum = ? where username = ?', [resetChecksum, username], (err, rows, fields) => {
+                        connection.release();
+                        return callback(true, "An e-mail has been sent to your address");
+                    });
+                } else {
+                    connection.release();
+                    return callback(false, "Not a valid user");
+                }
+            });
+        });
+    };
+    module.validateReset = (username, checksum, callback) => {
+        console.log('validate reset in the userModel was called');
+        pool.getConnection((err, connection) => {
+            connection.query('SELECT checksum FROM account WHERE username = ? limit 1', [username], (err, rows, fields) => {
+                if (err) {
+                    throw err;
+                }
+
+                if (rows[0] != null && rows[0].checksum === checksum) {
+                    connection.release();
+                    return callback(true, "reset success");
+                } else {
+                    connection.release();
+                    return callback(false, "reset failure");
+                }
+            });
+
+        });
+    };
+    
+    module.changePassword = (username, password, callback) => {
+        console.log('validate reset in the userModel was called');
+        pool.getConnection((err, connection) => {
+            var salt = pwdHandler.generateSalt();
+
+            var hashedAndSaltedPassword = pwdHandler.hashValue(password + salt);
+
+            connection.query('UPDATE account SET password = ?, salt = ?, verification = true where username = ?', [hashedAndSaltedPassword, salt, username], (err, rows, fields) => {
+                if (err) {
+                    connection.release();
+                    return callback(false, "reset failure");
+                }
+                connection.release();
+                return callback(true, "reset success");
             });
         });
     };
