@@ -9,7 +9,7 @@ module.exports = function (sequelize, DataTypes) {
         },
         expires: {
             type: DataTypes.INTEGER(11).UNSIGNED,
-            field: 'expires',
+            field: 'expires'
         },
         data: {
             type: DataTypes.TEXT(),
@@ -30,7 +30,6 @@ module.exports = function (sequelize, DataTypes) {
         classMethods: {
             associate: (models) => {
                 Sessions.belongsTo(models.Account);
-
             },
             syncing: (force) => {
                 Sessions.sync({
