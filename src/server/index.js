@@ -14,6 +14,7 @@ app.set('view engine', 'ejs');
 app.use(express.static("static"));
 console.log('delete this');
 
+
 // CONTENT-SECURITY-POLICY
 
 app.use(helmet.csp());
