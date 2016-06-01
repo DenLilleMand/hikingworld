@@ -1,4 +1,20 @@
 hikingworld<br />
+
+How to run this project:
+
+1. Install Node.js version 6.x+
+2. Install Mysql and create a database called hikingworld
+3. cd into the project
+4. Do Npm install
+5. Copy ./src/server/config/defaults/defaultconfiguration.json into ./src/server/config/configuration/configuration.json(You maybe have to create the configuration directory your self before you can copy it) and btw, in the database section you should put force: true the first time you run the application.
+6. Change the newly copied configuration.json file, to something that makes sense, the server and database brackets are the most important
+7. Then you should go inside of package.json and copy the matti-migrate line, right below, you can call it,
+teacher-migrate, change the sql connection string to something that makes sense on your pc, then you should run that command and it will migrate the database, add a few tables and such.
+8.if everything went okay, you should be able to run "npm run build" open another tab and run npm start.  That should work.
+9. if something went wrong, you can honestly see the application live at 188.166.167.22(albeit not the 100% newest) or go to mattinielsen.com 
+which is a pretty current version
+
+
 ===========
 
 In general, the way i imagine the project right now, is that we do a backend completely framework free,

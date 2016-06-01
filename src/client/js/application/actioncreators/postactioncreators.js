@@ -13,11 +13,14 @@ class PostActionCreators {
     }
 
     asyncCreatePost(description, user) {
+        if( typeof description !== 'object'  ) {
+            throw new TypeError("Invalid type:"+typeof description);
+        }
         let post = {
             description
         };
         return (dispatch) => {
-            superagent.post(REMOTE_URL + 'api/post')
+            return superagent.post(REMOTE_URL + 'api/post')
                 .send({
                     post,
                     user
@@ -46,7 +49,7 @@ class PostActionCreators {
 
     asyncDeletePost(id, user) {
         return (dispatch) => {
-            superagent.delete(REMOTE_URL + 'api/post')
+            return superagent.delete(REMOTE_URL + 'api/post')
                 .set('Accept', 'application/json')
                 .set('Content-Type', 'application/json')
                 .end((res, err) => {
@@ -84,7 +87,7 @@ class PostActionCreators {
 
     asyncGetPosts(user) {
         return (dispatch) => {
-            superagent.get(REMOTE_URL + 'api/post')
+            return superagent.get(REMOTE_URL + 'api/post')
                 .set('Accept', 'application/json')
                 .set('Content-Type', 'application/json')
                 .end((res, error) => {

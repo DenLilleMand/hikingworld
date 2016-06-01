@@ -21,7 +21,7 @@ describe('post action creators', () => {
                 postActions.createPost(post);
                 done();
             });
-            it('It should return the correct action', (done) => {
+            it('It should return the correct action', () => {
                 var expectedAction = {
                     type: CREATE_ + POST,
                     data: {
@@ -29,7 +29,6 @@ describe('post action creators', () => {
                     }
                 };
                 expect(postActions.createPost(post)).to.deep.equal(expectedAction);
-                done();
             });
         });
         describe('update', () => {
@@ -57,6 +56,19 @@ describe('post action creators', () => {
                 expect(postActions.updatePost(post)).to.deep.equal(expectedAction);
                 done();
             });
+        });
+    });
+    describe('When called with invalid input', () => {
+        it('Throws a TypeError if the input type for createPost isn\'t a object', (done) => {
+            var spy  = sinon.spy(postActions, 'createPost');
+            assert.throws(() => {postActions.createPost("herpderp")}, TypeError, "Invalid type:string");
+            assert.throws(() => {postActions.createPost(666)}, TypeError, "Invalid type:number");
+            assert.throws(() => {postActions.createPost(666.66)}, TypeError, "Invalid type:number");
+            assert.throws(() => {postActions.createPost()}, TypeError, "Invalid type:undefined");
+            setTimeout(() => {
+                expect(spy.alwaysThrew(TypeError));
+                done();
+            }, 0);
         });
     });
 });
