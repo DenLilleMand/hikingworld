@@ -4,12 +4,14 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     devtool: 'eval',
-    entry: [
-        './src/client/js/application/index.js'
-    ],
+    entry: {
+        application: './src/client/js/application/index.js',
+        registration: './src/client/js/registration/registration.js'
+    },
     output: {
         path: path.join(__dirname, 'static/'),
-        filename: 'bundle.js'
+        filename: '[name].bundle.js',
+        chunkFilename: '[id].js'
     },
     module: {
         loaders: [{

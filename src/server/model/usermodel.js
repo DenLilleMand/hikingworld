@@ -67,9 +67,7 @@ module.exports = (pool) => {
                 var hashedAndSaltedPassword = pwdHandler.hashValue(password + salt);
 
                 var emailChecksum = pwdHandler.generateRandomBytes(32);
-                console.log("salt " + salt);
-                console.log("hash " + hashedAndSaltedPassword);
-                console.log("email " + emailChecksum);
+
                 connection.beginTransaction(function(err) {
                     if (err) {
                         throw err;
