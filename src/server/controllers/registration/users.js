@@ -50,7 +50,7 @@ router.post('/register', authentication.validateCSRFToken, function(req, res) {
         if (success) {
             var validationResult = validation.validateRegistration(req.body);
             if (validationResult.result) {
-                db.userModel.register(req.body.username, req.body.password, (userSuccess, userMsg) => {
+                db.userModel.register(req.body, (userSuccess, userMsg) => {
                     console.log('calling callback!!!')
                     if (userSuccess) {
                         res.redirect('/?msg=' + encodeURI(userMsg));

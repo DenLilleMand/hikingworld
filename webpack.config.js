@@ -44,7 +44,7 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin(),
         new ExtractTextPlugin('[name].css', {
            allChunks:true
-        })
+        })        
     ]
 };
 
