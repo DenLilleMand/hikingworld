@@ -12,7 +12,7 @@ router.get('/', function(req, res) {
 
     var classAct1 = action === 'register' ? '' : 'class="active"';
     var classAct2 = action === 'register' ? 'class="active"' : '';
-    var displayAct1 = action === 'register' ? 'style="display: none;"' :'style="display: block;"';
+    var displayAct1 = action === 'register' ? 'style="display: none;"' : 'style="display: block;"';
     var displayAct2 = action === 'register' ? 'style="display: block;"' : 'style="display: none;"';
 
     res.render('login', {
@@ -146,10 +146,12 @@ router.post('/changepassword', function(req, res) {
 });
 
 router.get('/home', authentication.isAuthenticated, function(req, res) {
-    res.render('home');
+    res.render('home', {        
+        csrfToken: req.csrfToken()
+    });
 });
 
-router.get('/logout', authentication.isAuthenticated, function(req, res) {
+router.post('/logout', authentication.isAuthenticated, authentication.validateCSRFToken, function(req, res) {
     req.session.destroy(function(err) {
         res.redirect('/');
     });

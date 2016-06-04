@@ -1,0 +1,1526 @@
+commit c17f35199ed6b2f3a4ccc6c3bc46e6d29183df80
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Tue May 31 15:50:50 2016 +0200
+
+    Run build
+
+commit e3ee0582bc1b486b5891e110f0192c12def62614
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Mon May 30 16:53:48 2016 +0200
+
+    okay
+
+commit dabd482b1f650d54de7e6a91184ba3cdfa15f176
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Mon May 30 16:52:01 2016 +0200
+
+    herp
+
+commit 9ccb8f5961de9d991fa498a7e92c0afe5e9715eb
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Mon May 30 16:45:36 2016 +0200
+
+    herp
+
+commit 018ff685fbf93f4528005ac9d560757fbdd0beb6
+Merge: 7376fba ef08f11
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Mon May 30 16:40:12 2016 +0200
+
+    herp
+
+commit 7376fba13e0828585b58d6f22078bdf927065f9f
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Mon May 30 16:36:57 2016 +0200
+
+    herp
+
+commit ef08f11f4d776aca73d0376b1500dccbc5b43c1b
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Sat May 28 21:26:38 2016 +0200
+
+    ads
+
+commit c6020c8f792a5ec10e27cd595072856ae795791f
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Sat May 28 21:24:57 2016 +0200
+
+    again
+
+commit a95dd9637e4705533e46e5d38a4130f20c3379ad
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Sat May 28 21:22:15 2016 +0200
+
+    Database modificiations
+
+commit f9a8b887941f188502e0e713ed4b0f5f922cf9f1
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Sat May 28 21:16:59 2016 +0200
+
+    Fixed some database stuff
+
+commit e27bf1a93003808fe27e540a6ff321acea2ee5b6
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Sat May 28 09:49:02 2016 +0200
+
+    Login/registration logic
+
+commit 43319038682b9a0f1ff36072b084fc59fe378bf7
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Sat May 28 00:18:35 2016 +0200
+
+    hre
+
+commit 70aa8be0fc23eb0c2d0dcfd22e3cbaba770f6569
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Fri May 27 23:43:33 2016 +0200
+
+    Added partial views
+
+commit aace07351eca06dadbefdae7ec073522c0c99393
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Fri May 27 23:17:49 2016 +0200
+
+    Fixed an error
+
+commit 390d531c982bfa376719813cb69e74da270e5b6f
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Fri May 27 23:07:47 2016 +0200
+
+    arghh
+
+commit 3e352e27f9fa3ed70f88f5251b9609c29e40508d
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Fri May 27 23:05:19 2016 +0200
+
+    Password reset and change done
+
+commit fb3a60f7ae32920ce6f1b4b65b5112f84bdfcbbf
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Fri May 27 21:42:38 2016 +0200
+
+    Password reset
+
+commit 66841bd615f01fee25aff4fe6b35876849fe9bcc
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Fri May 27 21:15:09 2016 +0200
+
+    test
+
+commit 231283e0942abc4a175f3e00e314769da9b8b1a9
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Fri May 27 21:10:54 2016 +0200
+
+    Link from pwdrec to login
+
+commit 231edc39f8579403e809a591397187af69290f00
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Fri May 27 21:06:33 2016 +0200
+
+    Additions to password recovery
+
+commit 8fcf34f16f6f1b492d05e77b8a4c741ddd7f6072
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Fri May 27 20:55:39 2016 +0200
+
+    Password recovery
+
+commit 7e95e1796925cee3c64e1cad8903ebf46684ebb4
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Fri May 27 20:31:38 2016 +0200
+
+    test
+
+commit 7756cf692c0a30c6bfdb99f9afbf57d69e872879
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Fri May 27 20:30:03 2016 +0200
+
+    Does anything work?
+
+commit d015683de9ac5082f319b5c9293d249fd17c2a9d
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Fri May 27 20:28:13 2016 +0200
+
+    test
+
+commit c97b3c2e6acabe7e2c525096bef003abe52d9632
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Fri May 27 20:24:56 2016 +0200
+
+    Top padding login decreased
+
+commit aaeb007f4cb1de304c4dd1a65f443a51e63cfa25
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Fri May 27 20:16:04 2016 +0200
+
+    new login image
+
+commit 45544696e29911aaa34eab7552b01dd6c09886a8
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Fri May 27 20:05:18 2016 +0200
+
+    yea
+
+commit c06c40bbbf90637fef58db0bd8e41c423a76a216
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Fri May 27 19:12:03 2016 +0200
+
+    jenkins get your ass moving
+
+commit d12f29d6a6b80c704cca86774f223a8c3a737f7a
+Merge: b5b2654 0ed2012
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Fri May 27 19:05:42 2016 +0200
+
+    Merge branch 'master' of github.com:DenLilleMand/hikingworld
+
+commit b5b26542053c1dff4c70df1979e1a87372d03777
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Fri May 27 19:05:26 2016 +0200
+
+    Bootstrap implemented on register
+
+commit 0ed2012a266af90b0dce8c34eb2e07bc240c1132
+Author: denlillemand <mattinielsen5@hotmail.com>
+Date:   Thu May 26 21:14:43 2016 +0200
+
+    herp
+
+commit 59a4e1a6f390d425e3c77d8af61f0e241ef35bd9
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Thu May 26 21:03:36 2016 +0200
+
+    Jenkins test 2
+
+commit 7e527b3ef39533381cac85a27ee8888dbc573879
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Thu May 26 21:01:40 2016 +0200
+
+    jenkins test
+
+commit 679accdc52ab27209673ef17feaafc61dd26c8eb
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Thu May 26 20:59:07 2016 +0200
+
+    test
+
+commit bc18103471f639b020e7e36cb5cbf102563b0578
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Thu May 26 20:43:29 2016 +0200
+
+    Clean up
+
+commit de26c207428f930360b3a049f96679c584d94902
+Merge: 0bfedd0 b41e72f
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Wed May 25 10:26:13 2016 +0200
+
+    Merge branch 'master' of github.com:DenLilleMand/hikingworld
+
+commit 0bfedd0d17d411c45e98d6e525a18bc76d024921
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Wed May 25 10:26:07 2016 +0200
+
+    Small changes
+
+commit b41e72f4c578f0a63e7134bc325e2e7600234d77
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Thu May 19 09:29:58 2016 +0200
+
+    jaa
+
+commit 84e24d19b3a21795df10430381477897e223c22d
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Thu May 19 09:25:02 2016 +0200
+
+    herp
+
+commit 888cbfdb4cab4b6bced5963526492e88f243e4c7
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Thu May 19 09:23:42 2016 +0200
+
+    herp
+
+commit c12cdc25b4c024b143aa78374632a8591eff55ca
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Wed May 18 23:02:45 2016 +0200
+
+    everything
+
+commit 413b4892bac94e3a91c758e4c4b4fbed62cc8114
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Wed May 18 22:59:06 2016 +0200
+
+    herp
+
+commit b3154836ee1cfe0383f391f8395e1de55c56d24a
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Wed May 18 22:24:47 2016 +0200
+
+    removed console logs
+
+commit 227c18723130685e19b79edcb418a59d0128f49a
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Wed May 18 22:23:11 2016 +0200
+
+    changed the test command
+
+commit de2b1dbef124080449d049adc2a34d447238260e
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Wed May 18 22:20:34 2016 +0200
+
+    k
+
+commit 6e318ef2597471cf2024ec59f36b8aa2e16191eb
+Merge: ae8e1e5 64cd424
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Wed May 18 22:18:08 2016 +0200
+
+    k
+
+commit 64cd42463d6ad61d8dbcbb17c7ac80cd7d044bb8
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Wed May 18 22:17:05 2016 +0200
+
+    k
+
+commit ae8e1e538428aabfd7ec8a63b0349423c8e625d5
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Wed May 18 22:15:22 2016 +0200
+
+    k
+
+commit 0eb8034c602989ac0577a1deb411d631a34c7849
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Tue May 10 23:13:43 2016 +0200
+
+    adding a post on the wall now instantly updates the wall with the new post.
+
+commit ac98aff4fd3007748f1f3d4b289cb6e72066f6b5
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Tue May 10 21:13:13 2016 +0200
+
+    migrations about to work?
+
+commit ef1119427981c6bbd7b7006d5b0ad8870f8c4271
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Tue May 10 21:06:13 2016 +0200
+
+    herp, deleted migrations
+
+commit 5dc953aa7dd27793c48db1361c7def8a8413ba53
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Tue May 10 20:59:54 2016 +0200
+
+    migrations (lol)
+
+commit 5635d85fc89602533371cc3fce4be2360a17e2bc
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Tue May 10 20:58:30 2016 +0200
+
+    herpderp
+
+commit 11da22d0fef8da0a01f0722d2e6bbd371bf762f2
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Tue May 10 20:53:28 2016 +0200
+
+    still testing migrations
+
+commit 956170e0c8237b42dff531b884ec54cab9a221bb
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Tue May 10 20:48:13 2016 +0200
+
+    herp
+
+commit afd16870b94ae82d87998197232658f1723038e2
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Tue May 10 19:49:46 2016 +0200
+
+    herpderp
+
+commit 4cfbef8363da1ae63b47fdd1b2941f0c0e67af8b
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Tue May 10 19:35:30 2016 +0200
+
+    migrations implementation
+
+commit 7e4f030d0ba45bf03bdc71c94559e2cfd25a5e9e
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Tue May 10 11:42:38 2016 +0200
+
+    deleted a bunch of console.log
+
+commit fe32ac877cb76a0dda8ab074af07844a7569b71a
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Tue May 10 11:41:34 2016 +0200
+
+    herp
+
+commit 6e501bf14fc402334fca22a1106c1903fe4561c8
+Merge: 0b04b05 5b864fc
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Tue May 10 10:22:53 2016 +0200
+
+    Merge branch 'master' of https://github.com/DenLilleMand/hikingworld
+    okay
+
+commit 0b04b0577d1d1adc42f992bd806b1368f26461a2
+Merge: c90c815 ac099b9
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Tue May 10 10:22:48 2016 +0200
+
+    herp
+
+commit 5b864fc3dd1f3f15da3cd7fda324c123c95bc77e
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Mon May 9 13:50:52 2016 +0200
+
+    Generic error page 403
+
+commit c90c815af6d54ed0a672276c0f0e16f2d602f9ad
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Mon May 9 13:07:52 2016 +0200
+
+    herp
+
+commit ac099b9cc38cebcfd2bf6629ba0b5232b7281828
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Mon May 9 12:59:14 2016 +0200
+
+    Modified generic err pages
+
+commit 64292d9913c92a0cd4e9fc4960792fa13046fc6a
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Mon May 9 12:28:51 2016 +0200
+
+    Styled the generic 404 err page
+
+commit 7eef374c174f8b62a5e4e894fa6851514dc13255
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Mon May 9 11:42:39 2016 +0200
+
+    Generic Error page
+
+commit 8067c35a7c656f107b0d6c6557cbbdc5b066a2c3
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Mon May 9 10:43:37 2016 +0200
+
+    Hand written CSRF solution. Frameword discarded
+
+commit 5f4feb12b923dca6983fb46a66de6042537e990a
+Merge: 3eab166 98cfb01
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Mon May 9 09:30:55 2016 +0200
+
+    Merge branch 'master' of https://github.com/DenLilleMand/hikingworld
+    smt smt
+
+commit 3eab16615106c1f9ad01127e8d9fba1d728c7d47
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Mon May 9 09:26:34 2016 +0200
+
+    hmm
+
+commit 98cfb018d4eb5f1cabcdd85e68259513bc1dcf11
+Author: Vilius Janulis <vj@html24.net>
+Date:   Fri May 6 06:29:28 2016 +0200
+
+    Updated git.ignore to not include server/db configurations
+
+commit 9c5fe2be79b1ef5b36d7e438082d65d4920bea70
+Author: Vilius Janulis <vj@html24.net>
+Date:   Fri May 6 06:26:49 2016 +0200
+
+    Config files were not suppose to be on git
+
+commit b90054e53446391d5f8e58bdea968e0d53ad1899
+Author: Vilius Janulis <vj@html24.net>
+Date:   Fri May 6 06:21:50 2016 +0200
+
+    Moved reports / added websecurity
+    
+    Moved reports from root to their own folder - if we will want to keep them under version control
+    Also added Websecurity mandatory assignment, witch will be part of the full report
+
+commit 61002ff49932e878d95793a911ed135cd2a7f0d0
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Mon Apr 25 12:50:33 2016 +0200
+
+    Added folders for server side testing
+
+commit bf0bb2a2d0c878f4324dc22278887844ac914f46
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Mon Apr 25 12:45:25 2016 +0200
+
+    CSRF in session
+
+commit 339b8e0f0e349ccc328fe83092fddec3fd0e5bf0
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Mon Apr 25 12:16:36 2016 +0200
+
+    another test
+
+commit 190c3f673aecb9d308d9dbde6b5473239ddab09c
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Mon Apr 25 12:14:33 2016 +0200
+
+    test
+
+commit 46c2f5a958d5013c2b81cf4465a213aae91f7763
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Mon Apr 25 12:11:43 2016 +0200
+
+    test
+
+commit d496d787ec86f574fb63e3c969ff1be3d97c16ca
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Mon Apr 25 11:43:01 2016 +0200
+
+    tester
+
+commit e4450f83db2a702c4d7179e655b0fec09375bcec
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Mon Apr 25 11:39:21 2016 +0200
+
+    rawr
+
+commit 9e39f1365edaecf2acce1f6ab2b71f7733e38c68
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Mon Apr 25 11:34:32 2016 +0200
+
+    retest
+
+commit f06addfef63a358d9ae4dca422dc5775df1216fe
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Mon Apr 25 11:29:37 2016 +0200
+
+    test
+
+commit 2497a38e8eefc4bae23d84b8d543b4e9097a8879
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Mon Apr 25 11:03:50 2016 +0200
+
+    Updated .gitignore and configuration
+
+commit dc70e529648b135c4232e19a5090af2fff359a08
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Mon Apr 25 11:01:50 2016 +0200
+
+    Updated .gitignore and configuration
+
+commit 1abd8f491fcdb52d8914db2db6f8b036f4b035f5
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Mon Apr 25 10:42:05 2016 +0200
+
+    Another merge fix
+
+commit b244f339effe6e2b158342cc5adef0d93a24adfd
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Mon Apr 25 10:40:50 2016 +0200
+
+    fixed merge
+
+commit c67573a70776c394a36cd9fca81d9667aae7c987
+Merge: 831ee81 2735056
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Mon Apr 25 10:39:19 2016 +0200
+
+    merge of denlillemand-post-crud
+
+commit 27350567e3c7cd30124904992137c5a43e795f84
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Mon Apr 25 10:34:32 2016 +0200
+
+    herp
+
+commit 831ee81537970b6bae90221c475bfc1e94164965
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Mon Apr 25 10:21:43 2016 +0200
+
+    Added Express, single-configuration file etc.
+
+commit 7fc322f3a60248361a4b3356704e90079230dca7
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Mon Apr 25 10:20:42 2016 +0200
+
+    newest post stuff
+
+commit ec65bb0422abd44d59a07e6b88cd731a8c0062f6
+Merge: 0746c7e 698359b
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Mon Apr 18 11:09:31 2016 +0200
+
+    Merge branch 'master' of github.com:DenLilleMand/hikingworld
+
+commit 0746c7e5bd932f810f11aa875a7b92b991b78029
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Mon Apr 18 11:09:20 2016 +0200
+
+    Deleted folder
+
+commit 698359bea79fd3b85fcc7fb07e397befeaa41983
+Author: Victor-Emil Rossil Andersen <victoremil.r.andersen@gmail.com>
+Date:   Mon Apr 18 11:07:26 2016 +0200
+
+    Deletion
+
+commit 6813044cdde14b2dd995c96aa5222512a198513c
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Mon Apr 18 10:53:21 2016 +0200
+
+    Created helpers folder for generic methods
+
+commit 1c83668ce1327ce9c7184d4f552035b98f902633
+Merge: f2d2a34 d83f178
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Sun Apr 17 21:41:57 2016 +0200
+
+    Merge branch 'master' of github.com:DenLilleMand/hikingworld
+    
+    Need the remote file
+
+commit f2d2a34d1e9a6f423964d76ba17391f77cae7ab5
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Sun Apr 17 21:40:47 2016 +0200
+
+    updated gitignore
+
+commit d83f17892c074df736dabdb7a8fe695a21980e16
+Author: Victor-Emil Rossil Andersen <victoremil.r.andersen@gmail.com>
+Date:   Sun Apr 17 21:12:53 2016 +0200
+
+    mailconfig file added
+
+commit d51c09f7010d6a154fbbd7f43f6445ee7d567b2d
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Sun Apr 17 21:09:38 2016 +0200
+
+    Transaction implemented including some config fixes
+
+commit 95930a2099ab4b385e14965951d6c691da821f2b
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Fri Apr 15 23:20:51 2016 +0200
+
+    Captcha keys are added to config files
+
+commit abd7a22c3c897faa162960926333d0d2799976d9
+Author: Victor-Emil Rossil Andersen <victoremil.r.andersen@gmail.com>
+Date:   Fri Apr 15 22:02:15 2016 +0200
+
+    had to change extension to json. sorry
+
+commit e4089f12662b2ed853c00092beadabdf113f2e37
+Author: Victor-Emil Rossil Andersen <victoremil.r.andersen@gmail.com>
+Date:   Fri Apr 15 21:59:46 2016 +0200
+
+    config file for the registration captcha
+    
+    This config file can be used for all reCaptchas on our site.
+
+commit 04b8def1bf2bbc67697ef76636c5eba2b0655af6
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Fri Apr 15 20:09:59 2016 +0200
+
+    ci
+
+commit c8db96f54d5219bfa20de8a59b04320f656df116
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Fri Apr 15 19:56:06 2016 +0200
+
+    herp
+
+commit 3eefd70652dd18b7e456173c77d574530c704e0e
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Fri Apr 15 19:49:45 2016 +0200
+
+    a log with port + host when server is run
+
+commit ed69d1a41a3da7dc6c7aad8422f10b5349f1a3c1
+Merge: ba0d7a7 1f22a4d
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Fri Apr 15 19:13:06 2016 +0200
+
+    Merge branch 'master' of https://github.com/DenLilleMand/hikingworld
+    herp
+
+commit ba0d7a7d058e7b2fbaca50dd67387a2cb74d6714
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Fri Apr 15 19:12:51 2016 +0200
+
+    testing jenkins
+
+commit 1f22a4d88f3110f5a6aefdf1f4cc3d70cdd29689
+Merge: 8dcb34d a898ca3
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Fri Apr 15 15:37:27 2016 +0200
+
+    Merge branch 'master' of github.com:DenLilleMand/hikingworld
+    
+    Newest additions# the commit.
+
+commit 8dcb34d25500221da55592632db632cb8db916d8
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Fri Apr 15 15:37:14 2016 +0200
+
+    jenkins test
+
+commit a898ca37a4f7b4e49a7920ec3f68ce89a5b01f7f
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Fri Apr 15 14:41:18 2016 +0200
+
+    adding verbose to forever
+
+commit 5af417a24144fba8940d6662fc33c745c1125237
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Fri Apr 15 12:18:44 2016 +0200
+
+    testing jenkins
+
+commit dd7c318ee359f2a72b624e642213ebdcad7cb24b
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Fri Apr 15 11:40:56 2016 +0200
+
+    adding a tap reporter
+
+commit c8a88a210356ea9f5d78f4c9d5c17534aec7927c
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Thu Apr 14 14:27:29 2016 +0200
+
+    okay
+
+commit c4c2c74a4100e4f7ec9611fe776d354afefcdffa
+Merge: cb52083 c7dff57
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Thu Apr 14 14:16:41 2016 +0200
+
+    herp
+
+commit cb520839edabdf573b71c2a8f0674f3a9ead2d34
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Thu Apr 14 14:13:57 2016 +0200
+
+    proxy server working
+
+commit c7dff57012c211e030b9cc3a4a53bae14477e891
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Thu Apr 14 13:40:16 2016 +0200
+
+    Email verification done, still needs to refactoring
+
+commit 8db78e77f069c8672c98352a57a75fbb1b20c106
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Thu Apr 14 13:08:39 2016 +0200
+
+    additions
+
+commit 35e8eef0f5b380c26d2a2b280d234282fc318dff
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Thu Apr 14 12:31:18 2016 +0200
+
+    Table schemas added to sql.txt file
+
+commit 1f26a7e600a7cd9f296bf6b907e07ab980310ae7
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Thu Apr 14 12:01:22 2016 +0200
+
+    Link in e-mail is now working with localhost
+
+commit 746dfaa685d09b77ecd6baad6cf93897f90d3831
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Thu Apr 14 11:38:49 2016 +0200
+
+    Added SMTP integration with Gmail
+
+commit 497f9b0c7a1d3ae91025bd4c362c462f8777ab67
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Thu Apr 14 10:35:56 2016 +0200
+
+    Updated package.json
+
+commit 09ed4b1ff079a35b71b46f5c0c071865259c2bc9
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Thu Apr 14 10:25:12 2016 +0200
+
+    first commit to email-verification
+
+commit 0086affaa193ce646a8532d90673a0c46658e901
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Mon Apr 11 13:00:24 2016 +0200
+
+    Minor refactoring
+
+commit ffb1c8c037a31a25e34c6fbb8b23a9336fdf5a1d
+Merge: 5c69fc7 865d67a
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Mon Apr 11 12:02:38 2016 +0200
+
+    Lockout functionality
+
+commit 5c69fc74f0e1f4ff815ce48633326e8b83b209a5
+Merge: b164fd5 f3e6435
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Mon Apr 11 12:00:14 2016 +0200
+
+    Merge branch 'master' of github.com:DenLilleMand/hikingworld
+
+commit b164fd580ce1e2d27bf0a6dbbaee003c8a485295
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Mon Apr 11 11:59:47 2016 +0200
+
+    Lockout functionality
+
+commit 865d67ad1b0d8758e4693f6c95ad8cc48478f74e
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Mon Apr 11 11:56:29 2016 +0200
+
+    Finished lockout functionality
+
+commit f3e6435ee614ff08848883946977543cafc355d0
+Merge: 86b5dc1 c902f51
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Mon Apr 11 11:39:48 2016 +0200
+
+    not really fixing any of the functionality, just wanted to push before i start to use feature branching
+
+commit 86b5dc173cbce845a4523c2be8fc472c9263e501
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Mon Apr 11 11:39:00 2016 +0200
+
+    herp
+
+commit 1b47f23631a389f18d288116fe77d51567e0e4c9
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Mon Apr 11 11:24:47 2016 +0200
+
+    herp
+
+commit c902f51203719156989ec1908e5cbd1b6e0303ab
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Mon Apr 11 09:25:55 2016 +0200
+
+    Krieg
+
+commit 67993b1bbe6295fe8e05895a8746a6a1326010a8
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Mon Apr 4 20:27:04 2016 +0200
+
+    Modified login and registration functionality
+
+commit 5bc7397a0e0155796560d8b43aa3d734fb8e10ee
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Mon Apr 4 17:15:26 2016 +0200
+
+    Modified some small things
+
+commit e4939296a36471a4aa23cd71b8536a2d920ad38a
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Mon Apr 4 14:07:21 2016 +0200
+
+    herp
+
+commit 92ffbdcf59c1f593d63bf0abeecd0b7796467e12
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Mon Apr 4 14:06:10 2016 +0200
+
+    herp
+
+commit 88c5a6223d6e4734d06f69778653f6c58607e911
+Merge: 15d8515 f5db6c4
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Mon Apr 4 12:52:00 2016 +0200
+
+    merged user registration
+
+commit 15d851569802a6edb61cc4904cac11de707b39dd
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Mon Apr 4 12:50:41 2016 +0200
+
+    register now talks to the database
+
+commit f5db6c4af944f6773990568fbd9690c193c4a280
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Mon Apr 4 12:15:09 2016 +0200
+
+    Victor-Emil er nice
+
+commit 928e1b747717a950ad2d64af8135777fd618266e
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Sun Apr 3 23:31:09 2016 +0200
+
+    Clean up
+
+commit 54008bda6c31e918b4738a1c88c4a7a4242a883c
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Sun Apr 3 23:23:56 2016 +0200
+
+    Added captcha functionality to registration form
+
+commit 22a07c881e0c3c4550efac87deccce4bea661b71
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Sun Apr 3 20:59:31 2016 +0200
+
+    Added validator.js to package.json and also included some basicauthentication within the application
+
+commit 33c0251012f3a353c324d651c380bcb241984cd0
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Sat Apr 2 09:07:43 2016 +0200
+
+    Latest version of mandatory assignment
+
+commit 4e0a1167f3243bdf675f6ead5c4b7c319cefe5af
+Merge: 4c542c9 4ee672a
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Sat Apr 2 08:56:31 2016 +0200
+
+    Merge branch 'master' of github.com:DenLilleMand/hikingworld
+
+commit 4c542c94fdb408ff0084918a2dde53ce9335362b
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Sat Apr 2 08:56:04 2016 +0200
+
+    Removed node_modules from repository
+
+commit 4ee672a4bd411c34ec6d984a1a197d3594ad5bbd
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Fri Apr 1 11:35:30 2016 +0200
+
+    herp
+
+commit 43acec1de75042487dac626ad036bc4f0c2edbfc
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Fri Apr 1 11:31:01 2016 +0200
+
+    deleted node_modules on remote repo
+
+commit 89a356cd0ec05e969eeba313304a5a660257e13d
+Merge: ae3dbf8 34beebd
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Fri Apr 1 11:30:31 2016 +0200
+
+    Merge branch 'master' of https://github.com/DenLilleMand/hikingworld
+    okay
+
+commit ae3dbf86b646c89d64e74d42e94a84dfc510d103
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Fri Apr 1 11:30:25 2016 +0200
+
+    mergeing smt
+
+commit 34beebd6fe370db4538080d2ff1f673476130e4a
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Thu Mar 31 14:27:07 2016 +0200
+
+    Updated assignment
+
+commit ee50685b399a319d0d9d15b6aa0c961e2879a934
+Author: Whitechapel <victoremil.r.andersen@gmail.com>
+Date:   Thu Mar 31 13:16:07 2016 +0200
+
+    Added assignment
+
+commit 90bd5ad5e469985c634e0c0e285ac8458feca374
+Merge: 57c9759 52c62a4
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 12:16:45 2016 +0100
+
+    herp
+
+commit 57c9759886baf6d98423b0c9686ad5a926f74a06
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 12:15:52 2016 +0100
+
+    herp
+
+commit fea18ddb332c068d1c739f06eec65a196526addc
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 12:15:15 2016 +0100
+
+    herp
+
+commit 52c62a49997cb1cdcf62f4809596b157cd821e4f
+Author: denlillemand <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 12:14:15 2016 +0100
+
+    deleteing workspace.xml
+
+commit 33bf3a788bdaf1b92255a6bf0f80ed1d72a35ae1
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 12:12:32 2016 +0100
+
+    herp
+
+commit 025698aff40c1106b6ae350dc8d85c6e01ff68cc
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 12:11:26 2016 +0100
+
+    hej med dig
+
+commit 6e234e2d9db1669ca7a692a6c21eb2622c1d2ec6
+Merge: 0e2aabb 35d7945
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 12:10:51 2016 +0100
+
+    Merge branch 'master' of https://github.com/DenLilleMand/hikingworld
+    okay
+
+commit 0e2aabbc7f9d7f79329c704a814f52f4e505dce2
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 12:10:48 2016 +0100
+
+    herp
+
+commit 35d79452fe7ce921d06bf251bbe20dfe05b31f8a
+Author: denlillemand <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 12:09:53 2016 +0100
+
+    ci
+
+commit 5b4ab3906da34e3e1cf800f625ea2723155547e4
+Merge: 1b4b993 5558d3d
+Author: denlillemand <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 12:08:12 2016 +0100
+
+    Merge branch 'master' of https://github.com/DenLilleMand/hikingworld
+    dfkk
+
+commit 1b4b993440c728dd12a93816e583549dd3e9fbcb
+Author: denlillemand <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 12:08:08 2016 +0100
+
+    herp
+
+commit 5558d3d5b989eabef9eed97fc5014829106b87e3
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 12:07:25 2016 +0100
+
+    herp
+
+commit 2f736e6fda1757bef585783007df13d2ac4af4c5
+Merge: 43b4c61 391467c
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 12:06:45 2016 +0100
+
+    Merge branch 'master' of https://github.com/DenLilleMand/hikingworld
+    herp
+
+commit 43b4c613fb01ae2af02d573eb27260ba7d7e082d
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 12:06:41 2016 +0100
+
+    herp
+
+commit 391467c3173fcaa151272e15b8f01622fc63b75e
+Merge: 2e5a11e ac0d01b
+Author: denlillemand <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 12:04:16 2016 +0100
+
+    Merge branch 'master' of https://github.com/DenLilleMand/hikingworld
+
+commit 2e5a11e57820aaec73976ea3e89c89b08905af5b
+Author: denlillemand <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 12:04:13 2016 +0100
+
+    herp
+
+commit 422cfc116957f22ee54de3975928250a3beb4144
+Author: denlillemand <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 12:03:37 2016 +0100
+
+    herp
+
+commit 8c7ae33848b19fcb658fbe396d45cea62fec68d7
+Merge: 4eb547d 16954fb
+Author: denlillemand <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 12:03:29 2016 +0100
+
+    automated commit for CI
+
+commit ac0d01b9fe72efbb73fb9e6722dd456fd973cb00
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 12:03:18 2016 +0100
+
+    herp
+
+commit 4eb547d92df0ccc7276396e5a3d91ed226d61aaa
+Author: denlillemand <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 12:02:34 2016 +0100
+
+    herp
+
+commit c965b22e088c470ca871aacb44cba8bacfad6679
+Author: denlillemand <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 12:00:54 2016 +0100
+
+    automated commit for CI
+
+commit 16954fb6ba4d0c2d9fc4b9b08d2eda4afe43aa38
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 12:00:43 2016 +0100
+
+    herp
+
+commit b7256743ac695b5e5cb61d93de37c1dcbf1ecba0
+Author: denlillemand <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 11:59:17 2016 +0100
+
+    automated commit for CI
+
+commit 333fccbe0059793940914a8984236a62b32b860d
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 11:59:04 2016 +0100
+
+    herp
+
+commit da221f6abe70fea41f9cfb1884240ddf6d52ee19
+Author: denlillemand <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 11:56:28 2016 +0100
+
+    automated commit for CI
+
+commit 7e7cf0fb96610e87ccf133e65a7191779fd2a8ab
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 11:56:17 2016 +0100
+
+    testing ci
+
+commit e9b7d17e9a926542c9acc8fff651cdcf1ae692b1
+Merge: 1a52b7b 6ad39c6
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 11:53:08 2016 +0100
+
+    Merge branch 'master' of https://github.com/DenLilleMand/hikingworld
+    herpderp
+
+commit 1a52b7bdefcea7a3f758867f6682f1fa3d77a4a6
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 11:53:03 2016 +0100
+
+    herp
+
+commit d6ea2a64cdb7c97852f3f00f6cbc2989ee188f34
+Author: denlillemand <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 11:52:55 2016 +0100
+
+    automated commit for CI
+
+commit 6ad39c6d62b67727bb660ab44af62ff8ebc81654
+Author: denlillemand <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 11:52:44 2016 +0100
+
+    herp
+
+commit c336c00d2c1123ffa12eecc6a78f48e8038ce1d5
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 11:49:28 2016 +0100
+
+    automated commit for CI
+
+commit 09effc000d9af94678eb72277cc428ae3ee54eac
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 11:49:16 2016 +0100
+
+    automated commit for CI
+
+commit 40c1a1b88bc81f4ceda0067cbacce8a9966bdb42
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 11:48:24 2016 +0100
+
+    automated commit for CI
+
+commit 044793613d891cfc3056376e57e937cc3d4c4323
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 02:53:02 2016 +0100
+
+    test CI
+
+commit 995f92494e6bbe37ae5e88f3e0e1374936029363
+Merge: 7935d4f d625b79
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 02:51:42 2016 +0100
+
+    Merge branch 'master' of https://github.com/DenLilleMand/hikingworld
+    okay
+
+commit 7935d4ff6e81f05cec497cab1acf164bfcc42ae4
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 02:51:38 2016 +0100
+
+    herp
+
+commit d625b798da0de115192534a1e08515e3db01c56a
+Merge: 3a07a7c 2ee5dcb
+Author: denlillemand <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 02:51:16 2016 +0100
+
+    herp
+
+commit 3a07a7cebdc01074a43225844da603d2b79ea504
+Author: denlillemand <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 02:50:26 2016 +0100
+
+    herp
+
+commit 2ee5dcbabef4e55cdc5a59eccbd0fd5398c4b881
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 02:49:42 2016 +0100
+
+    removeing generated files
+
+commit 9cf195e335c4447baa29ca32d30a47f1e1dd5036
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 02:47:29 2016 +0100
+
+    herpderp
+
+commit 67a769f791b4a6c5316883d3240bfbb5e279c032
+Merge: 4973378 b6f826d
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 02:47:15 2016 +0100
+
+    Merge branch 'master' of https://github.com/DenLilleMand/hikingworld
+    herpderp
+
+commit 4973378ca5f374d624b95f26369969379f4312e1
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 02:47:11 2016 +0100
+
+    herp
+
+commit b6f826d5354d85dd902f82619c91f3d7f22e520f
+Merge: 03ee457 6e19482
+Author: denlillemand <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 02:46:35 2016 +0100
+
+    Xdjsfj
+    
+    xxXMerge branch 'master' of https://github.com/DenLilleMand/hikingworld
+
+commit 03ee457926a35d88d09e414ca3c02862b28f2092
+Author: denlillemand <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 02:46:21 2016 +0100
+
+    herp
+
+commit 28f86ae18b87208ffef2250e9fa57728470c2d61
+Author: denlillemand <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 02:44:21 2016 +0100
+
+    automated commit for CI
+
+commit 6e19482cafd4fcc3e12569d1fd0a64389715f060
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 02:44:08 2016 +0100
+
+    herp
+
+commit 9b6cba39e7bb5728f0ef6d26d60f3d7aebd80ce5
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 02:39:46 2016 +0100
+
+    testing CI
+
+commit ecaf9e83703a11bffad1321c06ae9dd809b21ed3
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 02:37:19 2016 +0100
+
+    working CI
+
+commit ebf7c4c1a143b0130f7f76dde5c8e8ee04d30869
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 02:36:23 2016 +0100
+
+    automated commit for CI
+
+commit 09f83784bf95b9c46fa148238b6dfd7fcc17b457
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 02:31:29 2016 +0100
+
+    automated commit for CI
+
+commit c8f356a815e7f52b1d3b5bc31cefb24a8a2f76c4
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 02:29:41 2016 +0100
+
+    automated commit for CI
+
+commit 20eed2cfe11f08d8815b3e9e8846bbfe6f4c1901
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 02:29:26 2016 +0100
+
+    automated commit for CI
+
+commit 8bd1087e788401d376342ae1c3ce8d54020f1897
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 02:28:57 2016 +0100
+
+    automated commit for CI
+
+commit 37ad7b8366a996ef234ae89e8d61c22919afc4cc
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 02:22:10 2016 +0100
+
+    automated commit for CI
+
+commit 6cc190f7c44d43c55f7dbd1fdc17a12460bf9627
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 02:21:30 2016 +0100
+
+    automated commit for CI
+
+commit e6336e9cd560f1ca4e2774e37be8a0235bb4f270
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 02:21:21 2016 +0100
+
+    automated commit for CI
+
+commit 6482965ac47198e4467bbc88c97654eb5f58e4fc
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 02:21:03 2016 +0100
+
+    automated commit for CI
+
+commit 1db9a308c8e75d2a4b020adb850bccf516f0df3c
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 02:20:18 2016 +0100
+
+    automated commit for CI
+
+commit f318d0951c1f66e00b91522dd8b5d7725b758bba
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 02:19:11 2016 +0100
+
+    automated commit for CI
+
+commit d31818ca2a70fb2ea605ec7d299f9b6b73ef5036
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 02:16:13 2016 +0100
+
+    automated commit for CI
+
+commit 5ab7981bc6e5a482a82e7e02b09a7e3097c3d1a0
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 02:10:54 2016 +0100
+
+    automated commit for CI
+
+commit 344ab38fb01cec40bdfc45a2d2b651540c8eb031
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 02:09:18 2016 +0100
+
+    automated commit for CI
+
+commit 791307ff72db3fd03fe8e15b7a2083b3d063a6db
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 02:07:59 2016 +0100
+
+    automated commit for CI
+
+commit 74f063253bae4376da002b44610ca5a87c285878
+Merge: 26bae6f 3604455
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 02:05:10 2016 +0100
+
+    Merge branch 'master' of https://github.com/DenLilleMand/hikingworld
+
+commit 26bae6fcf642f13eb5fef1cd0c59e186950bfea7
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 02:05:03 2016 +0100
+
+    automated commit for CI
+
+commit 3604455bc9692100be4745c51bd4bb988645e31d
+Author: denlillemand <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 02:04:02 2016 +0100
+
+    herpderp
+
+commit d98b280e134e5175f2f6ad005fe23a49cf7521c2
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 01:58:13 2016 +0100
+
+    automated commit for CI
+
+commit bac39fabde4daee096a1a85b6182987262b09aa8
+Merge: eec7212 e214d7f
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 01:30:10 2016 +0100
+
+    Merge branch 'master' of https://github.com/DenLilleMand/hikingworld
+
+commit eec7212f16b9f02187ca245f2b77978fb4d59dd0
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 01:30:08 2016 +0100
+
+    automated commit for merge
+
+commit e214d7fc724f38d2f923e71caa65c1759b4ddab7
+Author: denlillemand <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 01:29:44 2016 +0100
+
+    herp
+
+commit 6c44f0660f01c559a0d9b3a912b267a810764e6c
+Merge: fd21ae3 b81d9b0
+Author: denlillemand <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 01:05:26 2016 +0100
+
+    Merge branch 'master' of https://github.com/DenLilleMand/hikingworld
+
+commit fd21ae3777c7973a1a340c3af5e53fa6b118a4fc
+Author: denlillemand <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 01:05:19 2016 +0100
+
+    herp
+
+commit b81d9b0bc5df572fd661b707cb21188335cd0701
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 00:48:12 2016 +0100
+
+    herp
+
+commit fb00d11313eb99b1f5c36de57a2c3d419926d4b9
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 00:47:23 2016 +0100
+
+    herpderp
+
+commit bcce79754a56d3c35b9bb0311f43b0d96ff566c3
+Merge: 620c5bb 6035e61
+Author: denlillemand <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 00:45:02 2016 +0100
+
+    Merge branch 'master' of https://github.com/DenLilleMand/hikingworld
+
+commit 620c5bb2011c95113eebaff67298911be04803db
+Merge: 95b30ee 7d49375
+Author: denlillemand <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 00:44:58 2016 +0100
+
+    hmm
+
+commit 6035e61ca073005f67084d642b9b3da8009e2b15
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 00:42:14 2016 +0100
+
+    herp
+
+commit 6a1ee22e5d022f8f6b153fe9fe18a04500423c95
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Thu Mar 24 00:31:36 2016 +0100
+
+    herp
+
+commit 95b30eefe28d68821eff59450de15db054a6df19
+Merge: eb06e0e 323de90
+Author: denlillemand <mattinielsen5@hotmail.com>
+Date:   Mon Mar 21 18:41:09 2016 +0100
+
+    herp
+
+commit 7d49375e114e8598d6d3ee24cb02a6cd92ff4f1b
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Mon Mar 21 18:31:18 2016 +0100
+
+    hiking world is back
+
+commit eb06e0edc6c87bdf73a1878bc4a00e73de38bbff
+Author: denlillemand <mattinielsen5@hotmail.com>
+Date:   Mon Mar 21 16:28:30 2016 +0100
+
+    herp
+
+commit 323de9071b195e7e892266d07d69218f7d65833e
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Mon Mar 21 16:28:04 2016 +0100
+
+    herpderp
+
+commit 3cc4e0cc92f5881f1bef9175d81f3e6b871223d1
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Mon Mar 21 16:18:49 2016 +0100
+
+    herpderp
+
+commit 78789728b30061b7f996d9d2199de247832627e8
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Mon Mar 21 16:18:08 2016 +0100
+
+    alot of react stuff
+
+commit 8b07b3bf4519126636b13b120a739d9528be2ee4
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Mon Mar 21 14:20:19 2016 +0100
+
+    fallbacks on the server port and host
+
+commit f6c679aa6ab05400bb9a83050f9c756b6d00b31c
+Merge: 18bfecb 8769d22
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Mon Mar 21 14:14:13 2016 +0100
+
+    Merge branch 'master' of https://github.com/DenLilleMand/hikingworld
+    
+    herp
+
+commit 18bfecb8977f88d65aa035c5630b8f9a29ba2976
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Mon Mar 21 14:13:41 2016 +0100
+
+    some gitignore stuff
+
+commit 8769d22d8b58d147054c1411001f333429aa3f67
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Mon Mar 21 14:12:54 2016 +0100
+
+    was not suppose to be on git
+
+commit 6169a798bf424c127465c8666f3d4381a707b322
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Mon Mar 21 14:12:41 2016 +0100
+
+    was not suppose to be on git
+
+commit 65d072960b9aa3794a260ddd39f1d14d1387a35d
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Mon Mar 21 14:04:23 2016 +0100
+
+    added some config files
+
+commit bd7de8466561ca004efdda2b6347ed1a26dbb778
+Merge: f53174c f772ea5
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Mon Mar 21 13:45:27 2016 +0100
+
+    Merge branch 'master' of https://github.com/DenLilleMand/hikingworld
+    
+    mergeing production added port and ip into master
+
+commit f53174c52c74a7c1877f9c829b5e837cca5d7cde
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Mon Mar 21 13:45:23 2016 +0100
+
+    herp
+
+commit f772ea5deae10017ac0e9dac828f71fad9608822
+Author: denlillemand <mattinielsen5@hotmail.com>
+Date:   Mon Mar 21 13:45:06 2016 +0100
+
+    port changed and ip changed
+
+commit d8e0b73c1931e3ceb225c29a32613fdac68d6e85
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Mon Mar 21 13:36:26 2016 +0100
+
+    now its possible to get the login.html, submit a username and password, and get redirected to another page, for now thats just register.html
+
+commit 8f26692b20a13e0961bec6f71cade839de1d96f8
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Mon Mar 21 11:59:03 2016 +0100
+
+    the server kind of works, it can return index.html and register.html etc.
+
+commit 3a5ad0711e79765b97cbdcea08fa3aed30e23b27
+Author: Matti andreas nielsen <mattinielsen5@hotmail.com>
+Date:   Mon Mar 21 09:34:40 2016 +0100
+
+    herp

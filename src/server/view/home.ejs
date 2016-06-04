@@ -9,7 +9,10 @@
     <div id="root">
 
     </div>
-    <a href="/logout">Log out!</a>
+    <form id="form1" action="/logout" method="post">
+    	<input type="hidden" name="csrf" value=<%- JSON.stringify(csrfToken) %>>
+    	<a href="#" onclick="document.getElementById('form1').submit();">Log out!</a>
+	</form>    
     <script type="application/javascript" src="bundle.js"></script>
 </body>
 </html>
