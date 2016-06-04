@@ -1,8 +1,8 @@
 var exports = module.exports,
     validation = require('validator'),
-    config = require('../config/configuration/configuration.json'),
+    config = require('../../config/configuration/configuration.json'),
     xss = require('xss'),
-    security = require('../util/security.js');
+    security = require('../../util/security.js');
 
 exports.validateRegistration = (post) => {
 
@@ -92,9 +92,4 @@ exports.validateLogin = (post) => {
     };
 };
 
-exports.validateEmail = (email) => {
-    if (!validation.isEmail(email)) {
-        return false;
-    }
-    return true;
-};
+

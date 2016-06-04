@@ -34,6 +34,7 @@ class GenericActionCreators {
             superagent.post(API_ENDPOINT+type.toLowerCase())
                 .set('Content-Type','application/json')
                 .set('Accept', 'application/json')
+                .set('X-CSRF-Token', X_CSRF_Token)
                 .send(data)
                 .end((err, res) => {
                 if(res.statusCode === 200) {
@@ -64,7 +65,10 @@ class GenericActionCreators {
      */
     asyncUpdate(data, user, type) {
         return (dispatch) => {
-            superagent.put(API_ENDPOINT+type.toLowerCase()+SEPARATOR+id).send(data).end((err, res) => {
+            superagent.put(API_ENDPOINT+type.toLowerCase()+SEPARATOR+id)
+                .set('X-CSRF-Token', X_CSRF_Token)
+                .send(data)
+                .end((err, res) => {
                 if(res.status === 200) {
                     dispatch(this.update(res.body.data,type));
                 } else {
@@ -89,7 +93,9 @@ class GenericActionCreators {
      */
     asyncDelete(id, user, type) {
         return (dispatch) => {
-            superagent.del(API_ENDPOINT+type.toLowerCase()+SEPARATOR+id).end((err, res) => {
+            superagent.del(API_ENDPOINT+type.toLowerCase()+SEPARATOR+id)
+                .set('X-CSRF-Token', X_CSRF_Token)
+                .end((err, res) => {
                 if(res.status === 200 ) {
                     dispatch(this.delete(id,type));
                 } else {
@@ -111,6 +117,7 @@ class GenericActionCreators {
             superagent.get(API_ENDPOINT+type.toLowerCase())
                 .set('Content-Type', 'application/json')
                 .set('Accept', 'application/json')
+                .set('X-CSRF-Token', X_CSRF_Token)
                 .end((err, res) => {
                     if(err) {
                         console.log('error was thrown:', err);
