@@ -2,9 +2,8 @@ var express = require('express'),
     router = express.Router(),
     db = require('../../model/legacydb'),
     validation = require('./validation'),
-    security = require('../../util/security.js');
-config = require('../../config/configuration/configuration.json'),
-    authentication = require('../../util/authentication.js');
+    security = require('../../util/security.js'),
+    config = require('../../config/configuration/configuration.json');
 
 router.get('/', function(req, res) {
     var passedMsg = req.query.msg;
@@ -26,7 +25,7 @@ router.get('/', function(req, res) {
     });
 });
 
-router.post('/login', authentication.validateCSRFToken, function(req, res) {
+router.post('/login', security.validateCSRFToken, function(req, res) {
 
     var validationResult = validation.validateLogin(req.body);
 
@@ -44,7 +43,7 @@ router.post('/login', authentication.validateCSRFToken, function(req, res) {
     }
 });
 
-router.post('/register', authentication.validateCSRFToken, function(req, res) {
+router.post('/register', security.validateCSRFToken, function(req, res) {
     security.verifyRecaptcha(req.body["g-recaptcha-response"], function(success) {
         console.log("We are inside the validation");
         if (success) {
@@ -87,7 +86,7 @@ router.get('/passwordreset', function(req, res) {
     });
 });
 
-router.post('/passwordreset', authentication.validateCSRFToken, function(req, res) {
+router.post('/passwordreset', security.validateCSRFToken, function(req, res) {
     var email = req.body.email;
 
     if (!security.validateType(email, 'string') || !validation.validateEmail(req.body.email)) {
@@ -152,13 +151,13 @@ router.post('/changepassword', function(req, res) {
     }
 });
 
-router.get('/home', authentication.isAuthenticated, function(req, res) {
+router.get('/home', security.isAuthenticated, function(req, res) {
     res.render('home', {        
         csrfToken: req.csrfToken()
     });
 });
 
-router.post('/logout', authentication.isAuthenticated, authentication.validateCSRFToken, function(req, res) {
+router.post('/logout', security.isAuthenticated, security.validateCSRFToken, function(req, res) {
     req.session.destroy(function(err) {
         res.redirect('/');
     });

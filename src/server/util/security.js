@@ -35,7 +35,7 @@ module.exports = {
             next();
         } else {
             if (req.session && req.session.csrfSecret) {
-                if (req.session.csrfSecret === req.body.csrf) {
+                if (req.session.csrfSecret === req.body.csrf || req.get('X-CSRF-Token') === req.session.csrfSecret) {
                     console.log("Token is good!");
                     return next();
                 }

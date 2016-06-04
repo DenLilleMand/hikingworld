@@ -8,13 +8,11 @@ var app = express();
 var ejs = require('ejs');
 var helmet = require('helmet');
 var cryptoHandler = require('./util/cryptohandler.js');
-var authentication = require('./util/authentication');
+security = require('./util/security.js');
 
 app.set('views', __dirname + '/view');
 app.set('view engine', 'ejs');
 app.use(express.static("static"));
-
-
 
 // CONTENT-SECURITY-POLICY
 
@@ -82,7 +80,7 @@ app.use(function(req, res, next) {
 // SETTING UP THE ROUTES
 
 app.use('/', require('./controllers/registration/users'));
-app.use('/api', authentication.isAuthenticated, authentication.validateCSRFToken , require('./controllers/api/api'));
+app.use('/api', security.isAuthenticated, security.validateCSRFToken , require('./controllers/api/api'));
 
 
 // 404 ERROR IF ROUTE IS NOT FOUND. THIS CODE HAS TO BE AFTER ROUTES
