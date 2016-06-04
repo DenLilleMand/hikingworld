@@ -9,20 +9,25 @@ exports.validateRegistration = (post) => {
     post.username = xss(post.username);
     post.password = xss(post.password);
     post.password_repeat = xss(post.password_repeat);
-
+    post.firstname = xss(post.firstname);
+    post.lastname = xss(post.lastname);
+    
     if(!security.validateType(post.username, 'string') 
         || !security.validateType(post.password, 'string') 
-        || !security.validateType(post.password_repeat, 'string')) {
+        || !security.validateType(post.password_repeat, 'string')
+        || !security.validateType(post.firstname, 'string')
+        || !security.validateType(post.lastname, 'string')) {
         return {
             result: false,
             msg: "An error occured"
         };
     }
 
-    if (post.username === "" || post.password === "") {
+    if (post.username === "" || post.password === "" || post.firstname === "" 
+        || post.lastname === "" || post.password_repeat === "") {
         return {
             result: false,
-            msg: "You need to enter the username and password"
+            msg: "You need to enter all the details"
         };
     }
 

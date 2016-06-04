@@ -49,10 +49,10 @@ module.exports = (pool) => {
             });
         });
     };
-    module.register = (username, password, callback) => {
+    module.register = (parameters, callback) => {
         console.log('register in the userModel was called');
         pool.getConnection((err, connection) => {
-            connection.query('SELECT * FROM account WHERE username = ? limit 1', [username], (err, rows, fields) => {
+            connection.query('SELECT * FROM account WHERE username = ? limit 1', [parameters.username], (err, rows, fields) => {
                 if (err) {
                     throw err;
                 }
@@ -64,15 +64,16 @@ module.exports = (pool) => {
 
                 var salt = pwdHandler.generateRandomBytes(32);
 
-                var hashedAndSaltedPassword = pwdHandler.hashValue(password + salt);
+                var hashedAndSaltedPassword = pwdHandler.hashValue(parameters.password + salt);
 
                 var emailChecksum = pwdHandler.generateRandomBytes(32);
-
+                console.log("Are we here 1?");
                 connection.beginTransaction(function(err) {
                     if (err) {
                         throw err;
                     }
-                    connection.query('INSERT INTO account (username, password, salt, verification, checksum) VALUES (?, ?, ?, false, ?)', [username, hashedAndSaltedPassword, salt, emailChecksum], function(err, rows, field) {
+                    console.log("Are we here 2?");
+                    connection.query('INSERT INTO account (username, password, salt, verification, checksum, firstname, lastname) VALUES (?, ?, ?, false, ?, ?, ?)', [parameters.username, hashedAndSaltedPassword, salt, emailChecksum, parameters.firstname, parameters.lastname], function(err, rows, field) {
                         if (err) {
                             connection.rollback(function() {
                                 return callback(false, "An unexpected error happened");
@@ -81,7 +82,7 @@ module.exports = (pool) => {
 
                         var dateNow = moment().format("YYYY-MM-DD HH:mm:ss");
 
-                        connection.query('INSERT INTO attempts (username, attempts, lastLogin) VALUES (?, 0, ?)', [username, dateNow], function(err, rows, field) {
+                        connection.query('INSERT INTO attempts (username, attempts, lastLogin) VALUES (?, 0, ?)', [parameters.username, dateNow], function(err, rows, field) {
                             if (err) {
                                 connection.rollback(function() {
                                     return callback(false, "An unexpected error happened");
@@ -95,9 +96,9 @@ module.exports = (pool) => {
                                 }
                                 console.log('Transaction Complete.');
                                 connection.release();
-                                var urlToSend = encodeURI(mailer.getAddress() + 'verification?un=' + username + '&cs=' + emailChecksum);
+                                var urlToSend = encodeURI(mailer.getAddress() + 'verification?un=' + parameters.username + '&cs=' + emailChecksum);
                                 console.log(urlToSend);
-                                mailer.sendMail(username, urlToSend, "E-mail verification");
+                                mailer.sendMail(parameters.username, urlToSend, "E-mail verification");
                                 return callback(true, "User created");
                             });
                         });
