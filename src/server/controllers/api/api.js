@@ -1,10 +1,11 @@
 var express = require('express'),
     _ = require('lodash'),
-    db = require('../model/models/db'),
+    db = require('../../model/models/db'),
     router = express.Router(),
     api = {},
     camelize = db.Sequelize.Utils.inflection.camelize,
     IS_FIRST_LETTER_LOWERCASE = false;
+
 /**
  * This method takes a request and a response at the /api/ route of the application,
  * it. The specific route triggering this route is: router.get('/:model', api.getAll);
@@ -100,6 +101,9 @@ api.create = (request, response) => {
     var camelizedModel = camelize(request.params.model, IS_FIRST_LETTER_LOWERCASE);
     console.log('api.create, called once');
     console.log('body:', request.body);
+    var post = request.body;
+
+
     if(_.has(db, camelizedModel) && db[camelizedModel]["create"+camelizedModel]) {
         return db[camelizedModel]["create"+camelizedModel](request.body, db).then((data) => {
             response.append('Content-Type', 'application/json');

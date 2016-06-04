@@ -1,10 +1,10 @@
 var express = require('express'),
     router = express.Router(),
-    db = require('../model/legacydb'),
+    db = require('../../model/legacydb'),
     validation = require('./validation'),
-    security = require('../util/security.js');
-config = require('../config/configuration/configuration.json'),
-    authentication = require('../util/authentication.js');
+    security = require('../../util/security.js');
+config = require('../../config/configuration/configuration.json'),
+    authentication = require('../../util/authentication.js');
 
 router.get('/', function(req, res) {
     var passedMsg = req.query.msg;

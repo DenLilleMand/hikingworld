@@ -13,7 +13,7 @@ module.exports = {
             next();
         } else {
             if (req.session && req.session.csrfSecret) {
-                if (req.session.csrfSecret === req.body.csrf) {
+                if (req.session.csrfSecret === req.body.csrf || req.session.csrfSecret === req.get('X-CSRF-Token') ) {
                     console.log("Token is good!");
                     return next();
                 }
@@ -23,6 +23,5 @@ module.exports = {
                 res.render('err403.ejs');
             });            
         }
-
     }
 };

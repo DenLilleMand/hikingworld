@@ -3,6 +3,7 @@ import { REMOTE_URL } from '../constants/remoteconstants';
 import { CREATE_, DELETE_, GET_, UPDATE_ } from '../constants/genericconstants';
 import { POST } from '../constants/typeconstants';
 
+
 class PostActionCreators {
 
     constructor() {
@@ -27,6 +28,7 @@ class PostActionCreators {
                 })
                 .set('Content-Type', 'application/json')
                 .set('Accept', 'application/json')
+                .set('X-CSRF-Token', X_CSRF_Token)
                 .end((res, err) => {
                     if(err) {
                         //dispatch(errorHandler);
@@ -52,6 +54,7 @@ class PostActionCreators {
             return superagent.delete(REMOTE_URL + 'api/post')
                 .set('Accept', 'application/json')
                 .set('Content-Type', 'application/json')
+                .set('X-CSRF-Token', X_CSRF_Token)
                 .end((res, err) => {
                     if(err || res.body.status === 404 ) {
                         //dispatch(serrorHandler());
@@ -90,6 +93,7 @@ class PostActionCreators {
             return superagent.get(REMOTE_URL + 'api/post')
                 .set('Accept', 'application/json')
                 .set('Content-Type', 'application/json')
+                .set('X-CSRF-Token', X_CSRF_Token)
                 .end((res, error) => {
                     if(err) {
                         console.log('Err in asyncGetPosts:', err);
