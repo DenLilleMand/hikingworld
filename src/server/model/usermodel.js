@@ -6,11 +6,9 @@ var pwdHandler = require('../util/cryptohandler'),
 module.exports = (pool) => {
     var module = {};
     module.login = (email, password, callback) => {
-        pool.getConnection((err, connection) => {
+        pool.getConnection((err, connection) => {            
 
-            var hashedPwd = pwdHandler.hashValue(password);
-
-            connection.query('SELECT * FROM account INNER JOIN attempts on account.username = attempts.username WHERE account.username = ?', [email, hashedPwd], (err, rows, fields) => {
+            connection.query('SELECT * FROM account INNER JOIN attempts on account.username = attempts.username WHERE account.username = ?', [email], (err, rows, fields) => {
                 if (err) {
                     throw err;
                 }
@@ -64,12 +62,14 @@ module.exports = (pool) => {
                     return callback(false, "User already exist");
                 }
 
-                var salt = pwdHandler.generateSalt();
+                var salt = pwdHandler.generateRandomBytes(32);
 
                 var hashedAndSaltedPassword = pwdHandler.hashValue(password + salt);
 
-                var emailChecksum = pwdHandler.generateSalt();
-
+                var emailChecksum = pwdHandler.generateRandomBytes(32);
+                console.log("salt " + salt);
+                console.log("hash " + hashedAndSaltedPassword);
+                console.log("email " + emailChecksum);
                 connection.beginTransaction(function(err) {
                     if (err) {
                         throw err;

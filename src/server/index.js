@@ -70,9 +70,10 @@ app.use(session({
 
 app.use(function(req, res, next) {
     req.csrfToken = function() {
-        var hash = cryptoHandler.generateSalt();
-        req.session.csrfSecret = hash;
-        return hash;
+        var randomBytes = cryptoHandler.generateRandomBytes(64);
+        var hashedValue = cryptoHandler.hashValue(randomBytes);
+        req.session.csrfSecret = hashedValue;
+        return hashedValue;
     };
     next();
 });
