@@ -89,12 +89,15 @@ router.get('/passwordreset', function(req, res) {
 
 router.post('/passwordreset', authentication.validateCSRFToken, function(req, res) {
     var email = req.body.email;
+
+    if (!security.validateType(email, 'string') || !validation.validateEmail(req.body.email)) {
+        res.redirect('/passwordreset?msg=' + encodeURI('Invalid value. Enter a valid e-mail'));
+    }
+
     db.userModel.resetPassword(email, (userSuccess, userMsg) => {
-        if (userSuccess) {
-            console.log("it went good!");
+        if (userSuccess) {            
             res.redirect('/passwordreset?msg=' + encodeURI(userMsg));
-        } else {
-            console.log("It went bad!");
+        } else {            
             res.redirect('/passwordreset?msg=' + encodeURI(userMsg));
         }
     });
@@ -103,6 +106,10 @@ router.post('/passwordreset', authentication.validateCSRFToken, function(req, re
 router.get('/reset', function(req, res) {
     var email = req.query.un;
     var checksum = req.query.cs;
+
+    if (!security.validateType(email, 'string') || !security.validateType(checksum, 'string')) {
+        res.send("Error!");
+    }
 
     db.userModel.validateReset(email, checksum, (userSuccess, userMsg) => {
         if (userSuccess) {

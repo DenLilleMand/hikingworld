@@ -91,3 +91,10 @@ exports.validateLogin = (post) => {
         msg: "Success"
     };
 };
+
+exports.validateEmail = (email) => {
+    if (!validation.isEmail(email)) {
+        return false;
+    }
+    return true;
+};

@@ -140,7 +140,7 @@ module.exports = (pool) => {
                     throw err;
                 }
                 if (rows[0].total === 1) {
-                    var resetChecksum = pwdHandler.generateSalt();
+                    var resetChecksum = pwdHandler.generateRandomBytes(32);
                     var urlToSend = encodeURI(mailer.getAddress() + 'reset?un=' + username + '&cs=' + resetChecksum);
                     mailer.sendMail(username, urlToSend, "Password reset");
                     connection.query('UPDATE account SET verification = false, checksum = ? where username = ?', [resetChecksum, username], (err, rows, fields) => {
@@ -177,7 +177,7 @@ module.exports = (pool) => {
     module.changePassword = (username, password, callback) => {
         console.log('validate reset in the userModel was called');
         pool.getConnection((err, connection) => {
-            var salt = pwdHandler.generateSalt();
+            var salt = pwdHandler.generateRandomBytes(32);
 
             var hashedAndSaltedPassword = pwdHandler.hashValue(password + salt);
 
