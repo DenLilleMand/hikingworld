@@ -33,7 +33,7 @@ router.post('/login', authentication.validateCSRFToken, function(req, res) {
     if (validationResult.result) {
         db.userModel.login(req.body.username, req.body.password, (userSuccess, userMsg) => {
             if (userSuccess) {
-                req.session.authenticated = true;
+                req.session.authenticated = userSuccess;
                 res.redirect('/home');
             } else {
                 res.redirect('/?msg=' + encodeURI(userMsg));
