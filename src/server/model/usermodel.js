@@ -192,7 +192,7 @@ module.exports = (pool) => {
     module.getDetails = (username, callback) => {
         console.log('get details in the userModel was called');
         pool.getConnection((err, connection) => {
-            connection.query('SELECT firstname, lastname, username FROM account WHERE username = ? limit 1', [username], (err, rows, fields) => {
+            connection.query('SELECT firstname, lastname, username, imagepath FROM account WHERE username = ? limit 1', [username], (err, rows, fields) => {
                 if (err) {
                     throw err;
                 }
@@ -205,7 +205,8 @@ module.exports = (pool) => {
                 return callback(true, {
                     firstName: rows[0].firstname,
                     lastName: rows[0].lastname,
-                    email: rows[0].username
+                    email: rows[0].username,
+                    profilePicture: rows[0].imagepath
                 });
             });
         });
@@ -234,7 +235,7 @@ module.exports = (pool) => {
 
                         var hashedAndSaltedPassword = pwdHandler.hashValue(details.newPassword + salt);
 
-                        connection.query('UPDATE account SET firstname = ?, lastname = ?, password = ?, salt = ?, username = ? WHERE username = ?', [details.firstName, details.lastName, hashedAndSaltedPassword, salt, details.email, details.email], (err, rows, fiels) => {
+                        connection.query('UPDATE account SET firstname = ?, lastname = ?, password = ?, salt = ?, imagepath = ?, username = ? WHERE username = ?', [details.firstName, details.lastName, hashedAndSaltedPassword, salt, details.fileName, details.email, details.email], (err, rows, fiels) => {
                             if (err) {
                                 throw err;
                             }
@@ -247,7 +248,7 @@ module.exports = (pool) => {
                         });
                     }
                 } else {
-                    connection.query('UPDATE account SET firstname = ?, lastname = ?, username = ? WHERE username = ?', [details.firstName, details.lastName, details.email, details.email], (err, rows, fiels) => {
+                    connection.query('UPDATE account SET firstname = ?, lastname = ?, imagepath = ?, username = ? WHERE username = ?', [details.firstName, details.lastName, details.fileName, details.email, details.email], (err, rows, fiels) => {
                         if (err) {
                             throw err;
                         }
@@ -256,6 +257,7 @@ module.exports = (pool) => {
                                 firstName: details.firstName,
                                 lastName: details.lastName,
                                 email: details.email,
+                                profilePicture: details.fileName,
                                 msg: "Everything went good"
                             });
                         } else {
@@ -263,6 +265,7 @@ module.exports = (pool) => {
                                 firstName: details.firstName,
                                 lastName: details.lastName,
                                 email: details.email,
+                                profilePicture: details.fileName,
                                 msg: "An unexpected error happened"
                             });
                         }

@@ -8,11 +8,14 @@ var app = express();
 var ejs = require('ejs');
 var helmet = require('helmet');
 var cryptoHandler = require('./util/cryptohandler.js');
+var fileUpload = require('express-fileupload');
 security = require('./util/security.js');
 
 app.set('views', __dirname + '/view');
 app.set('view engine', 'ejs');
 app.use(express.static("static"));
+
+app.use(fileUpload());
 
 // CONTENT-SECURITY-POLICY
 
@@ -69,9 +72,14 @@ app.use(session({
 
 app.use(function(req, res, next) {
     req.csrfToken = function() {
-        var randomBytes = cryptoHandler.generateRandomBytes(64);
-        var hashedValue = cryptoHandler.hashValue(randomBytes);
-        req.session.csrfSecret = hashedValue;
+        var hashedValue = "";
+        if(!req.session.csrfSecret) {
+            var randomBytes = cryptoHandler.generateRandomBytes(64);
+            hashedValue = cryptoHandler.hashValue(randomBytes);
+            req.session.csrfSecret = hashedValue;
+        } else {
+            hashedValue = req.session.csrfSecret;
+        }
         return hashedValue;
     };
     next();

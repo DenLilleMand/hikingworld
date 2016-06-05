@@ -2,7 +2,9 @@ var exports = module.exports,
     validation = require('validator'),
     config = require('../../config/configuration/configuration.json'),
     xss = require('xss'),
-    security = require('../../util/security.js');
+    security = require('../../util/security.js'),
+    fs = require('fs'),
+    guid = require('guid');
 
 exports.validateRegistration = (post) => {
 
@@ -87,7 +89,7 @@ exports.validateLogin = (post) => {
     };
 };
 
-exports.validateUpdate = (post) => {
+exports.validateUpdate = (post, files) => {
 
     if (!security.validateType(post.firstname, 'string') || !security.validateType(post.lastname, 'string') || !security.validateType(post.email, 'string') || !security.validateType(post.password, 'string') || !security.validateType(post.password_new, 'string')) {
         return {
@@ -137,6 +139,20 @@ exports.validateUpdate = (post) => {
         changePassword = true;
     }
 
+    var profilepicture;
+    var filename = "";
+
+    if (!files) {            
+    } else {        
+        fileName = guid.raw();
+        profilepicture = files.image;
+        profilepicture.mv('./static/profilepictures/'+ fileName +'.jpg', function(err) {
+            if(err) {
+                console.log("Something happened!");
+            }            
+        });
+    }
+
     return {
         result: true,
         msg: "Success",
@@ -145,6 +161,7 @@ exports.validateUpdate = (post) => {
         email,
         oldPassword: password,
         newPassword: password_new,
-        changePassword
+        changePassword,
+        fileName
     };
 };

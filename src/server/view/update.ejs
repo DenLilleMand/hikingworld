@@ -11,8 +11,16 @@
                 <div class="panel panel-login">
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-lg-12">
-                                <form id="recovery-form" action="/update" method="post" role="form" style="display: block;">
+                            <form id="recovery-form" action="/update" method="post" role="form" style="display: block;" encType="multipart/form-data">
+                            <div class="col-lg-4">
+                                <div clasl="col-lg-12" style="margin-bottom: 15px;">
+                                    <img src=<%- JSON.stringify(profilePicture) %> style="maximum-height:150px; height: 150px; maximum-width:200px; width:150px;">
+                                </div>                                
+                                <label class="btn btn-default btn-file">
+                                    Browse <input type="file" name="image" style="display: none;">
+                                </label>
+                            </div>
+                            <div class="col-lg-8">                                
                                     <input type="hidden" name="csrf" value=<%- JSON.stringify(csrfToken) %>>
                                     <div class="form-group">
                                         <input type="text" name="firstname" id="firstname" tabindex="2" class="form-control" placeholder="First Name" value=<%- JSON.stringify(firstName) %>>
@@ -31,7 +39,7 @@
                                     </div>
                                     <div class="form-group">
                                         <div class="row">
-                                            <div class="col-sm-6 col-sm-offset-3">
+                                            <div class="col-sm-12">
                                                 <input type="submit" name="update-submit" id="update-submit" tabindex="4" class="form-control btn btn-login" value="Update profile">
                                             </div>
                                         </div>

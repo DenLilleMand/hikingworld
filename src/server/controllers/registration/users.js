@@ -160,7 +160,8 @@ router.get('/update', security.isAuthenticated, function(req, res) {
                 csrfToken: req.csrfToken(),
                 firstName: details.firstName,
                 lastName: details.lastName,
-                email: details.email
+                email: details.email,
+                profilePicture: "/profilepictures/" + details.profilePicture + ".jpg"
             });
         } else {
             res.redirect('/update?msg=' + details);
@@ -170,7 +171,7 @@ router.get('/update', security.isAuthenticated, function(req, res) {
 
 router.post('/update', security.isAuthenticated, security.validateCSRFToken, function(req, res) {
 
-    var validationResult = validation.validateUpdate(req.body);
+    var validationResult = validation.validateUpdate(req.body, req.files);
 
     if (validationResult.result) {
         db.userModel.performUpdate(validationResult, (userSuccess, details) => {
@@ -179,10 +180,12 @@ router.post('/update', security.isAuthenticated, security.validateCSRFToken, fun
                     csrfToken: req.csrfToken(),
                     firstName: details.firstName,
                     lastName: details.lastName,
-                    email: details.email
+                    email: details.email,
+                    profilePicture: "/profilepictures/" + details.profilePicture + ".jpg"
                 });
             }
             else {
+                console.log("Vi er her!");
                 res.redirect('/update?msg=' + details.msg);
             }
         });
