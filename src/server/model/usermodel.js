@@ -67,14 +67,12 @@ module.exports = (pool) => {
                 var hashedAndSaltedPassword = pwdHandler.hashValue(parameters.password + salt);
 
                 var emailChecksum = new Buffer(pwdHandler.generateRandomBytes(32)).toString('base64');                
-
-                console.log("Are we here 1?");
+                
                 connection.beginTransaction(function(err) {
                     if (err) {
                         throw err;
-                    }
-                    console.log("Are we here 2?");
-                    connection.query('INSERT INTO account (username, password, salt, verification, checksum, firstname, lastname) VALUES (?, ?, ?, false, ?, ?, ?)', [parameters.username, hashedAndSaltedPassword, salt, emailChecksum, parameters.firstname, parameters.lastname], function(err, rows, field) {
+                    }                    
+                    connection.query('INSERT INTO account (username, password, salt, verification, checksum, firstname, lastname) VALUES (?, ?, ?, false, ?, ?, ?)', [parameters.username, hashedAndSaltedPassword, salt, emailChecksum, parameters.firstName, parameters.lastName], function(err, rows, field) {
                         if (err) {
                             connection.rollback(function() {
                                 return callback(false, "An unexpected error happened");
@@ -138,7 +136,7 @@ module.exports = (pool) => {
                     throw err;
                 }
                 if (rows[0].total === 1) {
-                    var emailChecksum = new Buffer(pwdHandler.generateRandomBytes(32)).toString('base64');
+                    var resetChecksum = new Buffer(pwdHandler.generateRandomBytes(32)).toString('base64');
                     var urlToSend = encodeURI(mailer.getAddress() + 'reset?un=' + username + '&cs=' + resetChecksum);
                     mailer.sendMail(username, urlToSend, "Password reset");
                     connection.query('UPDATE account SET verification = false, checksum = ? where username = ?', [resetChecksum, username], (err, rows, fields) => {

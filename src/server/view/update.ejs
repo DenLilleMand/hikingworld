@@ -14,7 +14,7 @@
                             <form id="recovery-form" action="/update" method="post" role="form" style="display: block;" encType="multipart/form-data">
                             <div class="col-lg-4">
                                 <div clasl="col-lg-12" style="margin-bottom: 15px;">
-                                    <img src=<%- JSON.stringify(profilePicture) %> style="maximum-height:150px; height: 150px; maximum-width:200px; width:150px;">
+                                    <img id="profilepicture" src=<%- JSON.stringify(profilePicture) %>>
                                 </div>                                
                                 <label class="btn btn-default btn-file">
                                     Browse <input type="file" name="image" style="display: none;">

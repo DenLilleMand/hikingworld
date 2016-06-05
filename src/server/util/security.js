@@ -12,15 +12,13 @@ module.exports = {
             res.on('end', function() {
                 try {
                     var parsedData = JSON.parse(data);
+                    console.log("er den god? " + parsedData.success);
                     callback(parsedData.success);
                 } catch (e) {
                     callback(false);
                 }
             });
         });
-    },
-    validateType: function(value, type) {
-        return typeof value === type;
     },
     isAuthenticated: function(req, res, next) {
         if (req.session && req.session.authenticated) {
@@ -31,7 +29,7 @@ module.exports = {
         res.redirect('/');
     },
     validateCSRFToken: function(req, res, next) {
-        if(config.csrf && config.csrf.isDisabled) {
+        if (config.csrf && config.csrf.isDisabled) {
             next();
         } else {
             if (req.session && req.session.csrfSecret) {
@@ -40,11 +38,28 @@ module.exports = {
                     console.log("Token is good!");
                     return next();
                 }
-            }
+            }            
             req.session.destroy(function(err) {
                 res.status(403);
                 res.render('err403.ejs');
-            });            
+            });
+        }
+    },
+    validateType: function(input, type) {
+        if (typeof input === 'object') {            
+            console.log(input);
+            var arrayLength = input.length;
+            console.log(arrayLength);
+            for (var i = 0; i < arrayLength; i++) {
+                console.log(typeof input[i]);
+                if(typeof input[i] !== type) {
+                    return false;
+                }                            
+            }
+            return true;
+        } else {
+            console.log("Er vi hernede");
+            return typeof input === type;
         }
     }
 };
