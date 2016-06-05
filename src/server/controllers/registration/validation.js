@@ -140,9 +140,9 @@ exports.validateUpdate = (post, files) => {
     }
 
     var profilepicture;
-    var filename = "";
+    var fileName = "";
 
-    if (!files) {            
+    if (!files || files.image.name === "" || files.image.mimetype !== "image/jpeg") {            
     } else {        
         fileName = guid.raw();
         profilepicture = files.image;
