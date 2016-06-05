@@ -15,7 +15,7 @@ app.set('views', __dirname + '/view');
 app.set('view engine', 'ejs');
 app.use(express.static("static"));
 
-app.use(fileUpload());
+//
 
 // CONTENT-SECURITY-POLICY
 
@@ -53,6 +53,8 @@ var options = {
 var sessionStore = new MySQLStore(options);
 
 app.use(cookieParser());
+
+app.use(fileUpload());
 
 // CONFIGURATION OF THE SESSION
 
