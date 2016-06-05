@@ -6,16 +6,17 @@
     <link type="text/css" rel="stylesheet" href="application.css" />
     <script type="application/javascript">
         var X_CSRF_Token = <%- JSON.stringify(csrfToken) %>;
-     </script>
+    </script>
 </head>
 <body>
+    <a href="/update" >Update profile</a>
+    <form id="form1" action="/logout" method="post">
+        <input type="hidden" name="csrf" value=<%- JSON.stringify(csrfToken) %>>
+        <a href="#" onclick="document.getElementById('form1').submit();">Log out!</a>
+    </form> 
     <div id="root">
 
-    </div>
-    <form id="form1" action="/logout" method="post">
-    	<input type="hidden" name="csrf" value=<%- JSON.stringify(csrfToken) %>>
-    	<a href="#" onclick="document.getElementById('form1').submit();">Log out!</a>
-	</form>    
+    </div>   
     <script type="application/javascript" src="application.bundle.js"></script>
 </body>
 </html>

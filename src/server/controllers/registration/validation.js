@@ -11,20 +11,15 @@ exports.validateRegistration = (post) => {
     post.password_repeat = xss(post.password_repeat);
     post.firstname = xss(post.firstname);
     post.lastname = xss(post.lastname);
-    
-    if(!security.validateType(post.username, 'string') 
-        || !security.validateType(post.password, 'string') 
-        || !security.validateType(post.password_repeat, 'string')
-        || !security.validateType(post.firstname, 'string')
-        || !security.validateType(post.lastname, 'string')) {
+
+    if (!security.validateType(post.username, 'string') || !security.validateType(post.password, 'string') || !security.validateType(post.password_repeat, 'string') || !security.validateType(post.firstname, 'string') || !security.validateType(post.lastname, 'string')) {
         return {
             result: false,
             msg: "An error occured"
         };
     }
 
-    if (post.username === "" || post.password === "" || post.firstname === "" 
-        || post.lastname === "" || post.password_repeat === "") {
+    if (post.username === "" || post.password === "" || post.firstname === "" || post.lastname === "" || post.password_repeat === "") {
         return {
             result: false,
             msg: "You need to enter all the details"
@@ -65,7 +60,7 @@ exports.validateLogin = (post) => {
     post.username = xss(post.username);
     post.password = xss(post.password);
 
-    if(!security.validateType(post.username, 'string') || !security.validateType(post.password, 'string')) {
+    if (!security.validateType(post.username, 'string') || !security.validateType(post.password, 'string')) {
         return {
             result: false,
             msg: "An error occured"
@@ -92,4 +87,60 @@ exports.validateLogin = (post) => {
     };
 };
 
+exports.validateUpdate = (post) => {
 
+    var firstName = xss(post.firstname);
+    var lastName = xss(post.lastname);
+    var email = xss(post.email);
+    var password = xss(post.password);
+    var password_new = xss(post.password_new);
+
+    if (firstName === "" || lastName === "" || email === "") {
+        console.log("herinde");
+        return {
+            result: false,
+            msg: "First name, last name and email is required"
+        }
+    }
+
+    if (!validation.isEmail(email)) {
+        return {
+            result: false,
+            msg: "The selected username must be an e-mail address"
+        };
+    }
+
+    if ((password !== "" && password_new === "") || (password_new !== "" && password === "")) {
+        return {
+            result: false,
+            msg: "If you wish to change your password, both fields have to be entered"
+        };
+    }
+
+    var changePassword = false;
+
+    if (password !== "" && password_new !== "") {
+        var regex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+
+        if (!password_new.match(regex)) {
+            return {
+                result: false,
+                msg: "The new password is not strong enough."
+            };
+        }
+        changePassword = true;
+    }
+
+
+
+    return {
+        result: true,
+        msg: "Success",
+        firstName,
+        lastName,
+        email,
+        oldPassword : password,
+        newPassword : password_new,
+        changePassword
+    };
+};

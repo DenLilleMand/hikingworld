@@ -33,6 +33,7 @@ router.post('/login', security.validateCSRFToken, function(req, res) {
         db.userModel.login(req.body.username, req.body.password, (userSuccess, userMsg) => {
             if (userSuccess) {
                 req.session.authenticated = userSuccess;
+                req.session.user = req.body.username;
                 res.redirect('/home');
             } else {
                 res.redirect('/?msg=' + encodeURI(userMsg));
@@ -94,9 +95,9 @@ router.post('/passwordreset', security.validateCSRFToken, function(req, res) {
     }
 
     db.userModel.resetPassword(email, (userSuccess, userMsg) => {
-        if (userSuccess) {            
+        if (userSuccess) {
             res.redirect('/passwordreset?msg=' + encodeURI(userMsg));
-        } else {            
+        } else {
             res.redirect('/passwordreset?msg=' + encodeURI(userMsg));
         }
     });
@@ -113,7 +114,7 @@ router.get('/reset', function(req, res) {
     db.userModel.validateReset(email, checksum, (userSuccess, userMsg) => {
         if (userSuccess) {
             req.session.reset = true;
-            req.session.username = email;
+            req.session.tempuser = email;
             res.redirect('changepassword');
         } else {
             console.log("It went bad!");
@@ -135,11 +136,11 @@ router.get('/changepassword', function(req, res) {
 });
 
 router.post('/changepassword', function(req, res) {
-    if (req.session && req.session.reset && req.session.username) {
+    if (req.session && req.session.reset && req.session.tempuser) {
         var password = req.body.password;
         var password_repeat = req.body.password_repeat;
         if (password === password_repeat) {
-            db.userModel.changePassword(req.session.username, password, (userSuccess, userMsg) => {
+            db.userModel.changePassword(req.session.tempuser, password, (userSuccess, userMsg) => {
                 if (userSuccess) {
                     req.session.reset = false;
                     res.redirect('/?msg=success');
@@ -151,8 +152,47 @@ router.post('/changepassword', function(req, res) {
     }
 });
 
+router.get('/update', security.isAuthenticated, function(req, res) {
+
+    db.userModel.getDetails(req.session.user, (userSuccess, details) => {
+        if (userSuccess) {
+            res.render('update', {
+                csrfToken: req.csrfToken(),
+                firstName: details.firstName,
+                lastName: details.lastName,
+                email: details.email
+            });
+        } else {
+            res.redirect('/update?msg=' + details);
+        }
+    });
+});
+
+router.post('/update', security.isAuthenticated, security.validateCSRFToken, function(req, res) {
+
+    var validationResult = validation.validateUpdate(req.body);
+
+    if (validationResult.result) {
+        db.userModel.performUpdate(validationResult, (userSuccess, details) => {
+            if (userSuccess) {
+                res.render('update', {
+                    csrfToken: req.csrfToken(),
+                    firstName: details.firstName,
+                    lastName: details.lastName,
+                    email: details.email
+                });
+            }
+            else {
+                res.redirect('/update?msg=' + details.msg);
+            }
+        });
+    } else {
+        res.redirect('/update?msg=' + validationResult.msg);
+    }
+});
+
 router.get('/home', security.isAuthenticated, function(req, res) {
-    res.render('home', {        
+    res.render('home', {
         csrfToken: req.csrfToken()
     });
 });

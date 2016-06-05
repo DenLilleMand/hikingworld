@@ -6,7 +6,7 @@ var pwdHandler = require('../util/cryptohandler'),
 module.exports = (pool) => {
     var module = {};
     module.login = (email, password, callback) => {
-        pool.getConnection((err, connection) => {            
+        pool.getConnection((err, connection) => {
 
             connection.query('SELECT * FROM account INNER JOIN attempts on account.username = attempts.username WHERE account.username = ?', [email], (err, rows, fields) => {
                 if (err) {
@@ -66,7 +66,8 @@ module.exports = (pool) => {
 
                 var hashedAndSaltedPassword = pwdHandler.hashValue(parameters.password + salt);
 
-                var emailChecksum = pwdHandler.generateRandomBytes(32);
+                var emailChecksum = new Buffer(pwdHandler.generateRandomBytes(32)).toString('base64');                
+
                 console.log("Are we here 1?");
                 connection.beginTransaction(function(err) {
                     if (err) {
@@ -115,9 +116,6 @@ module.exports = (pool) => {
                 if (err) {
                     throw err;
                 }
-                console.log("Kommer vi herind?");
-                console.log(rows[0]);
-                console.log(checksum);
                 if (rows[0].checksum === checksum) {
                     console.log("Kommer vi herind? nummer 2");
                     connection.query('UPDATE account SET verification = true where username = ?', [username], (err, rows, fields) => {
@@ -140,7 +138,7 @@ module.exports = (pool) => {
                     throw err;
                 }
                 if (rows[0].total === 1) {
-                    var resetChecksum = pwdHandler.generateRandomBytes(32);
+                    var emailChecksum = new Buffer(pwdHandler.generateRandomBytes(32)).toString('base64');
                     var urlToSend = encodeURI(mailer.getAddress() + 'reset?un=' + username + '&cs=' + resetChecksum);
                     mailer.sendMail(username, urlToSend, "Password reset");
                     connection.query('UPDATE account SET verification = false, checksum = ? where username = ?', [resetChecksum, username], (err, rows, fields) => {
@@ -173,7 +171,7 @@ module.exports = (pool) => {
 
         });
     };
-    
+
     module.changePassword = (username, password, callback) => {
         console.log('validate reset in the userModel was called');
         pool.getConnection((err, connection) => {
@@ -188,6 +186,88 @@ module.exports = (pool) => {
                 }
                 connection.release();
                 return callback(true, "reset success");
+            });
+        });
+    };
+    module.getDetails = (username, callback) => {
+        console.log('get details in the userModel was called');
+        pool.getConnection((err, connection) => {
+            connection.query('SELECT firstname, lastname, username FROM account WHERE username = ? limit 1', [username], (err, rows, fields) => {
+                if (err) {
+                    throw err;
+                }
+
+                if (rows.length !== 1) {
+                    connection.release();
+                    return callback(false, "Something went wrong");
+                }
+
+                return callback(true, {
+                    firstName: rows[0].firstname,
+                    lastName: rows[0].lastname,
+                    email: rows[0].username
+                });
+            });
+        });
+    };
+    module.performUpdate = (details, callback) => {
+        console.log('perform update in the userModel was called');
+        pool.getConnection((err, connection) => {
+            connection.query('SELECT firstname, lastname, username, password, salt FROM account WHERE username = ? limit 1', [details.email], (err, rows, fields) => {
+                if (err) {
+                    throw err;
+                }
+
+                if (rows.length !== 1) {
+                    connection.release();
+                    return callback(false, { msg: "User does not exist" });
+                }
+
+                if (details.changePassword) {
+                    var pwdCheck = pwdHandler.hashValue(details.oldPassword + rows[0].salt);
+
+                    if (pwdCheck !== rows[0].password) {
+                        return callback(false, { msg: "The old password is not correct" })
+                    } else {
+
+                        var salt = pwdHandler.generateRandomBytes(32);
+
+                        var hashedAndSaltedPassword = pwdHandler.hashValue(details.newPassword + salt);
+
+                        connection.query('UPDATE account SET firstname = ?, lastname = ?, password = ?, salt = ?, username = ? WHERE username = ?', [details.firstName, details.lastName, hashedAndSaltedPassword, salt, details.email, details.email], (err, rows, fiels) => {
+                            if (err) {
+                                throw err;
+                            }
+                            return callback(true, {
+                                firstName: details.firstName,
+                                lastName: details.lastName,
+                                email: details.email,
+                                msg: "Everything went good"
+                            });
+                        });
+                    }
+                } else {
+                    connection.query('UPDATE account SET firstname = ?, lastname = ?, username = ? WHERE username = ?', [details.firstName, details.lastName, details.email, details.email], (err, rows, fiels) => {
+                        if (err) {
+                            throw err;
+                        }
+                        if (rows.affectedRows === 1) {
+                            return callback(true, {
+                                firstName: details.firstName,
+                                lastName: details.lastName,
+                                email: details.email,
+                                msg: "Everything went good"
+                            });
+                        } else {
+                            return callback(false, {
+                                firstName: details.firstName,
+                                lastName: details.lastName,
+                                email: details.email,
+                                msg: "An unexpected error happened"
+                            });
+                        }
+                    });
+                }
             });
         });
     };
