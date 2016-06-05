@@ -89,6 +89,13 @@ exports.validateLogin = (post) => {
 
 exports.validateUpdate = (post) => {
 
+    if (!security.validateType(post.firstname, 'string') || !security.validateType(post.lastname, 'string') || !security.validateType(post.email, 'string') || !security.validateType(post.password, 'string') || !security.validateType(post.password_new, 'string')) {
+        return {
+            result: false,
+            msg: "An error occured"
+        };
+    }
+
     var firstName = xss(post.firstname);
     var lastName = xss(post.lastname);
     var email = xss(post.email);
@@ -96,7 +103,6 @@ exports.validateUpdate = (post) => {
     var password_new = xss(post.password_new);
 
     if (firstName === "" || lastName === "" || email === "") {
-        console.log("herinde");
         return {
             result: false,
             msg: "First name, last name and email is required"
@@ -131,16 +137,14 @@ exports.validateUpdate = (post) => {
         changePassword = true;
     }
 
-
-
     return {
         result: true,
         msg: "Success",
         firstName,
         lastName,
         email,
-        oldPassword : password,
-        newPassword : password_new,
+        oldPassword: password,
+        newPassword: password_new,
         changePassword
     };
 };
