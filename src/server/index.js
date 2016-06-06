@@ -12,7 +12,7 @@ var cryptoHandler = require('./util/cryptohandler.js');
 var server = http.createServer(app);
 var io = require('socket.io').listen(server);
 var fileUpload = require('express-fileupload');
-security = require('./util/security.js');
+var security = require('./util/security.js');
 
 app.set('views', __dirname + '/view');
 app.set('view engine', 'ejs');

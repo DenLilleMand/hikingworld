@@ -51,6 +51,8 @@ api.getAll = (request, response) => {
  */
 api.get = (request, response) => {
     var camelizedModel = camelize(request.params.model, IS_FIRST_LETTER_LOWERCASE);
+    //her skal jeg bruge session
+
     if(_.has(db, camelizedModel) && db[camelizedModel]["get"+camelizedModel]) {
         return db[camelizedModel]["get"+camelizedModel](request.params.id, db, request.query).then((data) => {
             response.append('Content-Type', 'application/json');
@@ -105,7 +107,7 @@ api.create = (request, response) => {
     var validationResult = validation.validateCreatePost(post);
     var camelizedModel = camelize(request.params.model, IS_FIRST_LETTER_LOWERCASE);
     if(_.has(db, camelizedModel) && db[camelizedModel]["create"+camelizedModel] && validationResult.isSuccess) {
-        return db[camelizedModel]["create"+camelizedModel](validationResult.post, db).then((data) => {
+        return db[camelizedModel]["create"+camelizedModel](validationResult.post, request.session.user, db).then((data) => {
             response.append('Content-Type', 'application/json');
             response.append('Accept', 'application/json');
             response.status(200).json({
