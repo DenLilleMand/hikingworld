@@ -9,7 +9,6 @@ var app = Express();
 var ejs = require('ejs');
 var helmet = require('helmet');
 var cryptoHandler = require('./util/cryptohandler.js');
-var authentication = require('./util/authentication');
 var server = http.createServer(app);
 var io = require('socket.io').listen(server);
 var fileUpload = require('express-fileupload');
