@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="17c7be22-ed4a-4e0d-9065-fd0c3ab7037a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/js/application/actioncreators/genericactioncreators.js" afterPath="$PROJECT_DIR$/src/client/js/application/actioncreators/genericactioncreators.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/js/application/actioncreators/postactioncreators.js" afterPath="$PROJECT_DIR$/src/client/js/application/actioncreators/postactioncreators.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/js/application/components/facebookwall/facebookwall.js" afterPath="$PROJECT_DIR$/src/client/js/application/components/facebookwall/facebookwall.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/js/application/components/facebookwall/post.js" afterPath="$PROJECT_DIR$/src/client/js/application/components/facebookwall/post.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/js/application/components/facebookwall/postinput.js" afterPath="$PROJECT_DIR$/src/client/js/application/components/facebookwall/postinput.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/model/models/post.js" afterPath="$PROJECT_DIR$/src/server/model/models/post.js" />
-    </list>
+    <list default="true" id="17c7be22-ed4a-4e0d-9065-fd0c3ab7037a" name="Default" comment="" />
     <ignored path="hikingworld.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -33,8 +25,8 @@
       <file leaf-file-name="genericactioncreators.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/client/js/application/actioncreators/genericactioncreators.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.47854477">
-              <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.7798507">
+              <caret line="47" column="14" selection-start-line="47" selection-start-column="14" selection-end-line="47" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -1116,8 +1108,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/client/js/application/actioncreators/genericactioncreators.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47854477">
-          <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.7798507">
+          <caret line="47" column="14" selection-start-line="47" selection-start-column="14" selection-end-line="47" selection-end-column="14" />
           <folding />
         </state>
       </provider>
