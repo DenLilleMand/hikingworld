@@ -1,13 +1,23 @@
 {
-	"database": {
+	"database_appuser": {
 		"host": "",
 		"port": "",
 		"user": "",
 		"password": "",
 		"database": "",
 		"authentication_user": "",
-		"connectionLimit": 100000,
-		"force": false
+		"connectionLimit": "",
+		"force" : false
+	},
+	"database_root": {
+		"host": "",
+		"port": "",
+		"user": "",
+		"password": "",
+		"database": "",
+		"authentication_user": "",
+		"connectionLimit": "",
+		"force" : false
 	},
 	"mail": {
 		"username": "",
@@ -16,19 +26,18 @@
 	},
 	"server": {
 		"host": "",
-		"port": 
+		"port": 3000
 	},
 	"captcha": {
 		"clientkey": "",
 		"secretkey": ""
 	},
-	"session" : {
-		"key" : "",
-    	"resave": , 
-   	 	"saveUninitialized" : , 
-    	"secret": ""  
-	},
-	"csrf": {
-		"isDisabled": false
+	"session": {
+		"key": "",
+		"resave": false,
+		"saveUninitialized": false,
+		"secret": "",
+		"httpOnly" : false,
+		"secure": false
 	}
 }
