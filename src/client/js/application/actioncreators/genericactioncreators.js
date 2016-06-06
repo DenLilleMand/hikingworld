@@ -14,7 +14,6 @@ class GenericActionCreators {
         this.asyncGetAll = this.asyncGetAll.bind(this);
     }
 
-
     error(type, error) {
         return {
             type,
