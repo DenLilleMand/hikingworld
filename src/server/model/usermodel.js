@@ -10,7 +10,8 @@ module.exports = (pool) => {
 
             connection.query('SELECT * FROM account INNER JOIN attempts on account.username = attempts.username WHERE account.username = ?', [email], (err, rows, fields) => {
                 if (err) {
-                    throw err;
+                    console.log(err);
+                    return callback(false, "An unexpected error happened!");
                 }
 
                 if (rows.length !== 1) {
@@ -54,8 +55,10 @@ module.exports = (pool) => {
         pool.getConnection((err, connection) => {
             connection.query('SELECT * FROM account WHERE username = ? limit 1', [parameters.username], (err, rows, fields) => {
                 if (err) {
-                    throw err;
+                    console.log(err);
+                    return callback(false, "An unexpected error happened!");
                 }
+
 
                 if (rows.length === 1) {
                     connection.release();
@@ -66,12 +69,14 @@ module.exports = (pool) => {
 
                 var hashedAndSaltedPassword = pwdHandler.hashValue(parameters.password + salt);
 
-                var emailChecksum = new Buffer(pwdHandler.generateRandomBytes(32)).toString('base64');                
-                
+                var emailChecksum = new Buffer(pwdHandler.generateRandomBytes(32)).toString('base64');
+
                 connection.beginTransaction(function(err) {
                     if (err) {
-                        throw err;
-                    }                    
+                        console.log(err);
+                        return callback(false, "An unexpected error happened!");
+                    }
+
                     connection.query('INSERT INTO account (username, password, salt, verification, checksum, firstname, lastname) VALUES (?, ?, ?, false, ?, ?, ?)', [parameters.username, hashedAndSaltedPassword, salt, emailChecksum, parameters.firstName, parameters.lastName], function(err, rows, field) {
                         if (err) {
                             connection.rollback(function() {
@@ -84,13 +89,13 @@ module.exports = (pool) => {
                         connection.query('INSERT INTO attempts (username, attempts, lastLogin) VALUES (?, 0, ?)', [parameters.username, dateNow], function(err, rows, field) {
                             if (err) {
                                 connection.rollback(function() {
-                                    return callback(false, "An unexpected error happened");
+                                    return callback(false, "An unexpected transaction error happened");
                                 });
                             }
                             connection.commit(function(err) {
                                 if (err) {
                                     connection.rollback(function() {
-                                        return callback(false, "An unexpected error happened");
+                                        return callback(false, "An unexpected transaction error happened");
                                     });
                                 }
                                 console.log('Transaction Complete.');
@@ -112,13 +117,14 @@ module.exports = (pool) => {
         pool.getConnection((err, connection) => {
             connection.query('SELECT checksum FROM account WHERE username = ? limit 1', [username], (err, rows, fields) => {
                 if (err) {
-                    throw err;
+                    console.log(err);
+                    return callback(false, "An unexpected error happened!");
                 }
                 if (rows[0].checksum === checksum) {
-                    console.log("Kommer vi herind? nummer 2");
                     connection.query('UPDATE account SET verification = true where username = ?', [username], (err, rows, fields) => {
                         if (err) {
-                            throw err;
+                            console.log(err);
+                            return callback(false, "An unexpected error happened!");
                         }
                         return callback(true, "Verification success");
                     });
@@ -133,7 +139,8 @@ module.exports = (pool) => {
         pool.getConnection((err, connection) => {
             connection.query('SELECT count(*) as total FROM account WHERE username = ? limit 1', [username], (err, rows, fields) => {
                 if (err) {
-                    throw err;
+                    console.log(err);
+                    return callback(false, "An unexpected error happened!");
                 }
                 if (rows[0].total === 1) {
                     var resetChecksum = new Buffer(pwdHandler.generateRandomBytes(32)).toString('base64');
@@ -155,7 +162,8 @@ module.exports = (pool) => {
         pool.getConnection((err, connection) => {
             connection.query('SELECT checksum FROM account WHERE username = ? limit 1', [username], (err, rows, fields) => {
                 if (err) {
-                    throw err;
+                    console.log(err);
+                    return callback(false, "An unexpected error happened!");
                 }
 
                 if (rows[0] != null && rows[0].checksum === checksum) {
@@ -192,12 +200,13 @@ module.exports = (pool) => {
         pool.getConnection((err, connection) => {
             connection.query('SELECT firstname, lastname, username, imagepath FROM account WHERE username = ? limit 1', [username], (err, rows, fields) => {
                 if (err) {
-                    throw err;
+                    console.log(err);
+                    return callback(false, "An unexpected error happened!");
                 }
 
                 if (rows.length !== 1) {
                     connection.release();
-                    return callback(false, "Something went wrong");
+                    return callback(false, "The user details could not be loaded");
                 }
 
                 return callback(true, {
@@ -214,7 +223,8 @@ module.exports = (pool) => {
         pool.getConnection((err, connection) => {
             connection.query('SELECT firstname, lastname, username, password, salt FROM account WHERE username = ? limit 1', [details.email], (err, rows, fields) => {
                 if (err) {
-                    throw err;
+                    console.log(err);
+                    return callback(false, "An unexpected error happened!");
                 }
 
                 if (rows.length !== 1) {
@@ -235,7 +245,8 @@ module.exports = (pool) => {
 
                         connection.query('UPDATE account SET firstname = ?, lastname = ?, password = ?, salt = ?, imagepath = ?, username = ? WHERE username = ?', [details.firstName, details.lastName, hashedAndSaltedPassword, salt, details.fileName, details.email, details.email], (err, rows, fiels) => {
                             if (err) {
-                                throw err;
+                                console.log(err);
+                                return callback(false, "An unexpected error happened!");
                             }
                             return callback(true, {
                                 firstName: details.firstName,
@@ -248,7 +259,8 @@ module.exports = (pool) => {
                 } else {
                     connection.query('UPDATE account SET firstname = ?, lastname = ?, imagepath = ?, username = ? WHERE username = ?', [details.firstName, details.lastName, details.fileName, details.email, details.email], (err, rows, fiels) => {
                         if (err) {
-                            throw err;
+                            console.log(err);
+                            return callback(false, "An unexpected error happened!");
                         }
                         if (rows.affectedRows === 1) {
                             return callback(true, {

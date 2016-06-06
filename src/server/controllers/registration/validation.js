@@ -25,9 +25,9 @@ exports.validateRegistration = (post) => {
 
     username = xss(username);
     password = xss(password);
-    password_confirm = xss(password_repeat);
-    firstName = xss(firstname);
-    lastName = xss(lastname);
+    password_confirm = xss(password_confirm);
+    firstName = xss(firstName);
+    lastName = xss(lastName);
 
     if (username === "" || password === "" || firstName === "" || lastName === "" || password_confirm === "") {
         return {
@@ -125,8 +125,8 @@ exports.validateUpdate = (post, files) => {
         };
     }
 
-    firstName = xss(firstname);
-    lastName = xss(lastname);
+    firstName = xss(firstName);
+    lastName = xss(lastName);
     email = xss(email);
     password = xss(password);
     password_new = xss(password_new);
