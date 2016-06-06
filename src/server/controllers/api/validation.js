@@ -1,15 +1,13 @@
 var exports = module.exports,
-    validation = require('validator'),
-    config = require('../../config/configuration/configuration.json'),
     xss = require('xss'),
-    security = require('../../util/security.js');
+    security = require('../../util/security');
 
 
 
 exports.validateCreatePost = (post) => {
     var description = xss(post.description);
 
-    if(!security.validateType(description, "string")) {
+    if(!security.validateType([description], "string")) {
         return {
             isSuccess: false,
             msg: "An error occured",
@@ -30,13 +28,15 @@ exports.validateCreatePost = (post) => {
 exports.validateUpdatePost = (post) => {
     var description = xss(post.description);
 
-    if(!security.validateType(description, "string")) {
+    console.log('going to validate post:', post);
+    if(!security.validateType([description], "string")) {
         return {
             isSuccess: false,
             msg: "An error occured",
             post: null
         }
     }
+    console.log('reached here');
 
     return {
         isSuccess: true,

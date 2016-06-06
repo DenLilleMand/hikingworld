@@ -18,26 +18,32 @@ module.exports = function (sequelize, DataTypes) {
         updatedAt: {
             type: DataTypes.DATE,
             field: 'updatedAt'
+        },
+        fk_account_post: {
+            type: DataTypes.INTEGER(10).UNSIGNED,
+            field: "fk_account_post",
+            allowNull: false
         }
     }, {
         tableName: 'post',
         classMethods: {
             associate: (models) => {
                 //console.log('post model has no relationships right now');
+                Post.belongsTo(models.Account, {foreignKey:'fk_account_post'});
             },
             seed: (models) => {
                 return Post.bulkCreate([{
                     description:"post1",
-                    fk_account_post: "victoremil.r.andersen@gmail.com"
+                    //fk_account_post: "victoremil.r.andersen@gmail.com"
                 }, {
                     description: "post2",
-                    fk_account_post: "victoremil.r.andersen@gmail.com"
+                    //fk_account_post: "victoremil.r.andersen@gmail.com"
                 }, {
                     description: "post3",
-                    fk_account_post: "victoremil.r.andersen@gmail.com"
+                    //fk_account_post: "victoremil.r.andersen@gmail.com"
                 }, {
                     description: "post4",
-                    fk_account_post: "victoremil.r.andersen@gmail.com"
+                    //fk_account_post: "victoremil.r.andersen@gmail.com"
                 }]);
             },
             syncing: (force) => {
@@ -48,8 +54,16 @@ module.exports = function (sequelize, DataTypes) {
                     console.log(error);
                 });
             },
-            createPost: (post, models) => {
-                return Post.create(post);
+            createPost: (post, user, models) => {
+                return models.Account.findOne({
+                    where: {
+                        username: user
+                    }
+                }).then((persistedAccount) => {
+                    post.fk_account_post = persistedAccount.get('id');
+                    console.log('The id:', post.fk_account_post);
+                    return Post.create(post);
+                });
             },
             updatePost: (post, models) => {
                 return Post.findOne({

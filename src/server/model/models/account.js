@@ -47,6 +47,7 @@ module.exports = function (sequelize, DataTypes) {
         classMethods: {
             associate: function (models) {
                 Account.hasMany(models.Sessions, {foreignKey: 'fk_account_sessions'});
+                Account.hasMany(models.Post, { foreignKey: 'fk_account_post'})
             },
             syncing: function (force) {
                 Account.sync({
