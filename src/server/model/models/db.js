@@ -23,7 +23,7 @@ Promise.each(Object.keys(db), (modelName) => {
         return db[modelName].associate(db);
     }
 }).then(() => {
-    return sequelize.sync({force: config.database.force, logging: () => {return true;}});
+    return sequelize.sync({force: config.database_root.force, logging: () => {return true;}});
 }).then(() => {
     if(config.database.force) {
         return Promise.each(Object.keys(db), (modelName) => {

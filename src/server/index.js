@@ -43,11 +43,11 @@ app.disable('x-powered-by');
 // SETTING UP THE DATABASE SPECIFICATIONS FOR THE SESSION
 
 var options = {
-    host: config.database.host,
-    port: config.database.port,
-    user: config.database.user,
-    password: config.database.password,
-    database: config.database.database
+    host: config.database_root.host,
+    port: config.database_root.port,
+    user: config.database_root.user,
+    password: config.database_root.password,
+    database: config.database_root.database
 };
 
 // WE WANT TO SAVE THE SESSION INSIDE DATABASE INSTEAD OF IN MEMORY

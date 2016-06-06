@@ -1,10 +1,10 @@
 module.exports = function () {
     var Sequelize = require('sequelize');
     var config = require('../config/configuration/configuration.json');
-    var sequelize = new Sequelize(config.database.database, config.database.user, config.database.password, {
-        host: config.database.host,
+    var sequelize = new Sequelize(config.database_root.database, config.database_root.user, config.database_root.password, {
+        host: config.database_root.host,
         pool: {
-            max: config.database.connectionLimit,
+            max: config.database_root.connectionLimit,
             min: 0,
             idle: 1000000
         },
