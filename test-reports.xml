@@ -1,8 +1,9 @@
-<testsuite name="Mocha Tests" tests="6" failures="0" errors="0" skipped="0" timestamp="Thu, 19 May 2016 07:22:39 GMT" time="0.174">
-<testcase classname="post action creators When called with valid input create" name="It should not throw an error" time="0"/>
+<testsuite name="Mocha Tests" tests="7" failures="0" errors="0" skipped="0" timestamp="Mon, 06 Jun 2016 08:57:16 GMT" time="0.166">
+<testcase classname="post action creators When called with valid input create" name="It should not throw an error" time="0.001"/>
 <testcase classname="post action creators When called with valid input create" name="It should return the correct action" time="0.001"/>
 <testcase classname="post action creators When called with valid input update" name="It should not throw an error" time="0"/>
-<testcase classname="post action creators When called with valid input update" name="It should return the correct action" time="0.001"/>
-<testcase classname="account and session relationship When creating a session, and we want to add an account fk  The sequelize persisted session" name="has to have a setAccount method " time="0.038"/>
-<testcase classname="account and session relationship When creating a session, and we want to add an account fk  The sequelize persisted session" name="has to have a getAccount method" time="0.051"/>
+<testcase classname="post action creators When called with valid input update" name="It should return the correct action" time="0"/>
+<testcase classname="post action creators When called with invalid input" name="Throws a TypeError if the input type for createPost isn't a object" time="0.012"/>
+<testcase classname="account and session relationship When creating a session, and we want to add an account fk  The sequelize persisted session" name="has to have a setAccount method " time="0.062"/>
+<testcase classname="account and session relationship When creating a session, and we want to add an account fk  The sequelize persisted session" name="has to have a getAccount method" time="0.022"/>
 </testsuite>

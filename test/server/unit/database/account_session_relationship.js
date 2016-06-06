@@ -32,11 +32,6 @@ describe('account and session relationship', () => {
                     done();
                 });
             });
-            it('has to delete a session', (done) => {
-                return db.Sessions.deleteSession(session).then(() => {
-                    done();
-                })
-            });
         })
     });
 

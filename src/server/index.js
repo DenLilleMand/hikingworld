@@ -1,19 +1,24 @@
 var config = require('./config/configuration/configuration.json');
-var express = require('express');
+var Express = require('express');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var session = require('express-session');
-var MySQLStore = require('express-mysql-session')(session);
-var app = express();
+var http = require('http');
+var expressSession = require('express-session');
+var MySQLStore = require('express-mysql-session')(expressSession);
+var app = Express();
 var ejs = require('ejs');
 var helmet = require('helmet');
 var cryptoHandler = require('./util/cryptohandler.js');
+var server = http.createServer(app);
+var io = require('socket.io').listen(server);
 var fileUpload = require('express-fileupload');
 security = require('./util/security.js');
 
 app.set('views', __dirname + '/view');
 app.set('view engine', 'ejs');
-app.use(express.static("static"));
+app.use(Express.static("static"));
+
+
 
 // CONTENT-SECURITY-POLICY
 
@@ -56,7 +61,7 @@ app.use(fileUpload());
 
 // CONFIGURATION OF THE SESSION
 
-app.use(session({
+var session = expressSession({
     key: config.session.key,
     resave: config.session.resave,
     saveUninitialized: config.session.saveUninitialized,
@@ -66,9 +71,14 @@ app.use(session({
         httpOnly: config.session.httpOnly,
         secure: config.session.secure
     }
-}));
+});
+
+
+app.use(session);
+require('../chat/eventhandling')(io, session);
 
 // CUSTOM ERROR HANDLING WHEN RECEIVING AN INVALID CSRF TOKEN
+
 
 app.use(function(req, res, next) {
     req.csrfToken = function() {
@@ -93,13 +103,13 @@ app.use('/api', security.isAuthenticated, security.validateCSRFToken , require('
 
 // 404 ERROR IF ROUTE IS NOT FOUND. THIS CODE HAS TO BE AFTER ROUTES
 
-app.get('*', function(req, res){
+app.get('*', (req, res) => {
   res.status(404);
   res.render('err404.ejs');
 });
 
 // STARTING THE HTTP SERVER
 
-app.listen(config.server.port, function() {
-    console.log("Server is running!");
+server.listen(config.server.port, () => {
+    console.log("Server is running! on port:", config.server.port);
 });

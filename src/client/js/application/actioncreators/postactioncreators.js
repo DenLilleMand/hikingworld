@@ -41,6 +41,9 @@ class PostActionCreators {
     }
 
     createPost(post) {
+        if( typeof post !== 'object'  ) {
+            throw new TypeError("Invalid type:"+typeof post);
+        }
         return {
             type: CREATE_ + POST,
             data: {
