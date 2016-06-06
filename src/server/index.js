@@ -12,12 +12,12 @@ var cryptoHandler = require('./util/cryptohandler.js');
 var authentication = require('./util/authentication');
 var server = http.createServer(app);
 var io = require('socket.io').listen(server);
+var fileUpload = require('express-fileupload');
+security = require('./util/security.js');
 
 app.set('views', __dirname + '/view');
 app.set('view engine', 'ejs');
 app.use(Express.static("static"));
-
-
 
 
 
@@ -58,6 +58,8 @@ var sessionStore = new MySQLStore(options);
 
 app.use(cookieParser());
 
+app.use(fileUpload());
+
 // CONFIGURATION OF THE SESSION
 
 var session = expressSession({
@@ -78,11 +80,17 @@ require('../chat/eventhandling')(io, session);
 
 // CUSTOM ERROR HANDLING WHEN RECEIVING AN INVALID CSRF TOKEN
 
-app.use((req, res, next) => {
-    req.csrfToken = () => {
-        var randomBytes = cryptoHandler.generateRandomBytes(64);
-        var hashedValue = cryptoHandler.hashValue(randomBytes);
-        req.session.csrfSecret = hashedValue;
+
+app.use(function(req, res, next) {
+    req.csrfToken = function() {
+        var hashedValue = "";
+        if(!req.session.csrfSecret) {
+            var randomBytes = cryptoHandler.generateRandomBytes(64);
+            hashedValue = cryptoHandler.hashValue(randomBytes);
+            req.session.csrfSecret = hashedValue;
+        } else {
+            hashedValue = req.session.csrfSecret;
+        }
         return hashedValue;
     };
     next();
@@ -91,7 +99,7 @@ app.use((req, res, next) => {
 // SETTING UP THE ROUTES
 
 app.use('/', require('./controllers/registration/users'));
-app.use('/api', authentication.isAuthenticated, authentication.validateCSRFToken , require('./controllers/api/api'));
+app.use('/api', security.isAuthenticated, security.validateCSRFToken , require('./controllers/api/api'));
 
 
 // 404 ERROR IF ROUTE IS NOT FOUND. THIS CODE HAS TO BE AFTER ROUTES

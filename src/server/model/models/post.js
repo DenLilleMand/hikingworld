@@ -27,13 +27,17 @@ module.exports = function (sequelize, DataTypes) {
             },
             seed: (models) => {
                 return Post.bulkCreate([{
-                    description:"post1"
+                    description:"post1",
+                    fk_account_post: "victoremil.r.andersen@gmail.com"
                 }, {
-                    description: "post2"
+                    description: "post2",
+                    fk_account_post: "victoremil.r.andersen@gmail.com"
                 }, {
-                    description: "post3"
+                    description: "post3",
+                    fk_account_post: "victoremil.r.andersen@gmail.com"
                 }, {
-                    description: "post4"
+                    description: "post4",
+                    fk_account_post: "victoremil.r.andersen@gmail.com"
                 }]);
             },
             syncing: (force) => {
