@@ -5,18 +5,28 @@ import Post from './post';
 import PostInput from './postinput';
 import { POST } from '../../constants/typeconstants';
 import Moment from 'moment';
+import io from 'socket.io-client';
 
 export default class FacebookWall extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.state = {
-            posts: []
+            posts: [],
+            io: null
         };
     }
 
     componentDidMount() {
         this.props.getPosts({}, POST);
         //this.props.getUser(session.key);
+        var socket = io('/');
+        this.setState({
+            socket
+        });
+
+        socket.emit("herpderp", { herpderp: "okay"});
+
+
     }
 
     componentWillReceiveProps(props) {

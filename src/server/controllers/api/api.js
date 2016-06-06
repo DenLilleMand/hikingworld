@@ -4,7 +4,8 @@ var express = require('express'),
     router = express.Router(),
     api = {},
     camelize = db.Sequelize.Utils.inflection.camelize,
-    IS_FIRST_LETTER_LOWERCASE = false;
+    IS_FIRST_LETTER_LOWERCASE = false,
+    validation = require('./validation');
 
 /**
  * This method takes a request and a response at the /api/ route of the application,
@@ -76,9 +77,11 @@ api.get = (request, response) => {
  * @param response
  */
 api.delete = (request, response) => {
+    var id = request.params.id;
+    var validationResult = validation.validateDeletePost(id);
     var camelizedModel = camelize(request.params.model, IS_FIRST_LETTER_LOWERCASE);
-    if(_.has(db, camelizedModel) && db[camelizedModel]["delete"+camelizedModel]) {
-        return db[camelizedModel]["delete"+camelizedModel](request.params.id, db, request.query).then(() => {
+    if(_.has(db, camelizedModel) && db[camelizedModel]["delete"+camelizedModel] && validationResult.isSuccess) {
+        return db[camelizedModel]["delete"+camelizedModel](validationResult.id, db, request.query).then(() => {
             response.sendStatus(200);
         }).catch((err) => {
             console.log('Error happended in the HTTP GET api:', err);
@@ -98,14 +101,11 @@ api.delete = (request, response) => {
  * @param response
  */
 api.create = (request, response) => {
-    var camelizedModel = camelize(request.params.model, IS_FIRST_LETTER_LOWERCASE);
-    console.log('api.create, called once');
-    console.log('body:', request.body);
     var post = request.body;
-
-
-    if(_.has(db, camelizedModel) && db[camelizedModel]["create"+camelizedModel]) {
-        return db[camelizedModel]["create"+camelizedModel](request.body, db).then((data) => {
+    var validationResult = validation.validateCreatePost(post);
+    var camelizedModel = camelize(request.params.model, IS_FIRST_LETTER_LOWERCASE);
+    if(_.has(db, camelizedModel) && db[camelizedModel]["create"+camelizedModel] && validationResult.isSuccess) {
+        return db[camelizedModel]["create"+camelizedModel](validationResult.post, db).then((data) => {
             response.append('Content-Type', 'application/json');
             response.append('Accept', 'application/json');
             response.status(200).json({
@@ -129,10 +129,13 @@ api.create = (request, response) => {
  * @param response
  */
 api.update = (request, response) => {
-    console.log('body in put:', request.body);
+    var post = request.body;
+
+    var validationResult = validation.validateUpdatePost(post);
+
     var camelizedModel = camelize(request.params.model, IS_FIRST_LETTER_LOWERCASE);
-    if(_.has(db, camelizedModel) && db[camelizedModel]["update"+camelizedModel]){
-        return db[camelizedModel]["update"+camelizedModel](request.body, db).then((data) => {
+    if(_.has(db, camelizedModel) && db[camelizedModel]["update"+camelizedModel] && validationResult.isSuccess){
+        return db[camelizedModel]["update"+camelizedModel](validationResult.post, db).then((data) => {
             response.append('Content-Type', 'application/json');
             response.append('Accept', 'application/json');
             response.status(201).json({

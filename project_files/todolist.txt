@@ -8,3 +8,12 @@
 @TODO: Configuration of Dannys server (relies a bit on the NGINX configuration and load balancing,
     but someone could make sure that SSH is properly configured e.g. doesn't accept passwords,  that the mysql database
     works etc.
+
+
+
+close to exam:
+
+@TODO: chat
+@TODO: Profile page(and update)
+@TODO: upvote/downvote
+@TODO: 
