@@ -8,8 +8,8 @@ var exports = module.exports,
 
 exports.validateCreatePost = (post) => {
     var description = xss(post.description);
-
-    if(!security.validateType(description, "string")) {
+    var inputArray = [description];
+    if(!security.validateType(inputArray, "string")) {
         return {
             isSuccess: false,
             msg: "An error occured",
@@ -29,8 +29,8 @@ exports.validateCreatePost = (post) => {
 
 exports.validateUpdatePost = (post) => {
     var description = xss(post.description);
-
-    if(!security.validateType(description, "string")) {
+    var inputArray = [description];
+    if(!security.validateType(inputArray, "string")) {
         return {
             isSuccess: false,
             msg: "An error occured",

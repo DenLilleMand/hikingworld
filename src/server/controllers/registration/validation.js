@@ -168,11 +168,14 @@ exports.validateUpdate = (post, files) => {
 
     var profilepicture;
     var fileName = "";
+    if (!files || files.image.name === "" || files.image.mimetype !== "image/jpeg" || files.image.data.toString('hex').substring(0, 4) !== "ffd8") {
+        console.log("Image not valid");
+    } else {
 
-    if (!files || files.image.name === "" || files.image.mimetype !== "image/jpeg") {} else {
         fileName = guid.raw();
         profilepicture = files.image;
-        profilepicture.mv('./static/profilepictures/' + fileName + '.jpg', function(err) {
+        var filePath = './static/profilepictures/' + fileName + '.jpg';
+        profilepicture.mv(filePath, function(err) {
             if (err) {
                 console.log("Something happened!");
             }
@@ -312,20 +315,20 @@ exports.validateReset = (query) => {
     };
 };
 
-exports.validateMessage = (msg) => {    
+exports.validateMessage = (msg) => {
     var passedMsg = msg;
 
     var inputArray = [passedMsg];
 
-    if (passedMsg && !security.validateType(inputArray, 'string')) {        
+    if (passedMsg && !security.validateType(inputArray, 'string')) {
         return {
             result: false,
             msg: "An error occured"
         };
-    } 
+    }
 
     passedMsg = xss(passedMsg);
-    
+
     return {
         result: true,
         msg: "Success",

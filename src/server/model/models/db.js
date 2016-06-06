@@ -25,7 +25,7 @@ Promise.each(Object.keys(db), (modelName) => {
 }).then(() => {
     return sequelize.sync({force: config.database_root.force, logging: () => {return true;}});
 }).then(() => {
-    if(config.database.force) {
+    if(config.database_root.force) {
         return Promise.each(Object.keys(db), (modelName) => {
             if("seed" in db[modelName]) {
                 return db[modelName].seed(db);

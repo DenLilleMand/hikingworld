@@ -18,8 +18,6 @@ app.set('views', __dirname + '/view');
 app.set('view engine', 'ejs');
 app.use(Express.static("static"));
 
-
-
 // CONTENT-SECURITY-POLICY
 
 app.use(helmet.csp());
