@@ -13,7 +13,7 @@ class PostActionCreators {
         this.asyncGetPosts = this.asyncGetPosts.bind(this);
     }
 
-    asyncCreatePost(description, user) {
+    asyncCreatePost(description) {
         if( typeof description !== 'object'  ) {
             throw new TypeError("Invalid type:"+typeof description);
         }
@@ -23,8 +23,7 @@ class PostActionCreators {
         return (dispatch) => {
             return superagent.post(REMOTE_URL + 'api/post')
                 .send({
-                    post,
-                    user
+                    post
                 })
                 .set('Content-Type', 'application/json')
                 .set('Accept', 'application/json')

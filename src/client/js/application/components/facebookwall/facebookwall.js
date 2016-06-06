@@ -40,11 +40,6 @@ export default class FacebookWall extends React.Component {
     }
 
     render() {
-        //let user = this.props.user;
-        let user = {
-            username: "denlillemand",
-            image: '/denlillemand'
-        };
 
         let sortedPosts = this.state.posts.sort((a, b ) => {
             return b.createdAtDate - a.createdAtDate;
@@ -52,9 +47,9 @@ export default class FacebookWall extends React.Component {
 
         return(
             <div className="facebook-wall container">
-                <PostInput createPost={this.props.createPost}  user={user} />
+                <PostInput /**user={}*/ createPost={this.props.createPost} />
                 {sortedPosts.map((post) => {
-                    return (<Post user={user} post={post} />);
+                    return (<Post post={post} />);
                 })}
             </div>
         );

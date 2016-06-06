@@ -25,11 +25,10 @@ class GenericActionCreators {
     /**
      * Generic action used to create new entities.
      * @param data
-     * @param user
      * @param type
      * @returns {Function}
      */
-    asyncCreate(data, user,  type) {
+    asyncCreate(data,  type) {
         return (dispatch) => {
             superagent.post(API_ENDPOINT+type.toLowerCase())
                 .set('Content-Type','application/json')
@@ -63,7 +62,7 @@ class GenericActionCreators {
      * @param type(String)
      * @returns {Function}
      */
-    asyncUpdate(data, user, type) {
+    asyncUpdate(data, type) {
         return (dispatch) => {
             superagent.put(API_ENDPOINT+type.toLowerCase()+SEPARATOR+id)
                 .set('X-CSRF-Token', X_CSRF_Token)

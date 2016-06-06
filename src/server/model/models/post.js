@@ -32,7 +32,7 @@ module.exports = function (sequelize, DataTypes) {
                 Post.belongsTo(models.Account, {foreignKey:'fk_account_post'});
             },
             seed: (models) => {
-                return Post.bulkCreate([{
+                /**return Post.bulkCreate([{
                     description:"post1",
                     //fk_account_post: "victoremil.r.andersen@gmail.com"
                 }, {
@@ -44,7 +44,7 @@ module.exports = function (sequelize, DataTypes) {
                 }, {
                     description: "post4",
                     //fk_account_post: "victoremil.r.andersen@gmail.com"
-                }]);
+                }]);*/
             },
             syncing: (force) => {
                 Post.sync({
@@ -62,7 +62,16 @@ module.exports = function (sequelize, DataTypes) {
                 }).then((persistedAccount) => {
                     post.fk_account_post = persistedAccount.get('id');
                     console.log('The id:', post.fk_account_post);
-                    return Post.create(post);
+                    return Post.create(post).then((persistedPost) => {
+                        return Post.findOne({
+                            where: {
+                                id: persistedPost.get('id')
+                            }, include: [{
+                                model: models.Account
+                            }]
+                        })
+
+                    });
                 });
             },
             updatePost: (post, models) => {
@@ -85,7 +94,11 @@ module.exports = function (sequelize, DataTypes) {
                 });
             },
             getAllPosts: (models, query) => {
-                return Post.findAll({});
+                return Post.findAll({
+                    include: [{
+                        model: models.Account
+                    }]
+                });
             },
             getPost: (id, models, query) => {
                 return Post.findOne({

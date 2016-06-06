@@ -7,11 +7,10 @@ export default class Post extends React.Component {
     }
 
     render() {
-        let user = this.props.user;
         let post = this.props.post;
         return(
             <div className="facebook-wall-post panel panel-default">
-                <div className="panel-heading">{user.username}</div>
+                <div className="panel-heading">{post.Account ? post.Account.username : "unknown user"}</div>
                 <div className="panel-body">{post.description}</div>
                 <div className="panel-footer">
                    <i className="fa fa-thumbs-o-up" aria-hidden="true"></i>
@@ -23,6 +22,5 @@ export default class Post extends React.Component {
     }
 }
 Post.propTypes = {
-    post: React.PropTypes.object,
-    user: React.PropTypes.object
+    post: React.PropTypes.object
 };
