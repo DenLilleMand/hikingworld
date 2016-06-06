@@ -32,6 +32,21 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING(145),
             field: 'checksum'
         },
+        firstName: {
+            type: DataTypes.STRING(145),
+            field: 'firstname',
+            allowNull: true
+        },
+        lastName: {
+            type: DataTypes.STRING(145),
+            field: 'lastname',
+            allowNull: true
+        },
+        imagePath: {
+            type: DataTypes.STRING(145),
+            field: 'imagepath',
+            allowNull: true
+        },
         createdAt: {
             type: DataTypes.DATE,
             field: 'createdAt',

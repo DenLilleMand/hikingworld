@@ -55,11 +55,11 @@ module.exports = (pool) => {
         pool.getConnection((err, connection) => {
             connection.query('SELECT * FROM account WHERE username = ? limit 1', [parameters.username], (err, rows, fields) => {
                 if (err) {
+                    
                     console.log(err);
                     return callback(false, "An unexpected error happened!");
                 }
-
-
+                
                 if (rows.length === 1) {
                     connection.release();
                     return callback(false, "User already exist");
@@ -74,12 +74,14 @@ module.exports = (pool) => {
                 connection.beginTransaction(function(err) {
                     if (err) {
                         console.log(err);
+                        console.log(err);                        
                         return callback(false, "An unexpected error happened!");
                     }
 
                     connection.query('INSERT INTO account (username, password, salt, verification, checksum, firstname, lastname) VALUES (?, ?, ?, false, ?, ?, ?)', [parameters.username, hashedAndSaltedPassword, salt, emailChecksum, parameters.firstName, parameters.lastName], function(err, rows, field) {
                         if (err) {
-                            connection.rollback(function() {
+                            console.log(err);
+                            connection.rollback(function() {                                
                                 return callback(false, "An unexpected error happened");
                             });
                         }
@@ -88,13 +90,15 @@ module.exports = (pool) => {
 
                         connection.query('INSERT INTO attempts (username, attempts, lastLogin) VALUES (?, 0, ?)', [parameters.username, dateNow], function(err, rows, field) {
                             if (err) {
-                                connection.rollback(function() {
+                                console.log(err);
+                                connection.rollback(function() {                                    
                                     return callback(false, "An unexpected transaction error happened");
                                 });
                             }
                             connection.commit(function(err) {
                                 if (err) {
                                     connection.rollback(function() {
+                                    console.log(err);                                        
                                         return callback(false, "An unexpected transaction error happened");
                                     });
                                 }

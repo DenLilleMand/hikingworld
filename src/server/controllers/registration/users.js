@@ -182,12 +182,13 @@ router.get('/update', security.isAuthenticated, function(req, res) {
 
     db.userModel.getDetails(req.session.user, (userSuccess, details) => {
         if (userSuccess) {
+            var profilePicture = details.profilePicture !== null ? details.profilePicture : "blank";
             res.render('update', {
                 csrfToken: req.csrfToken(),
                 firstName: details.firstName,
                 lastName: details.lastName,
                 email: details.email,
-                profilePicture: "/profilepictures/" + details.profilePicture + ".jpg"
+                profilePicture: "/profilepictures/" + profilePicture + ".jpg"
             });
         } else {
             res.redirect('/update?msg=' + details);
