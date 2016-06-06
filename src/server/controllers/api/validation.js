@@ -6,7 +6,7 @@ var exports = module.exports,
 
 exports.validateCreatePost = (post) => {
     var description = xss(post.description);
-
+    console.log(description);
     if(!security.validateType([description], "string")) {
         return {
             isSuccess: false,
