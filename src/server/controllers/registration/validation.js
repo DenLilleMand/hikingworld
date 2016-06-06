@@ -8,11 +8,11 @@ var exports = module.exports,
 
 exports.validateRegistration = (post) => {
 
-    var username = xss(post.username);
-    var password = xss(post.password);
-    var password_confirm = xss(post.password_repeat);
-    var firstName = xss(post.firstname);
-    var lastName = xss(post.lastname);
+    var username = post.username;
+    var password = post.password;
+    var password_confirm = post.password_repeat;
+    var firstName = post.firstname;
+    var lastName = post.lastname;
 
     var inputArray = [username, password, password_confirm, firstName, lastName]
 
@@ -22,6 +22,12 @@ exports.validateRegistration = (post) => {
             msg: "An error occured"
         };
     }
+
+    username = xss(username);
+    password = xss(password);
+    password_confirm = xss(password_repeat);
+    firstName = xss(firstname);
+    lastName = xss(lastname);
 
     if (username === "" || password === "" || firstName === "" || lastName === "" || password_confirm === "") {
         return {
@@ -65,8 +71,8 @@ exports.validateRegistration = (post) => {
 
 exports.validateLogin = (post) => {
 
-    var username = xss(post.username);
-    var password = xss(post.password);
+    var username = post.username;
+    var password = post.password;
 
     var inputArray = [username, password];
 
@@ -76,6 +82,9 @@ exports.validateLogin = (post) => {
             msg: "An error occured"
         };
     }
+
+    username = xss(username);
+    password = xss(password);
 
     if (username === "" || password === "") {
         return {
@@ -101,11 +110,11 @@ exports.validateLogin = (post) => {
 
 exports.validateUpdate = (post, files) => {
 
-    var firstName = xss(post.firstname);
-    var lastName = xss(post.lastname);
-    var email = xss(post.email);
-    var password = xss(post.password);
-    var password_new = xss(post.password_new);
+    var firstName = post.firstname;
+    var lastName = post.lastname;
+    var email = post.email;
+    var password = post.password;
+    var password_new = post.password_new;
 
     var inputArray = [firstName, lastName, email, password, password_new];
 
@@ -115,6 +124,12 @@ exports.validateUpdate = (post, files) => {
             msg: "An error occured"
         };
     }
+
+    firstName = xss(firstname);
+    lastName = xss(lastname);
+    email = xss(email);
+    password = xss(password);
+    password_new = xss(password_new);
 
     if (firstName === "" || lastName === "" || email === "") {
         return {
@@ -179,7 +194,7 @@ exports.validateUpdate = (post, files) => {
 
 exports.validatePasswordReset = (post) => {
 
-    var email = xss(post.email);
+    var email = post.email;
 
     var inputArray = [email];
 
@@ -189,6 +204,8 @@ exports.validatePasswordReset = (post) => {
             msg: "An error occured"
         };
     }
+
+    email = xss(email);
 
     if (!validation.isEmail(email)) {
         return {
@@ -206,8 +223,8 @@ exports.validatePasswordReset = (post) => {
 
 exports.validatePasswordChange = (post) => {
 
-    var password = xss(post.password);
-    var password_confirm = xss(post.password_repeat);
+    var password = post.password;
+    var password_confirm = post.password_repeat;
 
     var inputArray = [password, password_confirm];
 
@@ -217,6 +234,9 @@ exports.validatePasswordChange = (post) => {
             msg: "An error occured"
         };
     }
+
+    password = xss(password);
+    password_confirm = xss(password_confirm);
 
     if (password !== password_confirm) {
         return {
@@ -244,8 +264,8 @@ exports.validatePasswordChange = (post) => {
 
 exports.validateVerification = (post) => {
 
-    var veriUser = xss(post.un);
-    var checksum = xss(post.cs);
+    var veriUser = post.un;
+    var checksum = post.cs;
 
     var inputArray = [veriUser, checksum];
 
@@ -256,6 +276,9 @@ exports.validateVerification = (post) => {
         };
     }
 
+    veriUser = xss(veriUser);
+    checksum = xss(checksum);
+
     return {
         result: true,
         msg: "Success",
@@ -264,19 +287,45 @@ exports.validateVerification = (post) => {
     };
 };
 
-exports.validateMessage = (msg) => {
+exports.validateReset = (query) => {
 
-    var passedMsg = xss(msg);
+    var email = query.un;
+    var checksum = query.cs;
 
-    var inputArray = [passedMsg];
+    var inputArray = [email, checksum];
 
-    if (passedMsg && !security.validateType(inputArray, 'string')) {
+    if (!security.validateType(inputArray, 'string')) {
         return {
             result: false,
             msg: "An error occured"
         };
     }
 
+    email = xss(email);
+    checksum = xss(checksum);
+
+    return {
+        result: true,
+        msg: "Success",
+        email,
+        checksum
+    };
+};
+
+exports.validateMessage = (msg) => {    
+    var passedMsg = msg;
+
+    var inputArray = [passedMsg];
+
+    if (passedMsg && !security.validateType(inputArray, 'string')) {        
+        return {
+            result: false,
+            msg: "An error occured"
+        };
+    } 
+
+    passedMsg = xss(passedMsg);
+    
     return {
         result: true,
         msg: "Success",

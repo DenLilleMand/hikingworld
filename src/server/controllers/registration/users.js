@@ -6,30 +6,27 @@ var express = require('express'),
     config = require('../../config/configuration/configuration.json');
 
 router.get('/', function(req, res) {
-    var passedMsg = req.query.msg;
-    var action = req.query.action;
+    var validationResult1 = validation.validateMessage(req.query.msg);
+    var validationResult2 = validation.validateMessage(req.query.action);
+    
+    if(validationResult1.result && validationResult2.result) {
+        var classAct1 = validationResult2.passedMsg === 'register' ? '' : 'class="active"';
+        var classAct2 = validationResult2.passedMsg === 'register' ? 'class="active"' : '';
+        var displayAct1 = validationResult2.passedMsg === 'register' ? 'style="display: none;"' : 'style="display: block;"';
+        var displayAct2 = validationResult2.passedMsg === 'register' ? 'style="display: block;"' : 'style="display: none;"';
 
-    var inputArray1 = [passedMsg];
-    var inputArray2 = [action];
-
-    if ((passedMsg && !security.validateType(inputArray1, 'string')) || (action && !security.validateType(inputArray2, 'string'))) {
-        res.send("Error!");
+        res.render('login', {
+            msg: validationResult1.passedMsg,
+            key: config.captcha.clientkey,
+            csrfToken: req.csrfToken(),
+            classAction1: classAct1,
+            classAction2: classAct2,
+            displayAction1: displayAct1,
+            displayAction2: displayAct2
+        });
+    } else {
+        res.redirect('/');
     }
-
-    var classAct1 = action === 'register' ? '' : 'class="active"';
-    var classAct2 = action === 'register' ? 'class="active"' : '';
-    var displayAct1 = action === 'register' ? 'style="display: none;"' : 'style="display: block;"';
-    var displayAct2 = action === 'register' ? 'style="display: block;"' : 'style="display: none;"';
-
-    res.render('login', {
-        msg: passedMsg,
-        key: config.captcha.clientkey,
-        csrfToken: req.csrfToken(),
-        classAction1: classAct1,
-        classAction2: classAct2,
-        displayAction1: displayAct1,
-        displayAction2: displayAct2
-    });
 });
 
 router.post('/login', security.validateCSRFToken, function(req, res) {
@@ -78,10 +75,14 @@ router.get('/verification', function(req, res) {
 
     if (validationResult.result) {
         db.userModel.verification(validationResult.veriUser, validationResult.checksum, (userSuccess, userMsg) => {
-            res.redirect('/?msg=' + encodeURI(userMsg));
+            if(userSuccess) {
+                res.redirect('/?msg=' + encodeURI(userMsg));
+            } else {
+                res.redirect('/?msg=' + encodeURI(userMsg));
+            }            
         });
     } else {
-        res.send('Error!');
+        res.redirect('/?msg=' + encodeURI(validationResult.msg));
     }
 });
 
@@ -97,7 +98,7 @@ router.get('/passwordreset', function(req, res) {
             csrfToken: req.csrfToken()
         });
     } else {
-        res.send('Error!!');
+        res.redirect('/passwordreset?msg=' + encodeURI(validationResult.msg));
     }
 });
 
@@ -119,25 +120,23 @@ router.post('/passwordreset', security.validateCSRFToken, function(req, res) {
 });
 
 router.get('/reset', function(req, res) {
-    var email = req.query.un;
-    var checksum = req.query.cs;
 
-    var inputArray = [email, checksum];
+    var validationResult = validation.validateReset(req.query);
 
-    if (!security.validateType(inputArray, 'string')) {
-        res.send("Error!");
+    if (validationResult.result) {
+        db.userModel.validateReset(validationResult.email, validationResult.checksum, (userSuccess, userMsg) => {
+            if (userSuccess) {
+                req.session.reset = true;
+                req.session.tempuser = validationResult.email;
+                res.redirect('changepassword');
+            } else {
+                console.log("It went bad!");
+                res.redirect('/?msg=' + encodeURI(userMsg));
+            }
+        });
+    } else {
+        res.redirect('/reset?msg=' + encodeURI(validationResult.msg));
     }
-
-    db.userModel.validateReset(email, checksum, (userSuccess, userMsg) => {
-        if (userSuccess) {
-            req.session.reset = true;
-            req.session.tempuser = email;
-            res.redirect('changepassword');
-        } else {
-            console.log("It went bad!");
-            res.redirect('/?msg=' + encodeURI(userMsg));
-        }
-    });
 });
 
 router.get('/changepassword', function(req, res) {
@@ -152,10 +151,10 @@ router.get('/changepassword', function(req, res) {
                 csrfToken: req.csrfToken()
             });
         } else {
-            res.render('Error!!');
+            res.redirect('/changepassword?msg=' + encodeURI('Error'));
         }
     } else {
-        res.render('err403');
+        res.redirect('/changepassword?msg=' + encodeURI(validationResult.msg));
     }
 });
 
