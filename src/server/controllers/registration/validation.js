@@ -36,6 +36,15 @@ exports.validateRegistration = (post) => {
         };
     }
 
+    var regexName = /[a-zA-Z ]+/;
+
+    if (!firstName.match(regexName) || !lastName.match(regexName)) {
+        return {
+            result: false,
+            msg: "The first and last name can only contain letters and spaces",
+        };
+    }
+
     if (!validation.isEmail(username)) {
         return {
             result: false,
@@ -136,6 +145,15 @@ exports.validateUpdate = (post, files) => {
             result: false,
             msg: "First name, last name and email is required"
         }
+    }
+
+    var regexName = /[a-zA-Z ]+/;
+
+    if (!firstName.match(regexName) || !lastName.match(regexName)) {
+        return {
+            result: false,
+            msg: "The first and last name can only contain letters and spaces",
+        };
     }
 
     if (!validation.isEmail(email)) {

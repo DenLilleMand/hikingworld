@@ -5,8 +5,8 @@ var exports = module.exports,
 
 
 exports.validateCreatePost = (post) => {
-    var description = xss(post.description);
-
+    var description = post.description;
+    
     if(!security.validateType([description], "string")) {
         return {
             isSuccess: false,
@@ -15,6 +15,8 @@ exports.validateCreatePost = (post) => {
         };
     }
 
+    description = xss(description);
+ 
     return {
         isSuccess: true,
         msg: "Success",
@@ -26,9 +28,8 @@ exports.validateCreatePost = (post) => {
 
 
 exports.validateUpdatePost = (post) => {
-    var description = xss(post.description);
+    var description = post.description;
 
-    console.log('going to validate post:', post);
     if(!security.validateType([description], "string")) {
         return {
             isSuccess: false,
@@ -36,7 +37,7 @@ exports.validateUpdatePost = (post) => {
             post: null
         }
     }
-    console.log('reached here');
+    description = xss(description);
 
     return {
         isSuccess: true,
