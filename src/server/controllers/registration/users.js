@@ -8,8 +8,8 @@ var express = require('express'),
 router.get('/', function(req, res) {
     var validationResult1 = validation.validateMessage(req.query.msg);
     var validationResult2 = validation.validateMessage(req.query.action);
-    
-    if(validationResult1.result && validationResult2.result) {
+
+    if (validationResult1.result && validationResult2.result) {
         var classAct1 = validationResult2.passedMsg === 'register' ? '' : 'class="active"';
         var classAct2 = validationResult2.passedMsg === 'register' ? 'class="active"' : '';
         var displayAct1 = validationResult2.passedMsg === 'register' ? 'style="display: none;"' : 'style="display: block;"';
@@ -75,11 +75,11 @@ router.get('/verification', function(req, res) {
 
     if (validationResult.result) {
         db.userModel.verification(validationResult.veriUser, validationResult.checksum, (userSuccess, userMsg) => {
-            if(userSuccess) {
+            if (userSuccess) {
                 res.redirect('/?msg=' + encodeURI(userMsg));
             } else {
                 res.redirect('/?msg=' + encodeURI(userMsg));
-            }            
+            }
         });
     } else {
         res.redirect('/?msg=' + encodeURI(validationResult.msg));
@@ -179,21 +179,27 @@ router.post('/changepassword', function(req, res) {
 });
 
 router.get('/update', security.isAuthenticated, function(req, res) {
+    var validationResult = validation.validateMessage(req.query.msg);
+    if (validationResult.result) {
+        db.userModel.getDetails(req.session.user, (userSuccess, details) => {
+            if (userSuccess) {
+                var profilePicture = details.profilePicture !== null ? details.profilePicture : "blank";
+                res.render('update', {
+                    msg: validationResult.passedMsg,
+                    csrfToken: req.csrfToken(),
+                    firstName: details.firstName,
+                    lastName: details.lastName,
+                    email: details.email,
+                    profilePicture: "/profilepictures/" + profilePicture + ".jpg"
+                });
+            } else {
+                res.redirect('/update?msg=' + validationResult.msg);
+            }
+        });
+    } else {
+        res.redirect('/update?msg=' + encodeURI('An error unexpected error happened'));
+    }
 
-    db.userModel.getDetails(req.session.user, (userSuccess, details) => {
-        if (userSuccess) {
-            var profilePicture = details.profilePicture !== null ? details.profilePicture : "blank";
-            res.render('update', {
-                csrfToken: req.csrfToken(),
-                firstName: details.firstName,
-                lastName: details.lastName,
-                email: details.email,
-                profilePicture: "/profilepictures/" + profilePicture + ".jpg"
-            });
-        } else {
-            res.redirect('/update?msg=' + details);
-        }
-    });
 });
 
 router.post('/update', security.isAuthenticated, security.validateCSRFToken, function(req, res) {
@@ -204,6 +210,7 @@ router.post('/update', security.isAuthenticated, security.validateCSRFToken, fun
         db.userModel.performUpdate(validationResult, (userSuccess, details) => {
             if (userSuccess) {
                 res.render('update', {
+                    msg: "Success",
                     csrfToken: req.csrfToken(),
                     firstName: details.firstName,
                     lastName: details.lastName,

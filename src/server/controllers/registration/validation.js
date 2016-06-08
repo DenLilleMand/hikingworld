@@ -346,6 +346,7 @@ exports.validateMessage = (msg) => {
     }
 
     passedMsg = xss(passedMsg);
+    console.log(passedMsg);
 
     return {
         result: true,
