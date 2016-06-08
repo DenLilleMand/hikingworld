@@ -11,10 +11,10 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING(124),
             field: 'description'
         },
-        fk_account_post: {
+        /**fk_account_post: {
             type: DataTypes.STRING(124),
             field: 'fk_account_post'
-        },
+        },*/
         createdAt: {
             type: DataTypes.DATE,
             field:'createdAt'

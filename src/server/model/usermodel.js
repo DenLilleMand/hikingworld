@@ -55,7 +55,6 @@ module.exports = (pool) => {
         pool.getConnection((err, connection) => {
             connection.query('SELECT * FROM account WHERE username = ? limit 1', [parameters.username], (err, rows, fields) => {
                 if (err) {
-                    
                     console.log(err);
                     return callback(false, "An unexpected error happened!");
                 }
@@ -82,7 +81,8 @@ module.exports = (pool) => {
                         if (err) {
                             console.log(err);
                             connection.rollback(function() {                                
-                                return callback(false, "An unexpected error happened");
+                                callback(false, "An unexpected error happened");
+                                return;
                             });
                         }
 
@@ -92,22 +92,25 @@ module.exports = (pool) => {
                             if (err) {
                                 console.log(err);
                                 connection.rollback(function() {                                    
-                                    return callback(false, "An unexpected transaction error happened");
+                                    callback(false, "An unexpected transaction error happened");
+                                    return;
                                 });
                             }
                             connection.commit(function(err) {
                                 if (err) {
                                     connection.rollback(function() {
                                     console.log(err);                                        
-                                        return callback(false, "An unexpected transaction error happened");
+                                        callback(false, "An unexpected transaction error happened");
                                     });
+                                    return;
                                 }
                                 console.log('Transaction Complete.');
                                 connection.release();
                                 var urlToSend = encodeURI(mailer.getAddress() + 'verification?un=' + parameters.username + '&cs=' + emailChecksum);
                                 console.log(urlToSend);
                                 mailer.sendMail(parameters.username, urlToSend, "E-mail verification");
-                                return callback(true, "User created");
+                                callback(true, "User created");
+                                return;
                             });
                         });
                     });

@@ -14,7 +14,7 @@ exports.validateRegistration = (post) => {
     var firstName = post.firstname;
     var lastName = post.lastname;
 
-    var inputArray = [username, password, password_confirm, firstName, lastName]
+    var inputArray = [username, password, password_confirm, firstName, lastName];
 
     if (!security.validateType(inputArray, 'string')) {
         return {

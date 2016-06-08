@@ -25,4 +25,4 @@ module.exports = {
 	getAddress: function() {
 		return config.mail.address;
 	}
-}
+};
