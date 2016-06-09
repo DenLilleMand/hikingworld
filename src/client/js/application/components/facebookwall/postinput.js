@@ -1,5 +1,6 @@
 import React from 'react';
 import { POST } from '../../constants/typeconstants';
+import _ from 'lodash';
 
 export default class PostInput extends React.Component {
     constructor(props, context) {
@@ -7,7 +8,8 @@ export default class PostInput extends React.Component {
         this.state = {
             description: '',
             markers: [],
-            googleMapMarkers: []
+            googleMapMarkers: [],
+            hikingRoute: null
         };
         this.submitPost = this.submitPost.bind(this);
     }
@@ -21,10 +23,13 @@ export default class PostInput extends React.Component {
         this.state.googleMapMarkers.slice().forEach((marker) => {
             marker.setMap(null);
         });
+        var hikingRouteClone = _.cloneDeep(this.state.hikingRoute);
+        hikingRouteClone.setMap(null);
         this.setState({
             description: '',
             markers: [],
-            googleMapMarkers: []
+            googleMapMarkers: [],
+            hikingRoute: hikingRouteClone
         });
     }
 
@@ -66,7 +71,8 @@ export default class PostInput extends React.Component {
 
                 this.setState({
                     markers: markers,
-                    googleMapMarkers:  googleMapMarkers
+                    googleMapMarkers:  googleMapMarkers,
+                    hikingRoute: hikingRoute
                 });
             });
 

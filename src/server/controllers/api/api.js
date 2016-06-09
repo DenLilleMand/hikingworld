@@ -51,7 +51,6 @@ api.getAll = (request, response) => {
  */
 api.get = (request, response) => {
     var camelizedModel = camelize(request.params.model, IS_FIRST_LETTER_LOWERCASE);
-    //her skal jeg bruge session
 
     if(_.has(db, camelizedModel) && db[camelizedModel]["get"+camelizedModel]) {
         return db[camelizedModel]["get"+camelizedModel](request.params.id, db, request.query).then((data) => {
