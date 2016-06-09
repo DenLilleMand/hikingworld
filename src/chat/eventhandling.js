@@ -24,7 +24,8 @@ module.exports = (io, session) => {
      * so we just have to collate the username as a key in the dictionary, with
      * the socket.id, The socket id, we should look up in the documentation, that we're able to broadcast
      * to that id by it self, so we should sent the current state of the dictionary,
-     * so all of the users as keys. each user should have an array of messages and a timestamp. */
+     * so all of the users as keys. each user should have an array of messages and a timestamp.
+     **/
     io.on('connection',  (socket) => {
         console.log('Connection was called');
         var username = socket.handshake.session.user;
@@ -39,23 +40,18 @@ module.exports = (io, session) => {
         for(var key in _inMemoryDictionary) {
             users.push(key);
         }
-        socket.emit('initial', { users: users, messages: _inMemoryMessages });
+        socket.emit('initial', { users: users, messages: _inMemoryMessages, currentUser: username });
 
 
         socket.on('message', (data) => {
-            socket.to('/').emit('message', {text: data.text, user: socket.handshake.session.user});
+            console.log('received message!');
+            socket.broadcast.emit('message', { text: data.text, user: socket.handshake.session.user });
         });
-
-
-
-        //var parsedCookies = connect.utils.parseCookie(socket.client.request.headers.cookie);
-        //session.get('')
 
         /**socket.on('join', (data) => {
             console.log('Join data:', data);
             socket.to('/').emit('an event', { hello: 'world' });
         });*/
-
 
         socket.on('disconnect', (err) => {
             console.log('disconnect err:', err);
