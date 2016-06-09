@@ -62,7 +62,7 @@ export default class SidePane extends React.Component {
                                 <tr>
                                     <td>{message.user}</td>
                                     <td>{message.text}</td>
-                                    <td>timestamp</td>
+                                    <td>{message.timestamp.toString()}</td>
                                 </tr>
                             );
                         })}
