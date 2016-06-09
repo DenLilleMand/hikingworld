@@ -229,7 +229,8 @@ router.post('/update', security.isAuthenticated, security.validateCSRFToken, fun
 
 router.get('/home', security.isAuthenticated, function(req, res) {
     res.render('home', {
-        csrfToken: req.csrfToken()
+        csrfToken: req.csrfToken(),
+        googleMapKey: config.googlemap.key
     });
 });
 

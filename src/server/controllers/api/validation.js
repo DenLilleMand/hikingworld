@@ -21,7 +21,8 @@ exports.validateCreatePost = (post) => {
         isSuccess: true,
         msg: "Success",
         post: {
-            description: description
+            description: description,
+            markers: post.markers
         }
     }
 };

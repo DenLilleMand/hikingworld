@@ -11,10 +11,9 @@ module.exports = (io, session) => {
      * @private
      */
     var _inMemoryDictionary = { };
-    _inMemoryDictionary["nikolaj@hotmail.com"] = ["dsdfjdsfj23"];
-    var _inMemoryMessages = [{text: "herpderp", user: "nikolaj@hotmail.com", timestamp: new Date()}];
-
-
+    //_inMemoryDictionary["nikolaj@hotmail.com"] = ["dsdfjdsfj23"];
+    //var _inMemoryMessages = [{text: "herpderp", user: "nikolaj@hotmail.com", timestamp: new Date()}];
+    var _inMemoryMessages = [];
 
     io.use(sharedSession(session, {
         autoSave: true
@@ -55,6 +54,8 @@ module.exports = (io, session) => {
 
         socket.on('disconnect', (err) => {
             console.log('disconnect err:', err);
+            //remember to remove the socket.id from the array, and if the array is empty afterwards,
+            //we should remove the user.
         });
     });
 

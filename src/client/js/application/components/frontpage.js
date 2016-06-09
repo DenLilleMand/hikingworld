@@ -16,10 +16,10 @@ class FrontPage extends React.Component {
     render() {
         return(
             <div>
-                <div className="col-md-4">
+                <div className="col-md-2">
                     <SidePane />
                 </div>
-                <div className="col-md-8">
+                <div className="col-md-10">
                     <FacebookWall />
                 </div>
             </div>

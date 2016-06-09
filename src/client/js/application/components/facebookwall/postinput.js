@@ -5,7 +5,9 @@ export default class PostInput extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.state = {
-            description: ''
+            description: '',
+            markers: [],
+            googleMapMarkers: []
         };
         this.submitPost = this.submitPost.bind(this);
     }
@@ -13,22 +15,63 @@ export default class PostInput extends React.Component {
     submitPost(event) {
         event.preventDefault();
         this.props.createPost({
-            description: this.state.description
+            description: this.state.description,
+            markers: this.state.markers.slice()
         }, POST);
-        this.setState({
-            description: ''
+        this.state.googleMapMarkers.slice().forEach((marker) => {
+            marker.setMap(null);
         });
+        this.setState({
+            description: '',
+            markers: [],
+            googleMapMarkers: []
+        });
+    }
+
+    componentDidMount() {
+        if(typeof google != "undefined" && google && google.maps && google.maps.Marker) {
+            var myLatLng = { lat:55.6760968 , lng: 12.5683371  };
+            var map = new google.maps.Map(document.getElementById("api_create"), {
+                center: myLatLng,
+                zoom: 8
+            });
+
+            map.addListener('click', (event) => {
+                var latLng = event.latLng;
+                var newMarker = new google.maps.Marker({
+                    position: {
+                        lat: latLng.lat(), lng: latLng.lng()
+                    },
+                    map: map,
+                    zoom: 10
+                });
+
+                var markers = this.state.markers.slice();
+                var googleMapMarkers = this.state.googleMapMarkers;
+                googleMapMarkers.push(newMarker);
+                markers.push({lat: latLng.lat(), lng: latLng.lng()});
+                this.setState({
+                    markers: markers,
+                    googleMapMarkers:  googleMapMarkers
+                });
+            });
+
+            this.setState({
+                map: map,
+            });
+        }
     }
 
     render() {
         let user = this.props.user;
         return(
             <div className="facebook-wall-post-input panel-default">
-                <div className="panel-heading">{/**{user.username}*/}</div>
+                <div className="panel-heading"><h2>“Getting to the top is optional. Getting down is mandatory.”</h2></div>
                 <div className="panel-body">
                     <label>description:</label>
                     <input onChange={(event) => { this.setState({description:event.target.value})}} placeholder="description" value={this.state.description} />
-                    <button onClick={this.submitPost}>Opret rute</button>
+                    <div id={"api_create"}></div>
+                    <button onClick={this.submitPost}>Submit</button>
                 </div>
             </div>
         );

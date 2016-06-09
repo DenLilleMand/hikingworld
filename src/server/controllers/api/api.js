@@ -114,7 +114,7 @@ api.create = (request, response) => {
                 data: data
             });
         }).catch((err) => {
-            console.log('Error happended in the HTTP GET api:', err);
+            console.log('Error happended in the HTTP POST create api:', err);
             response.sendStatus(404);
         });
     } else {

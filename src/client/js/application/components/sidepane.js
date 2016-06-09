@@ -47,8 +47,20 @@ export default class SidePane extends React.Component {
 
     render() {
         let messages = this.state.messages;
+        let users = this.state.users;
         return(
             <div className="facebook-wall-sidepane">
+                <div className="col-md-12">
+                    <h3>Users online:</h3>
+                    <ul>
+                    {this.state.users.map((user) => {
+                        return(
+                            <li>{user}</li>
+                        );
+                    })}
+                    </ul>
+                </div>
+                <div className="col-md-12">
                 <h3>Chat</h3>
                 <table>
                     <tbody>
@@ -78,6 +90,7 @@ export default class SidePane extends React.Component {
                         chatMessage: ""
                     });
                 }} type="submit" />
+                    </div>
             </div>
         );
     }

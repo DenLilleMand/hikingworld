@@ -1,3 +1,4 @@
+var Bluebird = require('bluebird');
 module.exports = function (sequelize, DataTypes) {
     var Path = require('path');
     var Post = sequelize.define('Post', {
@@ -11,10 +12,6 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING(124),
             field: 'description'
         },
-        /**fk_account_post: {
-            type: DataTypes.STRING(124),
-            field: 'fk_account_post'
-        },*/
         createdAt: {
             type: DataTypes.DATE,
             field:'createdAt'
@@ -34,6 +31,7 @@ module.exports = function (sequelize, DataTypes) {
             associate: (models) => {
                 //console.log('post model has no relationships right now');
                 Post.belongsTo(models.Account, {foreignKey:'fk_account_post'});
+                Post.hasMany(models.Mark, { foreignKey: 'fk_mark_post'})
             },
             seed: (models) => {
                 /**return Post.bulkCreate([{
@@ -65,16 +63,23 @@ module.exports = function (sequelize, DataTypes) {
                     }
                 }).then((persistedAccount) => {
                     post.fk_account_post = persistedAccount.get('id');
-                    console.log('The id:', post.fk_account_post);
                     return Post.create(post).then((persistedPost) => {
-                        return Post.findOne({
-                            where: {
-                                id: persistedPost.get('id')
-                            }, include: [{
-                                model: models.Account
-                            }]
-                        })
-
+                        return Bluebird.map(post.markers, (mark) => {
+                            return models.Mark.createMark(mark);
+                        }).then((persistedMarkers) => {
+                            return persistedPost.setMarks(persistedMarkers).then((persistedPostWithMarkers) => {
+                                return Post.findOne({
+                                    where: {
+                                        id: persistedPostWithMarkers.get('id')
+                                    }, include: [{
+                                        model: models.Account,
+                                        model: models.Mark
+                                    }]
+                                })
+                            }).catch((err) => {
+                                console.log('error setting Marks on post:', err);
+                            });
+                        });
                     });
                 });
             },
@@ -100,7 +105,8 @@ module.exports = function (sequelize, DataTypes) {
             getAllPosts: (models, query) => {
                 return Post.findAll({
                     include: [{
-                        model: models.Account
+                        model: models.Account,
+                        model: models.Mark
                     }]
                 });
             },

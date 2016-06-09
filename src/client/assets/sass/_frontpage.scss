@@ -7,3 +7,9 @@ th, td {
     padding: 15px;
     text-align: left;
 }
+
+
+div[id^='api_'] {
+    height:500px;
+    width:100%;
+}
