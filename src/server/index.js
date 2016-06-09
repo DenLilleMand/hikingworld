@@ -96,9 +96,10 @@ app.use(function(req, res, next) {
 
 // SETTING UP THE ROUTES
 
-app.get('/googlebd6ea1c2b64dda44.html', (req, res) => {
+/** How we verified the website: */
+/**app.get('/googlebd6ea1c2b64dda44.html', (req, res) => {
     res.sendFile(path.join(__dirname, './googlebd6ea1c2b64dda44.html'));
-});
+});*/
 app.use('/', require('./controllers/registration/users'));
 app.use('/api', security.isAuthenticated, security.validateCSRFToken , require('./controllers/api/api'));
 
