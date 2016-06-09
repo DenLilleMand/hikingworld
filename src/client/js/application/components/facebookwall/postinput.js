@@ -46,10 +46,24 @@ export default class PostInput extends React.Component {
                     zoom: 10
                 });
 
+
+
                 var markers = this.state.markers.slice();
                 var googleMapMarkers = this.state.googleMapMarkers;
                 googleMapMarkers.push(newMarker);
                 markers.push({lat: latLng.lat(), lng: latLng.lng()});
+
+                var hikingRoute = new google.maps.Polyline({
+                    path: markers,
+                    geodesic: true,
+                    strokeColor: '#FF0000',
+                    strokeOpacity: 1.0,
+                    strokeWeight: 2
+                });
+
+                hikingRoute.setMap(map);
+
+
                 this.setState({
                     markers: markers,
                     googleMapMarkers:  googleMapMarkers
@@ -57,7 +71,7 @@ export default class PostInput extends React.Component {
             });
 
             this.setState({
-                map: map,
+                map: map
             });
         }
     }
