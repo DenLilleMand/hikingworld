@@ -39,5 +39,8 @@
 		"secret": "",
 		"httpOnly" : false,
 		"secure": false
+	},
+	"googlemap": {
+		"key": "look on slack for the key"
 	}
 }
