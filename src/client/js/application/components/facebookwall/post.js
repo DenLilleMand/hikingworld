@@ -13,7 +13,7 @@ export default class Post extends React.Component {
 
 
     componentDidMount() {
-        if(typeof google != "undefined" && google && google.maps) {
+        if(typeof google != "undefined" && google && google.maps && google.maps.Polyline) {
             var map = new google.maps.Map(document.getElementById("api_"+this.props.post.id), {
                 center: {lat:55.6760968 , lng: 12.5683371  },
                 zoom: 8
@@ -32,6 +32,22 @@ export default class Post extends React.Component {
                     zoom: 10
                 });
             });
+
+            var flightPlanCoordinates = [
+                {lat: 37.772, lng: -122.214},
+                {lat: 21.291, lng: -157.821},
+                {lat: -18.142, lng: 178.431},
+                {lat: -27.467, lng: 153.027}
+            ];
+            var hikingRoute = new google.maps.Polyline({
+                path: this.props.post.Marks,
+                geodesic: true,
+                strokeColor: '#FF0000',
+                strokeOpacity: 1.0,
+                strokeWeight: 2
+            });
+
+            hikingRoute.setMap(map);
 
             this.setState({
                 map: map,
