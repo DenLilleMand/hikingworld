@@ -31,6 +31,7 @@ export default class PostInput extends React.Component {
             googleMapMarkers: [],
             hikingRoute: hikingRouteClone
         });
+        console.log('herpdepr');
     }
 
     componentDidMount() {
